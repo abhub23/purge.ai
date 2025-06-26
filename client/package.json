@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ct": "tsc --noEmit",
+    "fmt": "pnpx prettier -w ."
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
@@ -32,6 +34,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "prettier-plugin-tailwindcss": "^0.6.13",
     "tw-animate-css": "^1.3.0",
     "typescript": "^5"
   }

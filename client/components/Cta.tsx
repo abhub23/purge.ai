@@ -1,15 +1,18 @@
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
-import Link from "next/link"
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export const CTA = () => {
   return (
-    <section className="border-t bg-muted/30">
+    <section className="bg-muted/30 border-t">
       <div className="container py-24 md:py-32">
         <div className="mx-auto flex max-w-[980px] flex-col items-center space-y-4 text-center">
-          <h2 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl">Ready to get started?</h2>
-          <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
-            Join thousands of developers who are already building amazing products with our platform.
+          <h2 className="text-3xl leading-tight font-bold tracking-tighter md:text-5xl">
+            Ready to get started?
+          </h2>
+          <p className="text-muted-foreground max-w-[750px] text-lg sm:text-xl">
+            Join thousands of developers who are already building amazing products with our
+            platform.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Button
@@ -29,5 +32,5 @@ export const CTA = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState, useEffect } from 'react';
 import { Sun, Moon } from 'lucide-react';
@@ -13,7 +13,7 @@ export const ToggleTheme: React.FC = () => {
 
   return (
     <button
-      className="lg:h-[36px] h-[36px] lg:w-[36px] w-[36px] flex items-center dark:text-white justify-center  rounded-[12px] hover:bg-zinc-100 dark:hover:bg-zinc-800 cursor-pointer"
+      className="flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-[12px] hover:bg-zinc-100 lg:h-[36px] lg:w-[36px] dark:text-white dark:hover:bg-zinc-800"
       onClick={toggleTheme}
     >
       <SafeRender>

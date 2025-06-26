@@ -1,17 +1,17 @@
-"use client"
+'use client';
 
-import { useState } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
-import { ToggleTheme } from "./ToggleTheme"
-import Image from "next/image"
+import { useState } from 'react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
+import { ToggleTheme } from './ToggleTheme';
+import Image from 'next/image';
 
 export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="container sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur">
       <div className="container flex h-16 max-w-screen-2xl items-center">
         {/* Logo */}
         <div className="mr-4 hidden md:flex">
@@ -22,16 +22,28 @@ export function Navbar() {
 
           {/* Navigation Links */}
           <nav className="flex items-center gap-6 text-sm">
-            <Link href="/about" className="transition-colors  hover:text-foreground/90 text-foreground/60">
+            <Link
+              href="/about"
+              className="hover:text-foreground/90 text-foreground/60 transition-colors"
+            >
               About
             </Link>
-            <Link href="/docs" className="transition-colors hover:text-foreground/90 text-foreground/60">
+            <Link
+              href="/docs"
+              className="hover:text-foreground/90 text-foreground/60 transition-colors"
+            >
               Docs
             </Link>
-            <Link href="/pricing" className="transition-colors hover:text-foreground/90 text-foreground/60">
+            <Link
+              href="/pricing"
+              className="hover:text-foreground/90 text-foreground/60 transition-colors"
+            >
               Pricing
             </Link>
-            <Link href="/blog" className="transition-colors hover:text-foreground/90 text-foreground/60">
+            <Link
+              href="/blog"
+              className="hover:text-foreground/90 text-foreground/60 transition-colors"
+            >
               Blog
             </Link>
           </nav>
@@ -40,17 +52,17 @@ export function Navbar() {
         {/* Mobile menu button */}
 
         {/* Mobile Logo */}
-        <div className="flex flex-1 items-center justify-between space-x-2 ">
+        <div className="flex flex-1 items-center justify-between space-x-2">
           <div className="w-full flex-1 md:w-auto md:flex-none">
             <Link href="/" className="mr-6 flex items-center space-x-2 md:hidden">
-              <div className="h-6 w-6 rounded-md bg-primary" />
+              <div className="bg-primary h-6 w-6 rounded-md" />
               <span className="font-bold">YourApp</span>
             </Link>
           </div>
 
           {/* Right side buttons */}
-          <div className="hidden md:flex items-center space-x-2">
-            <div className=" md:flex items-center space-x-2">
+          <div className="hidden items-center space-x-2 md:flex">
+            <div className="items-center space-x-2 md:flex">
               <Button variant="ghost" size="sm" asChild>
                 <Link href="/sign-in">Sign In</Link>
               </Button>
@@ -67,7 +79,7 @@ export function Navbar() {
           </div>
 
           <button
-            className="inline-flex items-center justify-end rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:text-accent-foreground h-9 py-2 mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+            className="focus-visible:ring-ring hover:text-accent-foreground mr-2 inline-flex h-9 items-center justify-end rounded-md px-0 py-2 text-base font-medium transition-colors hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 md:hidden"
             type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -79,43 +91,43 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="border-b border-border/40 md:hidden">
+        <div className="border-border/40 border-b md:hidden">
           <div className="container py-4">
             <nav className="flex flex-col space-y-3 px-10 font-semibold">
               <Link
                 href="/about"
-                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                className="hover:text-foreground/80 text-foreground/60 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
               <Link
                 href="/docs"
-                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                className="hover:text-foreground/80 text-foreground/60 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Docs
               </Link>
               <Link
                 href="/pricing"
-                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                className="hover:text-foreground/80 text-foreground/60 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Pricing
               </Link>
               <Link
                 href="/blog"
-                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                className="hover:text-foreground/80 text-foreground/60 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Blog
               </Link>
               <div className="flex flex-col space-y-2 pt-2">
                 <div className="flex flex-row justify-center gap-x-4 pb-2">
-                  <Button variant="ghost" size="sm" asChild className="px-10 border-1 shadow">
+                  <Button variant="ghost" size="sm" asChild className="border-1 px-10 shadow">
                     <Link href="/sign-in">Sign In</Link>
                   </Button>
-                  <Button variant="ghost" size="sm" asChild className="px-10 border-1 shadow">
+                  <Button variant="ghost" size="sm" asChild className="border-1 px-10 shadow">
                     <Link href="/sign-up">Sign Up</Link>
                   </Button>
                 </div>
@@ -129,5 +141,5 @@ export function Navbar() {
         </div>
       )}
     </nav>
-  )
+  );
 }

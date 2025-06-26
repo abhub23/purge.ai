@@ -1,12 +1,12 @@
-import { Navbar } from "@/components/Navbar"
-import { Hero } from "@/components/Hero"
-import { Features } from "@/components/Features"
-import { CTA } from "@/components/Cta"
-import { Footer } from "@/components/Footer"
+import { Navbar } from '@/components/Navbar';
+import { Hero } from '@/components/Hero';
+import { Features } from '@/components/Features';
+import { CTA } from '@/components/Cta';
+import { Footer } from '@/components/Footer';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-background min-h-screen">
       <Navbar />
       <main>
         <Hero />
@@ -15,5 +15,5 @@ export default function HomePage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }
