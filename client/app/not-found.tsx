@@ -17,11 +17,11 @@ const ErrorPage = () => {
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className="flex flex-col items-center justify-center"
       >
-        <p className="mb-1.5 p-2 text-[22px] text-black lg:text-[36px] dark:text-white">
+        <p className="p-2 text-[22px] text-black lg:text-[36px] dark:text-white">
           PAGE NOT FOUND - 404{' '}
         </p>
         <button
-          className="h-[28px] w-[100px] cursor-pointer rounded-md bg-black p-2 px-3 py-2 text-[10px] text-white lg:h-[36px] lg:w-[120px] lg:text-[14px] dark:bg-white dark:text-black"
+          className="h-[28px] w-[100px] cursor-pointer rounded-md bg-black lg:p-2 px-3 text-[11px] text-white lg:h-[36px] lg:w-[140px] lg:text-[14px] dark:bg-white dark:text-black"
           onClick={handleHome}
         >
           Go to Home
