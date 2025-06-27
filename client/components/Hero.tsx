@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import Link from 'next/link';
 
-export function Hero() {
+export const Hero = () => {
   return (
     <section className="bg-grid-pattern relative container flex flex-col items-center justify-center space-y-4 py-24 md:py-32">
       <div className="bg-gradient-radial absolute inset-0" />
@@ -53,4 +53,4 @@ export function Hero() {
       </div>
     </section>
   );
-}
+};

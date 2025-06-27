@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
 
-export function Footer() {
+export const Footer = () => {
   return (
     <footer className="bg-background border-t">
       <div className="container px-4 py-16 md:py-20">
@@ -192,4 +192,4 @@ export function Footer() {
       </div>
     </footer>
   );
-}
+};

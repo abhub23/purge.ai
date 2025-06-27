@@ -7,7 +7,7 @@ import { Menu, X } from 'lucide-react';
 import { ToggleTheme } from './ToggleTheme';
 import Image from 'next/image';
 
-export function Navbar() {
+export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -81,9 +81,8 @@ export function Navbar() {
           <button
             className="focus-visible:ring-ring hover:text-accent-foreground mr-2 inline-flex h-9 items-center justify-end rounded-md px-0 py-2 text-base font-medium transition-colors hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 md:hidden"
             type="button"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? <> <ToggleTheme/> <X className="h-6 w-6" onClick={() => setIsMenuOpen(!isMenuOpen)}/></> : <Menu className="h-6 w-6 mr-1" onClick={() => setIsMenuOpen(!isMenuOpen)}/>}
             <span className="sr-only">Toggle Menu</span>
           </button>
         </div>
@@ -142,4 +141,4 @@ export function Navbar() {
       )}
     </nav>
   );
-}
+};

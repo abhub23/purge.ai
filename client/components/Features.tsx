@@ -41,7 +41,7 @@ const features = [
   },
 ];
 
-export function Features() {
+export const Features = () => {
   return (
     <section className="container py-24 md:py-32">
       <div className="mx-auto flex max-w-[980px] flex-col items-center space-y-4 text-center">
@@ -79,4 +79,4 @@ export function Features() {
       </div>
     </section>
   );
-}
+};
