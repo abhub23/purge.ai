@@ -49,21 +49,12 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 /* Modern background patterns */
 .bg-grid-pattern {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-size: 40px 40px;
 }
 
 .bg-grid-pattern::after {
