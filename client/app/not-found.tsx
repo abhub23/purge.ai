@@ -21,7 +21,7 @@ const ErrorPage = () => {
           PAGE NOT FOUND - 404{' '}
         </p>
         <button
-          className="h-[28px] w-[100px] cursor-pointer rounded-md bg-black lg:p-2 px-3 text-[11px] text-white lg:h-[36px] lg:w-[140px] lg:text-[14px] dark:bg-white dark:text-black"
+          className="h-[28px] w-[100px] cursor-pointer rounded-md bg-black px-3 text-[11px] text-white lg:h-[36px] lg:w-[140px] lg:p-2 lg:text-[14px] dark:bg-white dark:text-black"
           onClick={handleHome}
         >
           Go to Home

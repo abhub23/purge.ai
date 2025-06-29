@@ -4,8 +4,8 @@ import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
 export const Footer = () => {
   return (
     <footer className="bg-background border-t">
-      <div className="container px-4 py-16 md:py-20">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:mx-[100px]">
+      <div className="container px-4 py-8 md:py-8">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:mx-[100px]">
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -15,40 +15,40 @@ export const Footer = () => {
             <p className="text-muted-foreground max-w-xs text-sm">
               Building the future of web development with modern tools and beautiful design.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 h-5 w-5">
               <Link
                 href="#"
                 className="text-muted-foreground hover:text-foreground transition-colors"
+                target='_blank'
               >
                 <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href="#"
+                href="https://x.com/abdullah_twt23"
                 className="text-muted-foreground hover:text-foreground transition-colors"
+                target='_blank'
               >
                 <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
               </Link>
               <Link
-                href="#"
+                href="https://www.linkedin.com/in/abdullah-mukri-84a56b220/"
                 className="text-muted-foreground hover:text-foreground transition-colors"
+                target='_blank'
               >
                 <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
               </Link>
               <Link
                 href="#"
                 className="text-muted-foreground hover:text-foreground transition-colors"
+                target='_blank'
               >
                 <Mail className="h-5 w-5" />
-                <span className="sr-only">Email</span>
               </Link>
             </div>
           </div>
 
           {/* Product Links */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:ml-[110px]">
             <h3 className="font-semibold">Product</h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -87,7 +87,7 @@ export const Footer = () => {
           </div>
 
           {/* Resources Links */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:ml-[110px]">
             <h3 className="font-semibold">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -126,7 +126,7 @@ export const Footer = () => {
           </div>
 
           {/* Company Links */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:ml-[110px]">
             <h3 className="font-semibold">Company</h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -166,9 +166,9 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-16 flex flex-col items-center justify-between space-y-4 border-t pt-8 md:flex-row md:space-y-0 lg:mx-[420px]">
+        <div className="mt-6 flex flex-col items-center justify-between space-y-2 border-t pt-4 md:space-y-2 lg:mx-auto">
           <p className="text-muted-foreground text-sm">© 2025 YourApp. All rights reserved.</p>
-          <div className="flex flex-col items-center gap-2 text-sm md:flex-row md:gap-6">
+          <div className="flex items-center gap-x-[10px] text-sm md:gap-6">
             <Link
               href="/terms"
               className="text-muted-foreground hover:text-foreground transition-colors"
