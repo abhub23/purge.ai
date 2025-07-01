@@ -15,32 +15,32 @@ export const Footer = () => {
             <p className="text-muted-foreground max-w-xs text-sm">
               Building the future of web development with modern tools and beautiful design.
             </p>
-            <div className="flex space-x-4 h-5 w-5">
+            <div className="flex h-5 w-5 space-x-4">
               <Link
                 href="#"
                 className="text-muted-foreground hover:text-foreground transition-colors"
-                target='_blank'
+                target="_blank"
               >
                 <Github className="h-5 w-5" />
               </Link>
               <Link
                 href="https://x.com/abdullah_twt23"
                 className="text-muted-foreground hover:text-foreground transition-colors"
-                target='_blank'
+                target="_blank"
               >
                 <Twitter className="h-5 w-5" />
               </Link>
               <Link
                 href="https://www.linkedin.com/in/abdullah-mukri-84a56b220/"
                 className="text-muted-foreground hover:text-foreground transition-colors"
-                target='_blank'
+                target="_blank"
               >
                 <Linkedin className="h-5 w-5" />
               </Link>
               <Link
-                href="#"
+                href="https://mail.google.com/mail/?view=cm&to=abdullahmukri25@gmail.com"
                 className="text-muted-foreground hover:text-foreground transition-colors"
-                target='_blank'
+                target="_blank"
               >
                 <Mail className="h-5 w-5" />
               </Link>
