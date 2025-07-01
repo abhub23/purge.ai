@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Bricolage } from '@/utils/fonts';
 import { ThemeProvider } from 'next-themes';
 import './globals.css';
+import { Toaster } from '@/components/ui/sonner';
 
 export const metadata: Metadata = {
   title: 'Next App',
@@ -19,7 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${Bricolage}`}>
-        <ThemeProvider attribute={'class'}>{children}</ThemeProvider>
+        <ThemeProvider attribute={'class'}>
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
