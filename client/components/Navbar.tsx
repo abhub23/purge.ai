@@ -6,9 +6,12 @@ import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { ToggleTheme } from './ToggleTheme';
 import Image from 'next/image';
+import { useSignin } from '@/store/AuthStates';
+import Signin from './auth/Signin';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isOpen, setOpen } = useSignin();
 
   return (
     <nav className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur">
@@ -53,29 +56,32 @@ export const Navbar = () => {
 
         {/* Mobile Logo */}
         <div className="flex flex-1 items-center justify-between space-x-2">
-          <div className="w-full flex-1 md:w-auto md:flex-none">
+          <div className="w-full ml-2 flex-1 md:w-auto md:flex-none">
             <Link href="/" className="mr-6 flex items-center space-x-2 md:hidden">
               <div className="bg-primary h-6 w-6 rounded-md" />
-              <span className="font-bold">YourApp</span>
+              <span className="font-bold ">YourApp</span>
             </Link>
           </div>
 
           {/* Right side buttons */}
           <div className="hidden items-center space-x-2 md:flex">
             <div className="items-center space-x-2 md:flex">
-              <Button variant="ghost" size="sm" asChild>
-                <Link href="/sign-in">Sign In</Link>
-              </Button>
-              <Button variant="ghost" size="sm" asChild>
-                <Link href="/sign-up">Sign Up</Link>
+              <Button
+                variant="ghost"
+                size="sm"
+                asChild
+                onClick={() => setOpen(true)}
+                className="cursor-pointer"
+              >
+                <span>Sign In</span>
               </Button>
               <Button size="sm" asChild>
                 <Link href="/get-started">Get Started</Link>
               </Button>
             </div>
-
             {/* Theme toggle */}
             <ToggleTheme />
+            {isOpen && <Signin />}
           </div>
 
           <button
@@ -86,10 +92,10 @@ export const Navbar = () => {
               <>
                 {' '}
                 <ToggleTheme />{' '}
-                <X className="mr-[2px] h-6 w-6" onClick={() => setIsMenuOpen(!isMenuOpen)} />
+                <X className="mr-2 h-6 w-6" onClick={() => setIsMenuOpen(!isMenuOpen)} />
               </>
             ) : (
-              <Menu className="mr-1 h-6 w-6" onClick={() => setIsMenuOpen(!isMenuOpen)} />
+              <Menu className="mr-2 h-6 w-6" onClick={() => setIsMenuOpen(!isMenuOpen)} />
             )}
             <span className="sr-only">Toggle Menu</span>
           </button>
@@ -116,7 +122,7 @@ export const Navbar = () => {
                 Docs
               </Link>
               <Link
-                href="/pricing"
+                href="/pricing/page"
                 className="hover:text-foreground/80 text-foreground/60 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -130,12 +136,18 @@ export const Navbar = () => {
                 Blog
               </Link>
               <div className="flex flex-col space-y-2 pt-2">
-                <div className="flex flex-row justify-center gap-x-4 pb-2">
-                  <Button variant="ghost" size="sm" asChild className="border-1 px-10 shadow">
-                    <Link href="/sign-in">Sign In</Link>
-                  </Button>
-                  <Button variant="ghost" size="sm" asChild className="border-1 px-10 shadow">
-                    <Link href="/sign-up">Sign Up</Link>
+                <div className="flex flex-row justify-center pb-2">
+                  <Button
+                    variant="ghost"
+                    size="lg"
+                    asChild
+                    className="border-2 px-29 shadow-2xs"
+                    onClick={() => {
+                      setOpen(true);
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    <span>Sign In</span>
                   </Button>
                 </div>
 
