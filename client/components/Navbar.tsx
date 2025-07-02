@@ -17,7 +17,7 @@ export const Navbar = () => {
     <nav className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur">
       <div className="container flex h-16 max-w-screen-2xl items-center">
         {/* Logo */}
-        <div className="mr-4 hidden md:flex">
+        <div className="ml-14 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Image src={'/gradient.webp'} alt="aa" height={30} width={30} />
             <span className="hidden font-bold sm:inline-block">YourApp</span>
@@ -56,15 +56,15 @@ export const Navbar = () => {
 
         {/* Mobile Logo */}
         <div className="flex flex-1 items-center justify-between space-x-2">
-          <div className="w-full ml-2 flex-1 md:w-auto md:flex-none">
+          <div className="ml-2 w-full flex-1 md:w-auto md:flex-none">
             <Link href="/" className="mr-6 flex items-center space-x-2 md:hidden">
               <div className="bg-primary h-6 w-6 rounded-md" />
-              <span className="font-bold ">YourApp</span>
+              <span className="font-bold">YourApp</span>
             </Link>
           </div>
 
           {/* Right side buttons */}
-          <div className="hidden items-center space-x-2 md:flex">
+          <div className="hidden items-center space-x-2 md:flex mr-14">
             <div className="items-center space-x-2 md:flex">
               <Button
                 variant="ghost"
@@ -90,8 +90,7 @@ export const Navbar = () => {
           >
             {isMenuOpen ? (
               <>
-                {' '}
-                <ToggleTheme />{' '}
+                <ToggleTheme />
                 <X className="mr-2 h-6 w-6" onClick={() => setIsMenuOpen(!isMenuOpen)} />
               </>
             ) : (
@@ -122,7 +121,7 @@ export const Navbar = () => {
                 Docs
               </Link>
               <Link
-                href="/pricing/page"
+                href="/pricing"
                 className="hover:text-foreground/80 text-foreground/60 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >

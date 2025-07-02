@@ -10,18 +10,14 @@ export const Hero = () => {
         <div className="bg-muted inline-flex items-center rounded-lg border px-3 py-1 text-sm font-medium">
           🎉 <span className="ml-2">Introducing our new features</span>
         </div>
-        <h1 className="text-3xl leading-tight font-bold tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
-          Build your next project with{' '}
-          <span className="from-foreground to-foreground/60 bg-gradient-to-r bg-clip-text text-transparent">
-            confidence
-          </span>
+        <h1 className="text-[26px] leading-tight font-bold tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
+          The most Comprehensive AI Assistant <span>to review your PR</span>
         </h1>
         <p className="text-muted-foreground max-w-[750px] text-lg sm:text-xl">
-          Beautiful, fast and modern React components to build your next landing page or web
-          application. Built with Tailwind CSS and TypeScript.
+          An AI Powered critique who does the heavy lifting for your github PRs
         </p>
       </div>
-      <div className="relative flex flex-col gap-4 sm:flex-row">
+      <div className="relative flex flex-col gap-4 lg:flex-row">
         <Button
           size="lg"
           className="bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
@@ -29,12 +25,12 @@ export const Hero = () => {
         >
           <Link href="/get-started">
             Get Started
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <ArrowRight className="ml-1 h-4 w-4" />
           </Link>
         </Button>
         <Button variant="outline" size="lg">
-          <Play className="mr-2 h-4 w-4" />
-          Watch Demo
+          <Play className="mr-1 h-4 w-4" />
+          Try Assistant
         </Button>
       </div>
       <div className="relative mx-auto mt-16 max-w-[1200px]">

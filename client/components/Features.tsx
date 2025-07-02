@@ -49,18 +49,17 @@ export const Features = () => {
           Features
         </Badge>
         <h2 className="text-3xl leading-tight font-bold tracking-tighter md:text-5xl">
-          Everything you need to build amazing products
+          Everything you need to know for building amazing SaaS products
         </h2>
-        <p className="text-muted-foreground max-w-[750px] text-lg sm:text-xl">
-          Our platform provides all the tools and features you need to create exceptional user
-          experiences.
+        <p className="text-muted-foreground lg:-w-[800px] text-lg sm:text-xl">
+          Our platform provides all the tools and features you need to create exceptional Products
         </p>
       </div>
       <div className="mx-auto mt-16 grid max-w-[1200px] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {features.map((feature, index) => (
           <Card
             key={index}
-            className="relative overflow-hidden transition-all hover:shadow-lg hover:scale-105 delay-50 cursor-pointer"
+            className="relative overflow-hidden transition-all delay-50 hover:scale-105 hover:shadow-lg"
           >
             <CardHeader>
               <div className="flex items-center space-x-2">
