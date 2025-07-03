@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import {motion} from 'motion/react'
+import { motion } from 'motion/react';
 
 const About = () => {
-    return (
-        <motion.div className='flex flex-col lg:p-10 items-center justify-center'>
-            <h1 className='lg:text-7xl text-2xl font-semibold'>About Us</h1>
-        </motion.div>
-    )
-}
+  return (
+    <motion.div className="flex flex-col items-center justify-center lg:p-10">
+      <h1 className="text-2xl font-semibold lg:text-7xl">About Us</h1>
+    </motion.div>
+  );
+};
 
-export default About
+export default About;
