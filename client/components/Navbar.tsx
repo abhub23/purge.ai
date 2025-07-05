@@ -19,8 +19,8 @@ export const Navbar = () => {
         {/* Logo */}
         <div className="ml-14 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Image src={'/gradient.webp'} alt="aa" height={30} width={30} />
-            <span className="hidden font-bold sm:inline-block">YourApp</span>
+            <Image src={'/purgeailogo.webp'} alt="aa" height={30} width={30} />
+            <span className="hidden font-bold sm:inline-block">PurgeAI</span>
           </Link>
 
           {/* Navigation Links */}
@@ -58,13 +58,13 @@ export const Navbar = () => {
         <div className="flex flex-1 items-center justify-between space-x-2">
           <div className="ml-2 w-full flex-1 md:w-auto md:flex-none">
             <Link href="/" className="mr-6 flex items-center space-x-2 md:hidden">
-              <div className="bg-primary h-6 w-6 rounded-md" />
-              <span className="font-bold">YourApp</span>
+              <Image src={'/purgeailogo.webp'} alt="aa" height={30} width={30} />
+              <span className="font-bold">PurgeAI</span>
             </Link>
           </div>
 
           {/* Right side buttons */}
-          <div className="hidden items-center space-x-2 md:flex mr-14">
+          <div className="mr-14 hidden items-center space-x-2 md:flex">
             <div className="items-center space-x-2 md:flex">
               <Button
                 variant="ghost"

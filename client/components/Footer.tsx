@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import Image from 'next/image';
 
 export const Footer = () => {
   return (
@@ -9,15 +10,15 @@ export const Footer = () => {
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="bg-foreground h-6 w-6 rounded-md" />
-              <span className="text-lg font-bold">YourApp</span>
+              <Image src={'/purgeailogo.webp'} alt="aa" height={30} width={30} />
+              <span className="text-lg font-bold">PurgeAI</span>
             </div>
             <p className="text-muted-foreground max-w-xs text-sm">
               Building the future of web development with modern tools and beautiful design.
             </p>
             <div className="flex h-5 w-5 space-x-4">
               <Link
-                href="#"
+                href="https://github.com/abhub23/purge.ai"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 target="_blank"
               >
@@ -167,7 +168,7 @@ export const Footer = () => {
 
         {/* Bottom Section */}
         <div className="mt-6 flex flex-col items-center justify-between space-y-2 border-t pt-4 md:space-y-2 lg:mx-auto">
-          <p className="text-muted-foreground text-sm">© 2025 YourApp. All rights reserved.</p>
+          <p className="text-muted-foreground text-sm">© 2025 PurgeAI. All rights reserved.</p>
           <div className="flex items-center gap-x-[10px] text-sm md:gap-6">
             <Link
               href="/terms"
