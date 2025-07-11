@@ -2,15 +2,16 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
-import authRouter from './routes/signin';
 import chatRouter from './routes/chat';
+import checkvalidsession from './routes/checkvalidsession'
 import { toNodeHandler } from 'better-auth/node'
 import { auth } from './lib/auth'
+import { FRONTEND_URL } from "./lib/config";
 
 const Port = 4000;
 const app = express();
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: FRONTEND_URL,
   credentials: true
 }));
 
@@ -25,7 +26,9 @@ app.get("/", (_, res) => {
   res.json({ message: "Server is alive" });
 });
 
-app.use('/api', chatRouter)
+
+app.use('/api/chat', chatRouter)
+app.use('/api/checkvalidsession', checkvalidsession)
 
 if (process.env.VERCEL !== "1") {
   app.listen(Port, () => {
