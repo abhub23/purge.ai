@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
-type GooglebthProptype = {
+type GooglebtnProptype = {
   onClick?: () => void;
 };
 
-const GoogleButton: FC<GooglebthProptype> = ({ onClick }) => {
+const GoogleButton: FC<GooglebtnProptype> = ({ onClick }) => {
   return (
     <div>
       <button

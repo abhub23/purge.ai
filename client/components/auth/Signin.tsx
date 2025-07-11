@@ -1,12 +1,10 @@
-'use client';
-
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
-import { useSignin } from '@/store/AuthStates';
+import { useSignBox } from '@/store/AuthStates';
 import GoogleButton from './Googlebutton';
 import { GoogleSignIn } from '@/lib/client-auth';
 
 const Signin = () => {
-  const { isOpen, setOpen } = useSignin();
+  const { isOpen, setOpen } = useSignBox();
   return (
     <>
       <Dialog open={isOpen} onOpenChange={setOpen}>
