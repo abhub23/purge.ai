@@ -1,11 +1,32 @@
+import { BlobOptions } from 'buffer';
 import { create } from 'zustand';
 
 type Signintype = {
   isOpen: boolean;
-  setOpen: (status: boolean) => void;
+  setOpen: (value: boolean) => void;
 };
 
-export const useSignin = create<Signintype>((set) => ({
+export const useSignBox = create<Signintype>((set) => ({
   isOpen: false,
-  setOpen: (status: boolean) => set({ isOpen: status }),
+  setOpen: (value: boolean) => set({ isOpen: value }),
+}));
+
+type IsSignedintype = {
+  isSignedin: boolean | null;
+  setSignedin: (value: boolean | null) => void;
+};
+
+export const useIsSignedin = create<IsSignedintype>((set) => ({
+  isSignedin: null,
+  setSignedin: (value: boolean | null) => set({ isSignedin: value }),
+}));
+
+type Usernametype = {
+  username: string;
+  setUsername: (value: string) => void;
+};
+
+export const useUsername = create<Usernametype>((set) => ({
+  username: '',
+  setUsername: (value: string) => set({ username: value }),
 }));
