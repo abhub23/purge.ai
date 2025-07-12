@@ -1,22 +1,43 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { ToggleTheme } from './ToggleTheme';
 import Image from 'next/image';
-import { useSignin } from '@/store/AuthStates';
+import { useSignBox, useIsSignedin, useUsername } from '@/store/AuthStates';
 import Signin from './auth/Signin';
+import api from '@/lib/axios';
+import { GoogleSignOut } from '@/lib/client-auth';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isOpen, setOpen } = useSignin();
+  const { isOpen, setOpen } = useSignBox();
+  const { isSignedin, setSignedin } = useIsSignedin();
+  const { username, setUsername } = useUsername();
+
+  const checkSignedin = async () => {
+    try {
+      setSignedin(null);
+      const response = await api.get('/api/checkvalidsession');
+      const signinStatus = response.data.success;
+      const clientName = response.data.name;
+      setUsername(clientName);
+      setSignedin(signinStatus);
+    } catch (error) {
+      const err = error as Error;
+      console.log('Error occurred while checking session', err);
+    }
+  };
+
+  useEffect(() => {
+    checkSignedin();
+  }, []);
 
   return (
     <nav className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur">
       <div className="container flex h-16 max-w-screen-2xl items-center">
-        {/* Logo */}
         <div className="ml-14 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Image src={'/purgeailogo.webp'} alt="aa" height={30} width={30} />
@@ -52,9 +73,7 @@ export const Navbar = () => {
           </nav>
         </div>
 
-        {/* Mobile menu button */}
-
-        {/* Mobile Logo */}
+        {/* Mobile viewport */}
         <div className="flex flex-1 items-center justify-between space-x-2">
           <div className="ml-2 w-full flex-1 md:w-auto md:flex-none">
             <Link href="/" className="mr-6 flex items-center space-x-2 md:hidden">
@@ -66,15 +85,36 @@ export const Navbar = () => {
           {/* Right side buttons */}
           <div className="mr-14 hidden items-center space-x-2 md:flex">
             <div className="items-center space-x-2 md:flex">
-              <Button
-                variant="ghost"
-                size="sm"
-                asChild
-                onClick={() => setOpen(true)}
-                className="cursor-pointer"
-              >
-                <span>Sign In</span>
-              </Button>
+              {isSignedin == null ? (
+                <></>
+              ) : isSignedin ? (
+                <>
+                  <span className="p-2 text-[15px]">Hey,&nbsp; {username}</span>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    asChild
+                    onClick={() => {
+                      GoogleSignOut();
+                      setSignedin(false);
+                    }}
+                    className="cursor-pointer"
+                  >
+                    <span>Sign Out</span>
+                  </Button>
+                </>
+              ) : (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  asChild
+                  onClick={() => setOpen(true)}
+                  className="cursor-pointer"
+                >
+                  <span>Sign In</span>
+                </Button>
+              )}
+
               <Button size="sm" asChild>
                 <Link href="/get-started">Get Started</Link>
               </Button>
@@ -136,6 +176,7 @@ export const Navbar = () => {
               </Link>
               <div className="flex flex-col space-y-2 pt-2">
                 <div className="flex flex-row justify-center pb-2">
+                  {isSignedin}
                   <Button
                     variant="ghost"
                     size="lg"
