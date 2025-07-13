@@ -1,9 +1,7 @@
- const Pricing = () => {
-    return (
-        <div>
-        dcdcddc
-        </div>
-    )
-}
+import { Pricing } from '@/components/pricing/Pricing';
 
-export default Pricing
+const PricingPage = () => {
+  return <Pricing />;
+};
+
+export default PricingPage;
