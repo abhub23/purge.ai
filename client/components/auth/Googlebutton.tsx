@@ -9,7 +9,7 @@ const GoogleButton: FC<GooglebtnProptype> = ({ onClick }) => {
     <div>
       <button
         onClick={onClick}
-        className="flex max-w-[320px] cursor-pointer items-center justify-center gap-3 rounded-lg border border-[rgba(0,0,0,0.25)] bg-white px-6 py-2 text-sm font-bold text-[rgb(65,63,63)] uppercase transition-transform duration-500 ease-in-out outline-none hover:scale-[1.02] lg:my-2 lg:w-[380px]"
+        className="flex max-w-[320px] cursor-pointer items-center justify-center gap-3 rounded-lg border border-[rgba(0,0,0,0.25)] bg-white px-6 py-2 text-[15px] font-bold text-[rgb(65,63,63)] uppercase transition-transform duration-500 ease-in-out outline-none hover:scale-[1.02] lg:my-2 lg:w-[380px]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
