@@ -38,7 +38,7 @@ router.get('/', async (req: Request, res: any) => {
 
     return res.status(200).json({
       success: true,
-      message: 'Valid Session boy',
+      message: 'Valid Session token',
       name
     });
 
