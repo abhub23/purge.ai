@@ -55,11 +55,11 @@ export const Features = () => {
           Our platform provides all the tools and features you need to create exceptional Products
         </p>
       </div>
-      <div className="mx-auto mt-16 grid max-w-[1200px] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-2 mt-16 grid max-w-[1200px] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {features.map((feature, index) => (
           <Card
             key={index}
-            className="relative overflow-hidden transition-all delay-50 hover:scale-105 hover:shadow-lg"
+            className="relative overflow-hidden transition-all delay-50 hover:scale-101 hover:shadow-lg"
           >
             <CardHeader>
               <div className="flex items-center space-x-2">
