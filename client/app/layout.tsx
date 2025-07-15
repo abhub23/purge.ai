@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Bricolage } from '@/utils/fonts';
 import { ThemeProvider } from 'next-themes';
+import { QueryProvider } from '@/utils/QueryProvider';
 import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
 
@@ -22,7 +23,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${Bricolage}`}>
         <ThemeProvider attribute={'class'}>
-          {children}
+          <QueryProvider>{children}</QueryProvider>
           <Toaster />
         </ThemeProvider>
       </body>
