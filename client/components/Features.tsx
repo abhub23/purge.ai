@@ -55,7 +55,7 @@ export const Features = () => {
           Our platform provides all the tools and features you need to create exceptional Products
         </p>
       </div>
-      <div className="mx-2 mt-16 grid max-w-[1200px] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-2 mt-16 grid max-w-[1200px] grid-cols-1 gap-6 md:grid-cols-2 lg:mx-auto lg:grid-cols-3">
         {features.map((feature, index) => (
           <Card
             key={index}
