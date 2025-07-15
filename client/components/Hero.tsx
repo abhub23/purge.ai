@@ -5,11 +5,35 @@ import { ArrowRight, Play } from 'lucide-react';
 import Link from 'next/link';
 import AnimatedText from './Animatedtext';
 import { easeInOut, motion } from 'motion/react';
+import { GoogleSignOut } from '@/lib/client-auth';
+import L2R_AnimatedSVG from './micro-interactions/L2R_AnimatedSVG';
+import R2L_AnimatedSVG from './micro-interactions/R2L_AnimatedSVG';
 
 export const Hero = () => {
   return (
     <section className="bg-grid-pattern relative container flex flex-col items-center justify-center space-y-4 py-24 md:py-32">
-      <div className="bg-gradient-radial absolute inset-0" />
+      <div className="bg-gradient-radial absolute inset-0 hidden lg:block">
+        <div className="flex justify-between px-10">
+          <div className="flex flex-col gap-y-[400px] pt-10">
+            <L2R_AnimatedSVG duration={2.7} />
+            <L2R_AnimatedSVG duration={3.2} />
+          </div>
+
+          <div className="flex flex-col items-end gap-y-[380px] pt-14">
+            <R2L_AnimatedSVG duration={2.8} />
+            <R2L_AnimatedSVG duration={3.3} />
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile viewport */}
+      <div className="bg-gradient-radial absolute inset-0 block overflow-hidden sm:hidden">
+        <div className="flex flex-col gap-y-[267px] pt-10">
+          <L2R_AnimatedSVG duration={2.7} />
+          <L2R_AnimatedSVG duration={3.2} />
+        </div>
+      </div>
+
       <div className="relative mx-auto flex max-w-[980px] flex-col items-center space-y-2 text-center">
         <motion.div
           initial={{ opacity: 0, y: -20, filter: 'blur(30px)' }}
@@ -45,7 +69,7 @@ export const Hero = () => {
             <ArrowRight className="ml-1 h-4 w-4" />
           </Link>
         </Button>
-        <Button variant="outline" size="lg">
+        <Button variant="outline" size="lg" onClick={GoogleSignOut}>
           <Play className="mr-1 h-4 w-4" />
           Try Assistant
         </Button>
