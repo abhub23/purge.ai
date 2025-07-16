@@ -1,39 +1,36 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { ToggleTheme } from './ToggleTheme';
 import Image from 'next/image';
-import { useSignBox, useIsSignedin, useUsername } from '@/store/AuthStates';
+import { useSignBox } from '@/store/AuthStates';
 import Signin from './auth/Signin';
 import api from '@/lib/axios';
 import { GoogleSignOut } from '@/lib/client-auth';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
 export const Navbar = () => {
+  const queryClient = useQueryClient();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isOpen, setOpen } = useSignBox();
-  const { isSignedin, setSignedin } = useIsSignedin();
-  const { username, setUsername } = useUsername();
 
-  const checkSignedin = async () => {
-    try {
-      setSignedin(null);
+  const { data, isError, isLoading } = useQuery({
+    queryKey: ['checksignedin'],
+    queryFn: async () => {
       const response = await api.get('/api/checkvalidsession');
-      const signinStatus = response.data.success;
-      const clientName = response.data.name;
-      setUsername(clientName);
-      setSignedin(signinStatus);
-    } catch (error) {
-      const err = error as Error;
-      console.log('Error occurred while checking session', err);
-    }
-  };
+      return response.data;
+    },
+  });
 
-  useEffect(() => {
-    checkSignedin();
-  }, []);
+  const { mutate: handleSignOut } = useMutation({
+    mutationFn: GoogleSignOut,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['checksignedin'] });
+    },
+  });
 
   return (
     <nav className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur">
@@ -85,19 +82,16 @@ export const Navbar = () => {
           {/* Right side buttons */}
           <div className="mr-14 hidden items-center space-x-2 md:flex">
             <div className="items-center space-x-2 md:flex">
-              {isSignedin == null ? (
+              {isLoading || isError ? (
                 <></>
-              ) : isSignedin ? (
+              ) : data?.success ? (
                 <>
-                  <span className="p-2 text-[15px]">Hey,&nbsp; {username}</span>
+                  <span className="p-2 text-[15px]">Hey,&nbsp; {data?.name}</span>
                   <Button
                     variant="ghost"
                     size="sm"
                     asChild
-                    onClick={() => {
-                      GoogleSignOut();
-                      setSignedin(false);
-                    }}
+                    onClick={() => handleSignOut()}
                     className="cursor-pointer"
                   >
                     <span>Sign Out</span>
@@ -128,6 +122,11 @@ export const Navbar = () => {
             className="focus-visible:ring-ring hover:text-accent-foreground mr-2 inline-flex h-9 items-center justify-end rounded-md px-0 py-2 text-base font-medium transition-colors hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 md:hidden"
             type="button"
           >
+            {data?.success ? (
+              <span className="p-3 text-[15px]">Hey,&nbsp; {data?.name}</span>
+            ) : (
+              <></>
+            )}
             {isMenuOpen ? (
               <>
                 <ToggleTheme />
@@ -176,19 +175,32 @@ export const Navbar = () => {
               </Link>
               <div className="flex flex-col space-y-2 pt-2">
                 <div className="flex flex-row justify-center pb-2">
-                  {isSignedin}
-                  <Button
-                    variant="ghost"
-                    size="lg"
-                    asChild
-                    className="border-2 px-29 shadow-2xs"
-                    onClick={() => {
-                      setOpen(true);
-                      setIsMenuOpen(false);
-                    }}
-                  >
-                    <span>Sign In</span>
-                  </Button>
+                  {isLoading || isError ? (
+                    <p>null</p>
+                  ) : data?.success ? (
+                    <Button
+                      variant="ghost"
+                      size="lg"
+                      asChild
+                      className="border-2 px-29 shadow-2xs"
+                      onClick={() => handleSignOut()}
+                    >
+                      <span>Sign out</span>
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="ghost"
+                      size="lg"
+                      asChild
+                      className="border-2 px-29 shadow-2xs"
+                      onClick={() => {
+                        setOpen(true);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      <span>Sign In</span>
+                    </Button>
+                  )}
                 </div>
 
                 <Button size="lg" asChild>
