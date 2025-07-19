@@ -1,8 +1,15 @@
+'use client';
+
 import Link from 'next/link';
 import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
 import Image from 'next/image';
 
 export const Footer = () => {
+  const ScrollY = () => {
+    const scrollTarget = window.innerWidth > 1500 ? 240 : 200;
+    window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-background border-t">
       <div className="container px-4 py-8 md:py-8">
@@ -14,7 +21,7 @@ export const Footer = () => {
               <span className="text-lg font-bold">PurgeAI</span>
             </div>
             <p className="text-muted-foreground max-w-xs text-sm">
-              Building the future of web development with modern tools and beautiful design.
+              Building the future of AI driven PR Merges with modern tools and beautiful design.
             </p>
             <div className="flex h-5 w-5 space-x-4">
               <Link
@@ -107,18 +114,17 @@ export const Footer = () => {
                   Blog
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/tutorials"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Tutorials
-                </Link>
+              <li
+                className="text-muted-foreground hover:text-foreground transition-colors hover:cursor-pointer"
+                onClick={ScrollY}
+              >
+                Tutorial
               </li>
               <li>
                 <Link
-                  href="/support"
+                  href="https://mail.google.com/mail/?view=cm&to=abdullahmukri25@gmail.com&su=PurgeAI%20Support%20Team"
                   className="text-muted-foreground hover:text-foreground transition-colors"
+                  target="_blank"
                 >
                   Support
                 </Link>
@@ -138,14 +144,7 @@ export const Footer = () => {
                   About
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/careers"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Careers
-                </Link>
-              </li>
+
               <li>
                 <Link
                   href="/contact"
@@ -156,7 +155,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/privacy"
+                  href="/privacypolicy"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Privacy Policy
@@ -177,13 +176,13 @@ export const Footer = () => {
               Terms of Service
             </Link>
             <Link
-              href="/privacy"
+              href="/privacypolicy"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
-              href="/cookies"
+              href="/cookiepolicy"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Cookie Policy
