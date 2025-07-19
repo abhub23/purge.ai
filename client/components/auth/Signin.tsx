@@ -3,18 +3,17 @@ import { useSignBox } from '@/store/AuthStates';
 import GoogleButton from './Googlebutton';
 import GithubButton from './Githubbutton';
 import { GoogleSignIn } from '@/lib/client-auth';
-import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 const Signin = () => {
-  const router = useRouter();
   const { isOpen, setOpen } = useSignBox();
   return (
     <>
       <Dialog open={isOpen} onOpenChange={setOpen}>
         <DialogContent className="sm:max-w-[425px]">
-          <DialogTitle>Sign In</DialogTitle>
+          <DialogTitle>Sign In with Socials</DialogTitle>
           <GoogleButton onClick={GoogleSignIn} />
-          <GithubButton onClick={() => router.push('/pricing')} />
+          <GithubButton onClick={() => toast.error('Coming soon, stay tuned.')} />
         </DialogContent>
       </Dialog>
     </>
