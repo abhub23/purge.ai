@@ -33,8 +33,8 @@ export const TIERS: PricingTier[] = [
     id: 'teams',
     name: 'Teams',
     price: {
-      monthly: 29,
-      yearly: 19,
+      monthly: 19,
+      yearly: 11,
     },
     description: 'Great for small Saas',
     features: [
@@ -51,8 +51,8 @@ export const TIERS: PricingTier[] = [
     id: 'organizations',
     name: 'Organizations',
     price: {
-      monthly: 120,
-      yearly: 99,
+      monthly: 39,
+      yearly: 29,
     },
     description: 'Great for large businesses',
     features: [
