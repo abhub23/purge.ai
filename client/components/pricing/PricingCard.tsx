@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { FC } from 'react';
@@ -5,6 +7,11 @@ import { Button } from '@/components/ui/button';
 import NumberFlow from '@number-flow/react';
 import { BadgeCheck } from 'lucide-react';
 import { PricingTier } from '@/components/pricing/price';
+import { useRouter } from 'next/navigation';
+import { useMutation } from '@tanstack/react-query';
+import { useIsSignedin, useSignBox } from '@/store/AuthStates';
+import Signin from '../auth/Signin';
+import api from '@/lib/axios';
 
 type PricingCardtype = {
   tier: PricingTier;
@@ -15,6 +22,33 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
   const price = tier.price[paymentFrequency];
   const isHighlighted = tier.highlighted;
   const isPopular = tier.popular;
+
+  const { isOpen, setOpen } = useSignBox();
+
+  const router = useRouter();
+  const { isSignedin } = useIsSignedin();
+
+  const handlePurchase = (amount: number | string) => {
+    if (price == 'Free') {
+      isSignedin ? router.push('/chat') : router.push('/');
+    } else if (price == 'Custom') {
+      window.open(
+        'https://mail.google.com/mail/?view=cm&to=abdullahmukri25@gmail.com&su=Custom%20Purchase%20Subscription'
+      );
+    } else if (!isSignedin) {
+      setOpen(true);
+    } else {
+      const mut = useMutation({
+        mutationFn: async () => {
+          const response = await api.post('/api/orderpay', { amount });
+          return response.data;
+        },
+      });
+      mut.mutate()
+    }
+  };
+
+  
 
   return (
     <div
@@ -35,6 +69,7 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
           <Badge className="bg-fuchsia-800 px-[6px] py-[1px] text-white">🔥Popular</Badge>
         )}
       </h2>
+      {isOpen && <Signin />}
 
       {/* Price Section */}
       <div className="relative h-12">
@@ -78,8 +113,9 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
       {/* Call to Action Button */}
       <Button
         variant="default"
+        onClick={() => handlePurchase(price)}
         className={cn(
-          'h-fit w-full cursor-pointer rounded-lg',
+          'relative z-10 h-fit w-full cursor-pointer rounded-lg',
           isHighlighted && 'bg-accent text-foreground hover:bg-accent/95 cursor-pointer'
         )}
       >
@@ -91,10 +127,10 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
 
 // Highlighted Background Component
 const HighlightedBackground = () => (
-  <div className="absolute inset-0 opacity-100 dark:opacity-30" />
+  <div className="absolute inset-0 z-0 opacity-100 dark:opacity-30" />
 );
 
 // Popular Background Component
 const PopularBackground = () => (
-  <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
+  <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
 );
