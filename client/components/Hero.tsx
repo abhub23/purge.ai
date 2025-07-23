@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Play } from 'lucide-react';
+import { Play } from 'lucide-react';
 import Link from 'next/link';
 import AnimatedText from './Animatedtext';
 import { easeInOut, motion } from 'motion/react';
@@ -11,8 +11,8 @@ import R2L_AnimatedSVG from './micro-interactions/R2L_AnimatedSVG';
 
 export const Hero = () => {
   return (
-    <section className="bg-grid-pattern relative container flex flex-col items-center justify-center space-y-4 py-24 md:py-32">
-      <div className="bg-gradient-radial absolute inset-0 hidden lg:block">
+    <section className="relative container flex flex-col items-center justify-center space-y-4 py-24 md:py-32">
+      <div className=" absolute inset-0 hidden lg:block">
         <div className="flex justify-between px-10">
           <div className="flex flex-col gap-y-[400px] pt-10">
             <L2R_AnimatedSVG duration={2.7} />
@@ -28,7 +28,7 @@ export const Hero = () => {
 
       {/* Mobile viewport */}
       <div className="bg-gradient-radial absolute inset-0 block overflow-hidden sm:hidden">
-        <div className="flex flex-col gap-y-[267px] pt-10">
+        <div className="flex flex-col gap-y-[287px] pt-7">
           <L2R_AnimatedSVG duration={2.7} />
           <L2R_AnimatedSVG duration={3.2} />
         </div>
@@ -39,7 +39,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: -20, filter: 'blur(30px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, ease: easeInOut }}
-          className="bg-muted inline-flex items-center rounded-lg border px-3 py-1 text-sm font-medium"
+          className="bg-muted/90 inline-flex items-center rounded-lg border px-3 py-1 text-sm font-medium"
         >
           🎉 <span className="ml-2">Introducing our new features</span>
         </motion.div>
@@ -57,20 +57,19 @@ export const Hero = () => {
         initial={{ opacity: 0, y: 20, filter: 'blur(30px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.5, ease: easeInOut }}
-        className="relative flex flex-col gap-4 lg:flex-row"
+        className="relative flex flex-col gap-4 lg:flex-row mt-2"
       >
         <Button
           size="lg"
-          className="bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
+          className="bg-black rounded-4xl text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
           asChild
         >
           <Link href="/get-started">
             Get Started
-            <ArrowRight className="ml-1 h-4 w-4" />
+            
           </Link>
         </Button>
-        <Button variant="outline" size="lg" onClick={GoogleSignOut}>
-          <Play className="mr-1 h-4 w-4" />
+        <Button variant="outline" size="lg" className='cursor-pointer rounded-4xl' onClick={GoogleSignOut}>
           Try Assistant
         </Button>
       </motion.div>
