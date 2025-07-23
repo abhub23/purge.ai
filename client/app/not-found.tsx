@@ -2,13 +2,10 @@
 
 import { useRouter } from 'next/navigation';
 import { motion } from 'motion/react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const ErrorPage = () => {
-  const router = useRouter();
-  const handleHome = () => {
-    router.push('/');
-  };
-
   return (
     <div className="flex h-[100svh] flex-col items-center justify-center bg-white font-semibold lg:h-screen dark:bg-black">
       <motion.div
@@ -20,12 +17,13 @@ const ErrorPage = () => {
         <p className="p-2 text-[22px] text-black lg:text-[36px] dark:text-white">
           PAGE NOT FOUND - 404{' '}
         </p>
-        <button
-          className="h-[28px] w-[100px] cursor-pointer rounded-md bg-black px-3 text-[11px] text-white lg:h-[36px] lg:w-[140px] lg:p-2 lg:text-[14px] dark:bg-white dark:text-black"
-          onClick={handleHome}
+        <Button
+          size="lg"
+          className="rounded-4xl bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
+          asChild
         >
-          Go to Home
-        </button>
+          <Link href="/">Go to Home</Link>
+        </Button>
       </motion.div>
     </div>
   );
