@@ -40,7 +40,7 @@ export const Navbar = () => {
   }, [isSuccess, data]);
 
   return (
-    <nav className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur">
+    <nav className="md:border-border/40 md:bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur lg:fixed lg:top-5 lg:left-1/2 lg:w-[1000px] lg:-translate-x-1/2 lg:rounded-2xl lg:border-1 lg:border-neutral-200 lg:bg-transparent lg:dark:border-neutral-800">
       <div className="container flex h-16 max-w-screen-2xl items-center">
         <div className="ml-14 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
@@ -49,30 +49,24 @@ export const Navbar = () => {
           </Link>
 
           {/* Navigation Links */}
-          <nav className="flex items-center gap-6 text-sm">
+          <nav className="flex items-center gap-[2px] text-sm">
             <Link
               href="/about"
-              className="hover:text-foreground/90 text-foreground/60 transition-colors"
+              className="hover:text-foreground/80 hover:bg-accent/80 text-foreground/60 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101"
             >
               About
             </Link>
             <Link
               href="/docs"
-              className="hover:text-foreground/90 text-foreground/60 transition-colors"
+              className="hover:text-foreground/80 hover:bg-accent/80 text-foreground/60 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101"
             >
               Docs
             </Link>
             <Link
               href="/pricing"
-              className="hover:text-foreground/90 text-foreground/60 transition-colors"
+              className="hover:text-foreground/80 hover:bg-accent/80 text-foreground/60 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101"
             >
               Pricing
-            </Link>
-            <Link
-              href="/blog"
-              className="hover:text-foreground/90 text-foreground/60 transition-colors"
-            >
-              Blog
             </Link>
           </nav>
         </div>
@@ -172,13 +166,6 @@ export const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Pricing
-              </Link>
-              <Link
-                href="/blog"
-                className="hover:text-foreground/80 text-foreground/60 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Blog
               </Link>
               <div className="flex flex-col space-y-2 pt-2">
                 <div className="flex flex-row justify-center pb-2">
