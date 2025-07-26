@@ -2,6 +2,7 @@
 
 import { Bricolage } from '@/utils/fonts';
 import { motion } from 'motion/react';
+import Link from 'next/link';
 
 export const Animation = {
   initial: {
@@ -26,56 +27,73 @@ export const Transition = (x: number) => {
 
 const About = () => {
   return (
-    <div className={`${Bricolage} min-h-screen bg-background text-foreground`}>
-      <section className="py-40">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <motion.div {...Animation} transition={Transition(0.1)} className="group">
-                <h2 className="text-3xl font-bold mb-4 transition-transform">
-                  The Mission
-                </h2>
-                <p className="text-muted-foreground lg:w-[500px] leading-relaxed text-lg">
-                  Building software that just works. No bloat, no complexity just a
-                  clean solution that solves real problems.
-                </p>
-              </motion.div>
-              
-              <motion.div {...Animation} transition={Transition(0.2)} className="group">
-                <h2 className="text-3xl font-bold mb-4  transition-transform">
-                  The Approach
-                </h2>
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  Quality over quantity. Every feature is carefully crafted with 
-                  attention to detail and user experience.
-                </p>
-              </motion.div>
-            </div>
+    <section
+      className={`${Bricolage} bg-background text-foreground flex h-[670px] grid-cols-1 flex-col items-center justify-center space-y-8 lg:min-h-screen lg:grid-cols-2 lg:flex-row`}
+    >
+      <motion.h1
+        {...Animation}
+        transition={Transition(0.15)}
+        className="top-12 text-[24px] font-semibold underline lg:fixed lg:text-[44px]"
+      >
+        About Us
+      </motion.h1>
+      <div className="flex w-[300px] flex-col justify-center space-y-8 lg:mx-0 lg:mr-14 lg:w-[500px]">
+        <motion.div {...Animation} transition={Transition(0.15)} className="group">
+          <h2 className="mb-1 text-[18px] font-semibold transition-transform lg:mb-4 lg:text-3xl">
+            The Mission
+          </h2>
+          <p className="text-muted-foreground text-[14px] leading-relaxed lg:w-[500px] lg:text-lg">
+            Building software that just works. No bloat, no complexity just a clean solution that
+            solve real problems.
+          </p>
+        </motion.div>
 
-            <motion.div {...Animation} transition={Transition(0.3)} className="relative">
-              <div className="absolute inset-0 bg-foreground rounded-lg transform rotate-3 opacity-10"></div>
-              <div className="relative bg-card border border-border rounded-lg p-8 shadow-elegant">
-                <h3 className="text-2xl font-bold mb-6">Core Values</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-foreground rounded-full"></div>
-                    <span className="text-muted-foreground">Simplicity first</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-foreground rounded-full"></div>
-                    <span className="text-muted-foreground">Performance focused</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-foreground rounded-full"></div>
-                    <span className="text-muted-foreground">User-centric system</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+        <motion.div {...Animation} transition={Transition(0.25)} className="group">
+          <h2 className="mb-1 text-[18px] font-semibold transition-transform lg:mb-4 lg:text-3xl">
+            The Approach
+          </h2>
+          <p className="text-muted-foreground text-justify text-[14px] leading-relaxed lg:w-[500px] lg:text-lg">
+            Quality over quantity. Every feature is carefully crafted with attention to detail and
+            user experience. the product still is in progress and with time it will make its place
+            into the heart of devs across the world.
+          </p>
+        </motion.div>
+      </div>
+
+      <motion.div
+        {...Animation}
+        transition={Transition(0.35)}
+        className="relative w-[300px] lg:w-[400px]"
+      >
+        <div className="bg-foreground absolute inset-0 w-[300px] rotate-3 transform rounded-lg opacity-10 lg:w-[400px]"></div>
+        <div className="bg-card border-border shadow-elegant relative rounded-lg border p-3 lg:p-8">
+          <h3 className="mb-4 text-[20px] font-bold lg:text-2xl">Core Values</h3>
+          <div className="space-y-2 text-[14px] lg:space-y-4 lg:text-[16px]">
+            <div className="flex items-center space-x-3">
+              <div className="bg-foreground h-2 w-2 rounded-full"></div>
+              <span className="text-muted-foreground">Simplicity first</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="bg-foreground h-2 w-2 rounded-full"></div>
+              <span className="text-muted-foreground">Performance focused</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="bg-foreground h-2 w-2 rounded-full"></div>
+              <span className="text-muted-foreground">User-centric system</span>
+            </div>
           </div>
         </div>
-      </section>
-    </div>
+      </motion.div>
+
+      <div className="fixed bottom-0 lg:w-full">
+        <p className="text-muted-foreground flex h-13 items-center justify-center border-t text-[12px] lg:h-16 lg:text-[14px]">
+          © 2025 PurgeAI. All rights reserved.
+          <Link href={'/t&c'} className="hover:text-foreground/75 ml-2 underline transition-colors">
+            Terms & Conditions{' '}
+          </Link>
+        </p>
+      </div>
+    </section>
   );
 };
 
