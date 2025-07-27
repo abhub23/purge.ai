@@ -67,7 +67,10 @@ export const Footer = () => {
                   Pricing
                 </Link>
               </li>
-              <li className='text-muted-foreground hover:text-foreground/85 transition-colors cursor-pointer' onClick={() => window.open('https:abdullahtech.dev', '_blank')}>
+              <li
+                className="text-muted-foreground hover:text-foreground/85 cursor-pointer transition-colors"
+                onClick={() => window.open('https:abdullahtech.dev', '_blank')}
+              >
                 Developer/Creator
               </li>
             </ul>
@@ -119,7 +122,7 @@ export const Footer = () => {
               <li>
                 <Link
                   href="https://mail.google.com/mail/?view=cm&to=abdullahmukri25@gmail.com&su=PurgeAI%20Contact"
-                  target='_blank'
+                  target="_blank"
                   className="text-muted-foreground hover:text-foreground/85 transition-colors"
                 >
                   Contact
@@ -130,9 +133,9 @@ export const Footer = () => {
         </div>
       </div>
 
-      <p className="text-muted-foreground flex items-center justify-center border-t text-[12px] h-13 lg:h-16 lg:text-[14px]">
+      <p className="text-muted-foreground flex h-13 items-center justify-center border-t text-[12px] lg:h-16 lg:text-[14px]">
         © 2025 PurgeAI. All rights reserved.
-        <Link href={'/t&c'} className="hover:text-foreground/75 transition-colors ml-2 underline">
+        <Link href={'/t&c'} className="hover:text-foreground/75 ml-2 underline transition-colors">
           Terms & Conditions{' '}
         </Link>
       </p>
