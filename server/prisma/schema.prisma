@@ -14,7 +14,6 @@ model User {
   email         String
   emailVerified Boolean
   image         String?
-  credits       Int       @default(10)
   createdAt     DateTime
   updatedAt     DateTime
   sessions      Session[]
@@ -68,3 +67,16 @@ model Verification {
 
   @@map("verification")
 }
+
+model TempUsers {
+  id         String    @id @default(cuid())
+  ipAddress  String
+  expiresAt  DateTime
+  createdAt  DateTime  @default(now())
+  credits    Int       @default(10)
+
+  @@index([ipAddress])
+  @@map("temp_users")
+}
+
+
