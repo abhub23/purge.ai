@@ -18,6 +18,7 @@ model User {
   updatedAt     DateTime
   sessions      Session[]
   accounts      Account[]
+  plan          Plan[]    
 
   @@unique([email])
   @@map("user")
@@ -73,10 +74,23 @@ model TempUsers {
   ipAddress  String
   expiresAt  DateTime
   createdAt  DateTime  @default(now())
-  credits    Int       @default(10)
+  credits    Int       @default(3)
 
   @@index([ipAddress])
   @@map("temp_users")
 }
 
+enum PlanType {
+  free
+  individual
+  team
+  custom
+}
 
+model Plan {
+  id         String    @id @default(cuid())
+  type       PlanType  @default(free)
+  credits    Int       @default(5)
+  expiresAt  DateTime
+  createdAt  DateTime  @default(now())
+}
