@@ -47,15 +47,15 @@ function DialogContent({
 }: React.ComponentProps<typeof DialogPrimitive.Content> & {
   showCloseButton?: boolean;
 }) {
-  const pathname = usePathname()
-  
+  const pathname = usePathname();
+
   return (
     <DialogPortal data-slot="dialog-portal">
       <DialogOverlay />
       <DialogPrimitive.Content
         data-slot="dialog-content"
         className={cn(
-          `bg-card/5  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[48%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] justify-center gap-4 rounded-lg border p-6 shadow-lg backdrop-blur-xs duration-200 sm:max-w-lg ${pathname == '/pricing' ? 'lg:top-[45%]' : 'lg:top-[42%]' }`,
+          `bg-card/5 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[48%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] justify-center gap-4 rounded-lg border p-6 shadow-lg backdrop-blur-xs duration-200 sm:max-w-lg ${pathname == '/pricing' ? 'lg:top-[45%]' : 'lg:top-[42%]'}`,
           className
         )}
         {...props}
@@ -99,7 +99,7 @@ function DialogTitle({ className, ...props }: React.ComponentProps<typeof Dialog
   return (
     <DialogPrimitive.Title
       data-slot="dialog-title"
-      className={cn('text-center text-lg leading-none font-semibold', className)}
+      className={cn('text-center text-[20px] leading-none font-medium', className)}
       {...props}
     />
   );
