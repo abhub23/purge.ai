@@ -10,7 +10,7 @@ const terms: string[] = [
   'Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offense.',
   'From time to time this website may also include links to other websites. These links are provided for your convenience to provide further information.',
   'The service is provided without any warranties, express or implied. We are not responsible for any damages, including data loss, service interruptions, or inaccurate results arising from your use of the service.',
-  'We aim to maintain a 99.9% uptime but do not guarantee uninterrupted or error-free service. We may perform maintenance or experience outages that affect availability. Additionally, we reserve the right to modify, remove, or discontinue features or services at any time, with or without notice.'
+  'We aim to maintain a 99.9% uptime but do not guarantee uninterrupted or error-free service. We may perform maintenance or experience outages that affect availability. Additionally, we reserve the right to modify, remove, or discontinue features or services at any time, with or without notice.',
 ];
 
 const Terms = () => {
