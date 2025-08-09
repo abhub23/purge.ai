@@ -49,7 +49,7 @@ export const getPriorityColor = (priority: string) => {
 };
 
 export const Midfooter: Record<string, string>[] = [
-    {name: 'Analyze PR', do: 'Analyze this PR: '},
-    {name: 'Code Review', do: 'Review code changes in: '},
-    {name: 'Documentation', do: 'Generate documentation for: '},
-]
+  { name: 'Analyze PR', do: 'Analyze this PR: ' },
+  { name: 'Code Review', do: 'Review code changes in: ' },
+  { name: 'Documentation', do: 'Generate documentation for: ' },
+];
