@@ -80,14 +80,6 @@ export const Footer = () => {
           <div className="space-y-4 lg:ml-[110px]">
             <h3 className="font-semibold">Resources</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/docs"
-                  className="text-muted-foreground hover:text-foreground/85 transition-colors"
-                >
-                  Documentation
-                </Link>
-              </li>
               <li
                 className="text-muted-foreground hover:text-foreground/85 transition-colors hover:cursor-pointer"
                 onClick={ScrollY}
