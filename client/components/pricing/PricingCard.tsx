@@ -2,16 +2,16 @@
 
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import NumberFlow from '@number-flow/react';
 import { BadgeCheck } from 'lucide-react';
-import { PricingTier } from '@/components/pricing/price';
-import { useRouter } from 'next/navigation';
+import { PricingTier } from '@/constants/price';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useMutation } from '@tanstack/react-query';
 import { useIsSignedin, useSignBox } from '@/store/AuthStates';
-import Signin from '../auth/Signin';
 import api from '@/lib/axios';
+import { toast } from 'sonner';
 
 type PricingCardtype = {
   tier: PricingTier;
@@ -20,13 +20,25 @@ type PricingCardtype = {
 
 export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => {
   const price = tier.price[paymentFrequency];
-  const isHighlighted = tier.highlighted;
+  const isHighlighted = tier.highlighted as boolean;
   const isPopular = tier.popular;
 
-  const { isOpen, setOpen } = useSignBox();
+  const { setOpen } = useSignBox();
+  const [id, setId] = useState<any>();
 
   const router = useRouter();
   const { isSignedin } = useIsSignedin();
+
+  const mut = useMutation({
+    mutationFn: async (amount: number) => {
+      const response = await api.post('/api/orderpay', { amount });
+      return response.data;
+    },
+    onSuccess: (data) => setId(data),
+    onError(error) {
+      console.log('error is', error);
+    },
+  });
 
   const handlePurchase = (amount: number | string) => {
     if (price == 'Free') {
@@ -38,17 +50,15 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
     } else if (!isSignedin) {
       setOpen(true);
     } else {
-      const mut = useMutation({
-        mutationFn: async () => {
-          const response = await api.post('/api/orderpay', { amount });
-          return response.data;
-        },
-      });
-      mut.mutate()
+      mut.mutate(amount as number);
     }
   };
 
-  
+  useEffect(() => {
+    if (id) {
+      console.log('is is', id);
+    }
+  }, [id]);
 
   return (
     <div
@@ -69,7 +79,6 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
           <Badge className="bg-fuchsia-800 px-[6px] py-[1px] text-white">🔥Popular</Badge>
         )}
       </h2>
-      {isOpen && <Signin />}
 
       {/* Price Section */}
       <div className="relative h-12">
@@ -113,7 +122,13 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
       {/* Call to Action Button */}
       <Button
         variant="default"
-        onClick={() => handlePurchase(price)}
+        onClick={() => {
+          if (tier.cta == 'Coming Soon') {
+            toast.error('Coming Soon');
+          } else {
+            handlePurchase(price);
+          }
+        }}
         className={cn(
           'relative z-10 h-fit w-full cursor-pointer rounded-lg',
           isHighlighted && 'bg-accent text-foreground hover:bg-accent/95 cursor-pointer'
