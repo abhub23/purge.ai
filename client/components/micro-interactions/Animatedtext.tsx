@@ -5,8 +5,11 @@ import { FC, useEffect } from 'react';
 
 type AnimateType = {
   text: string;
+  classname: string;
+  blur: string;
+  stg: number;
 };
-const AnimatedText: FC<AnimateType> = ({ text }) => {
+const AnimatedText: FC<AnimateType> = ({ text, classname, blur, stg }) => {
   const [scope, animate] = useAnimate();
 
   const Animatetext = () => {
@@ -19,7 +22,7 @@ const AnimatedText: FC<AnimateType> = ({ text }) => {
       },
       {
         duration: 0.5,
-        delay: stagger(0.1),
+        delay: stagger(stg),
         ease: easeInOut,
       }
     );
@@ -35,9 +38,9 @@ const AnimatedText: FC<AnimateType> = ({ text }) => {
     <h1 ref={scope}>
       {text.split(' ').map((word, idx) => (
         <motion.span
-          initial={{ opacity: 0, y: 10, filter: 'blur(30px)' }}
+          initial={{ opacity: 0, y: 10, filter: `blur(${blur})` }}
           key={idx}
-          className="text-[26px] leading-tight font-bold tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]"
+          className={classname}
         >
           {word + ' '}
         </motion.span>
