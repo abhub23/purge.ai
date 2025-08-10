@@ -1,45 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Zap, Shield, Palette, Code, Globe, Smartphone } from 'lucide-react';
-
-const features = [
-  {
-    icon: Zap,
-    title: 'Blazingly Fast',
-    description: 'Built with performance in mind. Your users will love the speed.',
-    badge: 'Performance',
-  },
-  {
-    icon: Shield,
-    title: 'Secure by Default',
-    description: 'Enterprise-grade security features built for each User and Prompts.',
-    badge: 'Security',
-  },
-  {
-    icon: Palette,
-    title: 'Customizable',
-    description: 'Easily customize colors, fonts, and layouts to match your brand.',
-    badge: 'Design',
-  },
-  {
-    icon: Code,
-    title: 'Developer Friendly',
-    description: 'Clean Model output APIs and excellent support for better DX.',
-    badge: 'DX',
-  },
-  {
-    icon: Globe,
-    title: 'SEO Optimized',
-    description: 'Built-in SEO best practices to help your site rank better.',
-    badge: 'SEO',
-  },
-  {
-    icon: Smartphone,
-    title: 'Mobile First',
-    description: 'Responsive design that works perfectly on all devices.',
-    badge: 'Mobile',
-  },
-];
+import { features } from '@/constants/features';
 
 export const Features = () => {
   return (
@@ -59,7 +20,7 @@ export const Features = () => {
         {features.map((feature, index) => (
           <Card
             key={index}
-            className="relative overflow-hidden transition-all delay-50 hover:scale-101 hover:shadow-lg"
+            className="relative overflow-hidden p-5 transition-all delay-50 hover:scale-101 hover:shadow-lg"
           >
             <CardHeader>
               <div className="flex items-center space-x-2">
@@ -71,7 +32,7 @@ export const Features = () => {
               <CardTitle>{feature.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-base">{feature.description}</CardDescription>
+              <CardDescription className="w-full text-base">{feature.desc}</CardDescription>
             </CardContent>
           </Card>
         ))}
