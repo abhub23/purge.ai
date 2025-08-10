@@ -8,19 +8,30 @@
     "build": "tsc -b"
   },
   "dependencies": {
+    "@google/genai": "^1.11.0",
+    "@prisma/engine": "^1.0.18",
     "axios": "^1.10.0",
+    "better-auth": "^1.2.12",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
     "express": "^5.1.0",
-    "nodemon": "^3.1.10"
+    "helmet": "^8.1.0",
+    "nodemon": "^3.1.10",
+    "razorpay": "^2.9.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@prisma/client": "^6.11.1",
+    "@types/cookie-parser": "^1.4.9",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
-    "@types/node": "^20",
+    "@types/node": "^20.19.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "prisma": "^6.11.1",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   }
 }
