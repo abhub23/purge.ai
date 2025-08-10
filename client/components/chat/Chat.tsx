@@ -19,8 +19,7 @@ import { Send, ChevronDown, X, Check, Square } from 'lucide-react';
 import { categories, priorities, getPriorityColor, Midfooter } from '@/constants/chat_tools';
 import { useMutation } from '@tanstack/react-query';
 import api from '@/lib/axios';
-
-
+import AnimatedText from '../micro-interactions/Animatedtext';
 
 const ChatInput = () => {
   const [prompt, setPrompt] = useState('');
@@ -31,9 +30,9 @@ const ChatInput = () => {
 
   const { mutate, data, isPending, isSuccess } = useMutation({
     mutationFn: async (prompt: string) => {
-      const res = await api.post('/api/chat', { prompt })
-      return res.data
-    }
+      const res = await api.post('/api/chat', { prompt });
+      return res.data;
+    },
   });
 
   const handleCategorySelect = (value: string) => {
@@ -56,10 +55,7 @@ const ChatInput = () => {
     setSelectedPriorities((prev) => prev.filter((item) => item !== value));
   };
 
-
-  const handleStop = () => {
-
-  };
+  const handleStop = () => {};
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -70,7 +66,7 @@ const ChatInput = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
-      <div className="w-full max-w-3xl">
+      <div className={`${data ? 'fixed bottom-2 mx-auto' : ''} w-full max-w-3xl`}>
         <Card className="border border-slate-200 bg-white shadow-sm dark:bg-neutral-950">
           <div className="p-6 outline-none">
             {/* Selected Tags */}
@@ -127,7 +123,7 @@ const ChatInput = () => {
                 value={prompt}
                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setPrompt(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Describe your request or paste a GitHub PR URL..."
+                placeholder="Paste a GitHub PR URL"
                 className="min-h-[80px] resize-none rounded-lg border-slate-100 bg-white text-slate-900 placeholder:text-neutral-500 dark:bg-neutral-950 dark:text-white dark:placeholder:text-neutral-500"
               />
             </div>
@@ -143,9 +139,9 @@ const ChatInput = () => {
                       size="sm"
                       className="h-8 border-slate-200 bg-white text-xs text-neutral-700 hover:bg-neutral-50 dark:text-neutral-300"
                     >
-                      Category
+                      Filter
                       {selectedCategories.length > 0 && (
-                        <Badge className="ml-1 h-4 bg-slate-900 px-1 text-xs text-white">
+                        <Badge className="ml-1 lg:h-4 lg:w-4 rounded-full bg-neutral-900 dark:bg-neutral-100 pt-[3px] text-xs text-neutral-100 dark:text-neutral-900">
                           {selectedCategories.length}
                         </Badge>
                       )}
@@ -189,7 +185,7 @@ const ChatInput = () => {
                       size="sm"
                       className="h-8 border-slate-200 bg-white text-xs text-neutral-700 hover:bg-neutral-50 dark:text-neutral-300"
                     >
-                      Priority
+                      Extras
                       {selectedPriorities.length > 0 && (
                         <Badge className="ml-1 h-4 bg-slate-900 px-1 text-xs text-white">
                           {selectedPriorities.length}
@@ -256,8 +252,7 @@ const ChatInput = () => {
           </div>
         </Card>
 
-
-        <div className="mt-3 flex items-center justify-center gap-2">
+        <div className={`mt-3 flex items-center justify-center gap-2 ${data ? 'hidden': ''} `}>
           {Midfooter.map((el, idx) => (
             <Button
               key={idx}
@@ -270,16 +265,20 @@ const ChatInput = () => {
             </Button>
           ))}
         </div>
-        {isSuccess && (
-        <div>
-        <div className='text-black text-2xl'>{data.user}</div>
-        <div className='text-black text-2xl'> {data.bodyy}</div>
-
-        </div>
-      )}
       </div>
+      {isSuccess && (
+            <div className="text-justify lg:max-w-[780px] mx-auto w-full bg-red-300 lg:mt-[20px] ">
+            <div className=" text-neutral-950">
+              <AnimatedText
+                text={data.bodyy}
+                classname='"text-[10px] leading-tight font-light tracking-tighter md:text-xl lg:text-[16px] lg:leading-[1.1]"'
+                blur='8px'
+                stg={0.06}
+              />
+            </div>
+          </div>
+        )}
     </div>
-   
   );
 };
 
