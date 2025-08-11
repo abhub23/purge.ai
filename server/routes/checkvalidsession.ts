@@ -3,7 +3,7 @@ import { prisma } from "../lib/prisma";
 const router = express.Router()
 
 router.get('/', async (req: Request, res: any) => {
-  const fullCookie = req.cookies['better-auth.session_token'];
+  const fullCookie = req.cookies['better-auth.session_token'] as string;
 
   if (!fullCookie) {
     return res.json({
@@ -13,7 +13,7 @@ router.get('/', async (req: Request, res: any) => {
   }
 
   try {
-    const cookie = fullCookie.split('.')[0];
+    const cookie: string = fullCookie.split('.')[0];
 
     const valid = await prisma.session.findUnique({
       where: { token: cookie },
