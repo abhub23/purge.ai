@@ -1,5 +1,4 @@
-import express from "express";
-import type { Request, Response } from "express";
+import express, { type Request } from "express";
 import { prisma } from "../lib/prisma";
 const router = express.Router()
 
@@ -9,7 +8,7 @@ router.get('/', async (req: Request, res: any) => {
   if (!fullCookie) {
     return res.json({
       success: false,
-      message: 'Cookie not found by the server'
+      message: 'Auth Cookie was not sent to the server by client'
     });
   }
 
@@ -18,16 +17,15 @@ router.get('/', async (req: Request, res: any) => {
 
     const valid = await prisma.session.findUnique({
       where: { token: cookie },
-      include: {
+      select: {
         user: {
           select: {
             name: true
           },
         },
       },
-    });
 
-    const name = valid?.user.name.split(' ')[0]
+    });
 
     if (!valid) {
       return res.status(404).json({
@@ -36,6 +34,8 @@ router.get('/', async (req: Request, res: any) => {
       });
     }
 
+    const name = valid?.user.name[0]
+
     return res.status(200).json({
       success: true,
       message: 'Valid Session token',
@@ -43,7 +43,6 @@ router.get('/', async (req: Request, res: any) => {
     });
 
   } catch (error) {
-    console.error('Error occurred while finding session', error);
     return res.status(500).json({
       success: false,
       message: 'Server error while validating session'
