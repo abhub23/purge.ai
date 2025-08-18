@@ -5,33 +5,37 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon --exec ts-node index.ts",
-    "build": "tsc -b"
+    "build": "tsc -b",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@google/genai": "^1.11.0",
+    "@ai-sdk/google": "^2.0.6",
+    "@google/genai": "^1.14.0",
     "@prisma/engine": "^1.0.18",
-    "axios": "^1.10.0",
-    "better-auth": "^1.2.12",
+    "ai": "^5.0.15",
+    "axios": "^1.11.0",
+    "better-auth": "^1.3.7",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
-    "dotenv": "^17.0.1",
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "helmet": "^8.1.0",
     "nodemon": "^3.1.10",
-    "razorpay": "^2.9.6"
+    "razorpay": "^2.9.6",
+    "zod": "^4.0.17",
+    "@prisma/client": "^6.14.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@prisma/client": "^6.11.1",
+    "@eslint/eslintrc": "^3.3.1",
     "@types/cookie-parser": "^1.4.9",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
-    "@types/node": "^20.19.0",
-    "eslint": "^9",
+    "@types/node": "^20.19.11",
+    "eslint": "^9.33.0",
     "eslint-config-next": "15.3.2",
-    "prisma": "^6.11.1",
+    "prisma": "^6.14.0",
     "ts-node": "^10.9.2",
-    "tsx": "^4.20.3",
-    "typescript": "^5.8.3"
+    "tsx": "^4.20.4",
+    "typescript": "^5.9.2"
   }
 }
