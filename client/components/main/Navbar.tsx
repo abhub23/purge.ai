@@ -18,7 +18,7 @@ export const Navbar = () => {
   const { isOpen, setOpen } = useSignBox();
   const { setSignedin } = useIsSignedin();
 
-  const { data, isError, isLoading, isSuccess } = useQuery({
+  const { data, isError, isLoading, isSuccess, error } = useQuery({
     queryKey: ['checksignedin'],
     queryFn: async () => {
       const response = await api.get('/api/checkvalidsession');
@@ -56,12 +56,12 @@ export const Navbar = () => {
             >
               About
             </Link>
-            <Link
-              href="/docs"
-              className="hover:text-foreground/80 hover:bg-accent/80 text-foreground/60 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101"
+            <div
+              onClick={() => window.scrollTo({ top: 1000, behavior: 'smooth' })}
+              className="hover:text-foreground/80 hover:bg-accent/80 text-foreground/60 cursor-pointer rounded-md p-1.5 px-2.5 transition-colors hover:scale-101"
             >
-              Docs
-            </Link>
+              Features
+            </div>
             <Link
               href="/pricing"
               className="hover:text-foreground/80 hover:bg-accent/80 text-foreground/60 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101"
@@ -152,13 +152,6 @@ export const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
-              </Link>
-              <Link
-                href="/docs"
-                className="hover:text-foreground/80 text-foreground/60 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Docs
               </Link>
               <Link
                 href="/pricing"

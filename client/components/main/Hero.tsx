@@ -11,8 +11,8 @@ import R2L_AnimatedSVG from '../micro-interactions/R2L_AnimatedSVG';
 
 export const Hero = () => {
   return (
-    <section className="relative container flex flex-col items-center justify-center space-y-4 py-24 md:py-32">
-      <div className=" absolute inset-0 hidden lg:block">
+    <section className="relative flex flex-col items-center justify-center space-y-4 py-24 md:py-32 lg:mt-18">
+      <div className="absolute inset-0 hidden lg:block">
         <div className="flex justify-between px-10">
           <div className="flex flex-col gap-y-[400px] pt-10">
             <L2R_AnimatedSVG duration={2.7} />
@@ -43,7 +43,12 @@ export const Hero = () => {
         >
           🎉 <span className="ml-2">Introducing our new features</span>
         </motion.div>
-        <AnimatedText text="The most Comprehensive AI Assistant to review your PR" />
+        <AnimatedText
+          text="The most Comprehensive AI Assistant to review your PR"
+          classname="text-[26px] leading-tight font-bold tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]"
+          blur="30px"
+          stg={0.1}
+        />
         <motion.p
           initial={{ opacity: 0, y: 20, filter: 'blur(30px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -57,19 +62,21 @@ export const Hero = () => {
         initial={{ opacity: 0, y: 20, filter: 'blur(30px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.5, ease: easeInOut }}
-        className="relative flex flex-col gap-4 lg:flex-row mt-2"
+        className="relative mt-2 flex flex-col gap-4 lg:flex-row"
       >
         <Button
           size="lg"
-          className="bg-black rounded-4xl text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
+          className="rounded-4xl bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
           asChild
         >
-          <Link href="/chat">
-            Get Started
-            
-          </Link>
+          <Link href="/chat">Get Started</Link>
         </Button>
-        <Button variant="outline" size="lg" className='cursor-pointer rounded-4xl' onClick={GoogleSignOut}>
+        <Button
+          variant="outline"
+          size="lg"
+          className="cursor-pointer rounded-4xl"
+          onClick={GoogleSignOut}
+        >
           Try Assistant
         </Button>
       </motion.div>

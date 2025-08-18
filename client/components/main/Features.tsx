@@ -4,9 +4,9 @@ import { features } from '@/constants/features';
 
 export const Features = () => {
   return (
-    <section className="container py-24 md:py-32">
+    <section className="py-24 md:py-32">
       <div className="mx-auto flex max-w-[980px] flex-col items-center space-y-4 text-center">
-        <Badge variant="secondary" className="border">
+        <Badge variant="secondary" className="border py-1">
           Features
         </Badge>
         <h2 className="text-3xl leading-tight font-bold tracking-tighter md:text-5xl">
@@ -20,7 +20,7 @@ export const Features = () => {
         {features.map((feature, index) => (
           <Card
             key={index}
-            className="relative overflow-hidden p-5 transition-all delay-50 hover:scale-101 hover:shadow-lg"
+            className="relative overflow-hidden p-5 transition-all delay-50 hover:shadow-lg hover:scale-101"
           >
             <CardHeader>
               <div className="flex items-center space-x-2">
