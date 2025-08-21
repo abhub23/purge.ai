@@ -29,16 +29,17 @@ export const TIERS: PricingTier[] = [
     ],
     cta: 'Get started',
   },
+
   {
-    id: 'individuals',
-    name: 'Individuals',
+    id: 'pro',
+    name: 'Pro',
     price: {
       monthly: 8,
       yearly: 6,
     },
     description: 'Great for small Saas',
     features: [
-      'Unlimited phone calls',
+      '1000 Prompt Credits',
       '30 second checks',
       'Single-user account',
       '20 monitors',
@@ -47,23 +48,7 @@ export const TIERS: PricingTier[] = [
     cta: 'Purchase Plan',
     popular: true,
   },
-  {
-    id: 'teams',
-    name: 'Teams',
-    price: {
-      monthly: 12,
-      yearly: 10,
-    },
-    description: 'Great for large businesses',
-    features: [
-      'Unlimited phone calls',
-      '15 second checks',
-      'Single-user account',
-      '50 monitors',
-      'Up to 10 seats',
-    ],
-    cta: 'Coming Soon',
-  },
+
   {
     id: 'enterprise',
     name: 'Enterprise',
@@ -71,7 +56,7 @@ export const TIERS: PricingTier[] = [
       monthly: 'Custom',
       yearly: 'Custom',
     },
-    description: 'Great For multiple teams',
+    description: 'Great For teams',
     features: [
       'Everything in Organizations',
       'Up to 5 team members',
