@@ -24,8 +24,8 @@ export type MessageContentProps = HTMLAttributes<HTMLDivElement>;
 export const MessageContent = ({ children, className, ...props }: MessageContentProps) => (
   <div
     className={cn(
-      'text-foreground flex flex-col gap-2 overflow-hidden rounded-lg px-4 py-3 text-sm',
-      'group-[.is-user]:bg-primary group-[.is-user]:text-primary-foreground',
+      'flex flex-col gap-2 overflow-hidden rounded-md px-4 py-2 text-sm',
+      'group-[.is-user]:bg-secondary group-[.is-user]:text-foreground',
       'group-[.is-assistant]:bg-secondary group-[.is-assistant]:text-foreground',
       className
     )}
