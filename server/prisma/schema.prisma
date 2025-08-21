@@ -81,8 +81,7 @@ model TempUsers {
 
 enum PlanType {
   free
-  individual
-  team
+  pro
   custom
 }
 
