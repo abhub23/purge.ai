@@ -49,55 +49,6 @@
   }
 }
 
-/* Modern background patterns */
-.bg-grid-pattern {
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-.bg-grid-pattern::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 150px; /* Adjust fade height as needed */
-  background: linear-gradient(
-    to top,
-    white 0%,
-    rgba(255, 255, 255, 0.8) 20%,
-    rgba(255, 255, 255, 0.4) 50%,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 2; /* Above the bg-gradient-radial overlay */
-}
-
-.dark .bg-grid-pattern {
-  background-image:
-    linear-gradient(rgba(101, 94, 94, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(110, 104, 104, 0.1) 1px, transparent 1px);
-}
-
-.dark .bg-grid-pattern::after {
-  background: linear-gradient(
-    to top,
-    rgba(10, 10, 10, 0.8) 0%,
-    rgba(10, 10, 10, 0.6) 20%,
-    rgba(10, 10, 10, 0.4) 50%,
-    transparent 100%
-  );
-}
-
-.bg-gradient-radial {
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.02) 0%, transparent 70%);
-}
-
-.dark .bg-gradient-radial {
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
-}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
