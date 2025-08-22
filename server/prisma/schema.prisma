@@ -73,7 +73,7 @@ model TempUsers {
   ipAddress String
   expiresAt DateTime
   createdAt DateTime @default(now())
-  credits   Int      @default(3)
+  credits   Int      @default(5)
 
   @@index([ipAddress])
   @@map("temp_users")
@@ -88,7 +88,7 @@ enum PlanType {
 model Plan {
   id        String   @id @default(cuid())
   type      PlanType @default(free)
-  credits   Int      @default(5)
+  credits   Int      @default(20)
   expiresAt DateTime
   createdAt DateTime @default(now())
   user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
