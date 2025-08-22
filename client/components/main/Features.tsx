@@ -20,7 +20,7 @@ export const Features = () => {
         {features.map((feature, index) => (
           <Card
             key={index}
-            className="relative overflow-hidden p-5 transition-all delay-50 hover:shadow-lg hover:scale-101"
+            className="relative overflow-hidden p-5 transition-all delay-50 hover:scale-101 hover:shadow-lg"
           >
             <CardHeader>
               <div className="flex items-center space-x-2">
