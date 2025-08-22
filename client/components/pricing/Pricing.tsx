@@ -3,7 +3,7 @@
 import { PricingCard } from '@/components/pricing/PricingCard';
 import { PricingHeader } from '@/components/pricing/PricingHeader';
 import { PAYMENT_FREQUENCIES, TIERS } from '@/constants/price';
-import { easeInOut, motion } from 'motion/react';
+import { motion } from 'motion/react';
 import { useState } from 'react';
 import Signin from '../auth/Signin';
 import { useSignBox } from '@/store/AuthStates';
@@ -17,9 +17,9 @@ export const Pricing = () => {
       {isOpen && <Signin />}
       {/* Section Header */}
       <motion.div
-        initial={{ opacity: 0, x: -30, filter: 'blur(4px)' }}
-        animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-        transition={{ duration: 0.5, ease: easeInOut }}
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
       >
         <PricingHeader
           title="Plans and Pricing"
@@ -32,10 +32,10 @@ export const Pricing = () => {
 
       {/* Pricing Cards */}
       <motion.div
-        initial={{ opacity: 0, x: 30, filter: 'blur(4px)' }}
-        animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-        transition={{ duration: 0.5, ease: easeInOut }}
-        className="grid w-full max-w-6xl gap-6 sm:grid-cols-2 xl:grid-cols-4"
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
+        className="grid w-full max-w-6xl gap-6 sm:grid-cols-2 xl:grid-cols-3"
       >
         {TIERS.map((tier, idx) => (
           <PricingCard key={idx} tier={tier} paymentFrequency={selectedPaymentFreq} />

@@ -2,12 +2,12 @@
 
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { Button } from '@/components/ui/button';
 import NumberFlow from '@number-flow/react';
 import { BadgeCheck } from 'lucide-react';
 import { PricingTier } from '@/constants/price';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useMutation } from '@tanstack/react-query';
 import { useIsSignedin, useSignBox } from '@/store/AuthStates';
 import api from '@/lib/axios';
@@ -20,45 +20,75 @@ type PricingCardtype = {
 
 export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => {
   const price = tier.price[paymentFrequency];
+  const plan_id = tier.id;
   const isHighlighted = tier.highlighted as boolean;
   const isPopular = tier.popular;
 
   const { setOpen } = useSignBox();
-  const [id, setId] = useState<any>();
 
   const router = useRouter();
   const { isSignedin } = useIsSignedin();
 
-  const mut = useMutation({
-    mutationFn: async (amount: number) => {
-      const response = await api.post('/api/orderpay', { amount });
-      return response.data;
+  type CreateOrderVariables = { plan_id: string; price: number };
+
+  const { mutate } = useMutation<any, Error, CreateOrderVariables>({
+    mutationFn: async ({ plan_id, price }) => {
+      const response = await api.post('/api/orderpay', { plan_id, price });
+      return response.data.order;
     },
-    onSuccess: (data) => setId(data),
-    onError(error) {
-      console.log('error is', error);
+    onSuccess: async (order) => {
+      const options = {
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+        amount: order.amount,
+        currency: order.currency,
+        name: 'Your Company',
+        description: 'Payment',
+        order_id: order.id,
+        handler: async function (response: any) {
+          try {
+            // 3️⃣ Verify payment
+            await api.post('/api/verifypayment', {
+              ...response,
+              orderId: order.id,
+            });
+            alert('Payment successful!');
+          } catch (err) {
+            console.error('Verification failed', err);
+            alert('Payment verification failed');
+          }
+        },
+        prefill: {
+          name: 'Customer Name',
+          email: 'customer@example.com',
+          contact: '9999999999',
+        },
+        theme: { color: '#3399cc' },
+      };
+
+      const rzp = new (window as any).Razorpay(options);
+      rzp.open();
+    },
+    onError: (err) => {
+      console.error('Order creation failed', err);
+      toast.error('Order creation failed');
     },
   });
 
-  const handlePurchase = (amount: number | string) => {
-    if (price == 'Free') {
+  const handlePurchase = (plan_id: string, price: number | string) => {
+    if (plan_id == 'trial') {
       isSignedin ? router.push('/chat') : router.push('/');
-    } else if (price == 'Custom') {
+    } else if (plan_id == 'enterprise') {
       window.open(
         'https://mail.google.com/mail/?view=cm&to=abdullahmukri25@gmail.com&su=Custom%20Purchase%20Subscription'
       );
     } else if (!isSignedin) {
       setOpen(true);
     } else {
-      mut.mutate(amount as number);
+      if (typeof price === 'number') {
+        mutate({ plan_id, price });
+      }
     }
   };
-
-  useEffect(() => {
-    if (id) {
-      console.log('is is', id);
-    }
-  }, [id]);
 
   return (
     <div
@@ -93,7 +123,6 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
               value={price}
               className="text-4xl font-medium"
             />
-            <p className="-mt-2 text-xs font-medium">Per month/user</p>
           </>
         ) : (
           <h1 className="text-4xl font-medium">{price}</h1>
@@ -126,7 +155,7 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
           if (tier.cta == 'Coming Soon') {
             toast.error('Coming Soon');
           } else {
-            handlePurchase(price);
+            handlePurchase(plan_id, price);
           }
         }}
         className={cn(
