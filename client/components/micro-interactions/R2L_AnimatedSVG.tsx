@@ -18,8 +18,8 @@ const R2L_AnimatedSVG: FC<AnimationType> = ({ duration }) => {
       width={width}
       height={height}
       viewBox={`0 0 ${width} ${height}`}
-      fill="none"
-      xmlns="https://www.w3.org/2000/svg"
+      fill='none'
+      xmlns='https://www.w3.org/2000/svg'
     >
       <motion.path d={Path} stroke={`url(#${gradientId})`} />
 
@@ -45,11 +45,11 @@ const R2L_AnimatedSVG: FC<AnimationType> = ({ duration }) => {
             repeat: Infinity,
           }}
           id={gradientId}
-          gradientUnits="userSpaceOnUse"
+          gradientUnits='userSpaceOnUse'
         >
-          <stop stopColor="#2EB9DF" stopOpacity={0} />
-          <stop stopColor="#2EB9DF" />
-          <stop stopColor="#9E00FF" stopOpacity={0} offset={1} />
+          <stop stopColor='#2EB9DF' stopOpacity={0} />
+          <stop stopColor='#2EB9DF' />
+          <stop stopColor='#9E00FF' stopOpacity={0} offset={1} />
         </motion.linearGradient>
       </defs>
     </svg>
