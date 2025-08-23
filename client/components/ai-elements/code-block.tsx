@@ -39,7 +39,7 @@ export const CodeBlock = ({
       )}
       {...props}
     >
-      <div className="relative">
+      <div className='relative'>
         <SyntaxHighlighter
           language={language}
           style={oneLight}
@@ -59,7 +59,7 @@ export const CodeBlock = ({
           codeTagProps={{
             className: 'font-mono text-sm',
           }}
-          className="overflow-hidden dark:hidden"
+          className='overflow-hidden dark:hidden'
         >
           {code}
         </SyntaxHighlighter>
@@ -82,12 +82,12 @@ export const CodeBlock = ({
           codeTagProps={{
             className: 'font-mono text-sm',
           }}
-          className="hidden overflow-hidden dark:block"
+          className='hidden overflow-hidden dark:block'
         >
           {code}
         </SyntaxHighlighter>
         {children && (
-          <div className="absolute top-2 right-2 flex items-center gap-2">{children}</div>
+          <div className='absolute top-2 right-2 flex items-center gap-2'>{children}</div>
         )}
       </div>
     </div>
@@ -133,8 +133,8 @@ export const CodeBlockCopyButton = ({
     <Button
       className={cn('shrink-0', className)}
       onClick={copyToClipboard}
-      size="icon"
-      variant="ghost"
+      size='icon'
+      variant='ghost'
       {...props}
     >
       {children ?? <Icon size={14} />}

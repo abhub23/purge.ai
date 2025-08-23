@@ -20,7 +20,7 @@ export type PromptInputProps = HTMLAttributes<HTMLFormElement>;
 export const PromptInput = ({ className, ...props }: PromptInputProps) => (
   <form
     className={cn(
-      'bg-background w-full divide-y overflow-hidden rounded-xl border shadow-sm',
+      'mx-auto w-80 divide-y overflow-hidden rounded-xl border-2 border-neutral-500 p-3 shadow-sm lg:w-180',
       className
     )}
     {...props}
@@ -59,12 +59,12 @@ export const PromptInputTextarea = ({
   return (
     <Textarea
       className={cn(
-        'w-full resize-none rounded-none border-none p-3 shadow-none ring-0 outline-none',
-        'field-sizing-content max-h-[6lh] bg-transparent dark:bg-transparent',
+        'w-full resize-none rounded-none border-none p-3 text-xs shadow-none ring-0 outline-none',
+        'field-sizing-content max-h-[6lh] dark:bg-neutral-900',
         'focus-visible:ring-0',
         className
       )}
-      name="message"
+      name='message'
       onChange={(e) => {
         onChange?.(e);
       }}
@@ -84,14 +84,10 @@ export const PromptInputToolbar = ({ className, ...props }: PromptInputToolbarPr
 export type PromptInputToolsProps = HTMLAttributes<HTMLDivElement>;
 
 export const PromptInputTools = ({ className, ...props }: PromptInputToolsProps) => (
-  <div
-    className={cn('flex items-center gap-1', '[&_button:first-child]:rounded-bl-xl', className)}
-    {...props}
-  />
+  <div className={cn('flex items-center gap-1', className)} {...props} />
 );
 
 export type PromptInputButtonProps = ComponentProps<typeof Button>;
-
 export const PromptInputButton = ({
   variant = 'ghost',
   className,
@@ -109,7 +105,7 @@ export const PromptInputButton = ({
         className
       )}
       size={newSize}
-      type="button"
+      type='button'
       variant={variant}
       {...props}
     />
@@ -122,28 +118,28 @@ export type PromptInputSubmitProps = ComponentProps<typeof Button> & {
 
 export const PromptInputSubmit = ({
   className,
-  variant = 'default',
   size = 'icon',
   status,
   children,
   ...props
 }: PromptInputSubmitProps) => {
-  let Icon = <Send className="size-4" />;
+  let Icon = <Send className='size-4' />;
 
   if (status === 'submitted') {
-    Icon = <Loader2Icon className="size-4 animate-spin" />;
+    Icon = <Loader2Icon className='size-4 animate-spin' />;
   } else if (status === 'streaming') {
-    Icon = <SquareIcon className="size-4" />;
+    Icon = <SquareIcon className='size-4' />;
   } else if (status === 'error') {
-    Icon = <XIcon className="size-4" />;
+    Icon = <XIcon className='size-4' />;
   }
 
   return (
     <Button
-      className={cn('gap-1.5 rounded-lg', className)}
+      className={cn(
+        'h-8 cursor-pointer rounded-lg bg-neutral-500 px-2 text-xl text-neutral-100 hover:bg-neutral-500 hover:text-neutral-100 disabled:opacity-70'
+      )}
       size={size}
-      type="submit"
-      variant={variant}
+      type='submit'
       {...props}
     >
       {children ?? Icon}

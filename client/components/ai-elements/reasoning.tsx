@@ -117,7 +117,7 @@ export const ReasoningTrigger = memo(
       >
         {children ?? (
           <>
-            <BrainIcon className="size-4" />
+            <BrainIcon className='size-4' />
             {isStreaming || duration === 0 ? (
               <p>Thinking...</p>
             ) : (
@@ -149,7 +149,7 @@ export const ReasoningContent = memo(({ className, children, ...props }: Reasoni
     )}
     {...props}
   >
-    <Response className="grid gap-2">{children}</Response>
+    <Response className='grid gap-2'>{children}</Response>
   </CollapsibleContent>
 ));
 

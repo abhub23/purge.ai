@@ -92,9 +92,9 @@ export const WebPreviewNavigationButton = ({
     <Tooltip>
       <TooltipTrigger asChild>
         <Button
-          variant="ghost"
-          size="sm"
-          className="hover:text-foreground h-8 w-8 p-0"
+          variant='ghost'
+          size='sm'
+          className='hover:text-foreground h-8 w-8 p-0'
           onClick={onClick}
           disabled={disabled}
           {...props}
@@ -124,8 +124,8 @@ export const WebPreviewUrl = ({ value, onChange, onKeyDown, ...props }: WebPrevi
 
   return (
     <Input
-      className="h-8 flex-1 text-sm"
-      placeholder="Enter URL..."
+      className='h-8 flex-1 text-sm'
+      placeholder='Enter URL...'
       value={value ?? url}
       onChange={onChange}
       onKeyDown={handleKeyDown}
@@ -142,12 +142,12 @@ export const WebPreviewBody = ({ className, loading, src, ...props }: WebPreview
   const { url } = useWebPreview();
 
   return (
-    <div className="flex-1">
+    <div className='flex-1'>
       <iframe
         className={cn('size-full', className)}
         src={src ?? url}
-        title="Preview"
-        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation"
+        title='Preview'
+        sandbox='allow-scripts allow-same-origin allow-forms allow-popups allow-presentation'
         {...props}
       />
       {loading}
@@ -180,8 +180,8 @@ export const WebPreviewConsole = ({
     >
       <CollapsibleTrigger asChild>
         <Button
-          variant="ghost"
-          className="hover:bg-muted/50 flex w-full items-center justify-between p-4 text-left font-medium"
+          variant='ghost'
+          className='hover:bg-muted/50 flex w-full items-center justify-between p-4 text-left font-medium'
         >
           Console
           <ChevronDownIcon
@@ -195,9 +195,9 @@ export const WebPreviewConsole = ({
           'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 outline-none'
         )}
       >
-        <div className="max-h-48 space-y-1 overflow-y-auto">
+        <div className='max-h-48 space-y-1 overflow-y-auto'>
           {logs.length === 0 ? (
-            <p className="text-muted-foreground">No console output</p>
+            <p className='text-muted-foreground'>No console output</p>
           ) : (
             logs.map((log, index) => (
               <div
@@ -209,7 +209,7 @@ export const WebPreviewConsole = ({
                   log.level === 'log' && 'text-foreground'
                 )}
               >
-                <span className="text-muted-foreground">{log.timestamp.toLocaleTimeString()}</span>{' '}
+                <span className='text-muted-foreground'>{log.timestamp.toLocaleTimeString()}</span>{' '}
                 {log.message}
               </div>
             ))

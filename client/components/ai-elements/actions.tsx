@@ -31,12 +31,12 @@ export const Action = ({
     <Button
       className={cn('text-muted-foreground hover:text-foreground size-9 p-1.5', className)}
       size={size}
-      type="button"
+      type='button'
       variant={variant}
       {...props}
     >
       {children}
-      <span className="sr-only">{label || tooltip}</span>
+      <span className='sr-only'>{label || tooltip}</span>
     </Button>
   );
 

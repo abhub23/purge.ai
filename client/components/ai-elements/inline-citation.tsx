@@ -36,7 +36,7 @@ export const InlineCitationCardTrigger = ({
   ...props
 }: InlineCitationCardTriggerProps) => (
   <HoverCardTrigger asChild>
-    <Badge variant="secondary" className={cn('ml-1 rounded-full', className)} {...props}>
+    <Badge variant='secondary' className={cn('ml-1 rounded-full', className)} {...props}>
       {sources.length ? (
         <>
           {new URL(sources[0]).hostname} {sources.length > 1 && `+${sources.length - 1}`}
@@ -143,13 +143,13 @@ export const InlineCitationCarouselPrev = ({
 
   return (
     <button
-      type="button"
+      type='button'
       className={cn('shrink-0', className)}
       onClick={handleClick}
-      aria-label="Previous"
+      aria-label='Previous'
       {...props}
     >
-      <ArrowLeftIcon className="text-muted-foreground size-4" />
+      <ArrowLeftIcon className='text-muted-foreground size-4' />
     </button>
   );
 };
@@ -170,13 +170,13 @@ export const InlineCitationCarouselNext = ({
 
   return (
     <button
-      type="button"
+      type='button'
       className={cn('shrink-0', className)}
       onClick={handleClick}
-      aria-label="Next"
+      aria-label='Next'
       {...props}
     >
-      <ArrowRightIcon className="text-muted-foreground size-4" />
+      <ArrowRightIcon className='text-muted-foreground size-4' />
     </button>
   );
 };
@@ -196,10 +196,10 @@ export const InlineCitationSource = ({
   ...props
 }: InlineCitationSourceProps) => (
   <div className={cn('space-y-1', className)} {...props}>
-    {title && <h4 className="truncate text-sm leading-tight font-medium">{title}</h4>}
-    {url && <p className="text-muted-foreground truncate text-xs break-all">{url}</p>}
+    {title && <h4 className='truncate text-sm leading-tight font-medium'>{title}</h4>}
+    {url && <p className='text-muted-foreground truncate text-xs break-all'>{url}</p>}
     {description && (
-      <p className="text-muted-foreground line-clamp-3 text-sm leading-relaxed">{description}</p>
+      <p className='text-muted-foreground line-clamp-3 text-sm leading-relaxed'>{description}</p>
     )}
     {children}
   </div>

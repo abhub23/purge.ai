@@ -18,12 +18,12 @@ export const Tab = ({ text, selected, setSelected, discount = false }: TabProps)
         discount && 'flex items-center justify-center gap-2.5'
       )}
     >
-      <span className="relative z-10">{text}</span>
+      <span className='relative z-10'>{text}</span>
       {selected && (
         <motion.span
-          layoutId="tab"
+          layoutId='tab'
           transition={{ type: 'spring', duration: 0.4 }}
-          className="bg-background absolute inset-0 z-0 rounded-full shadow-sm"
+          className='bg-background absolute inset-0 z-0 rounded-full shadow-sm'
         ></motion.span>
       )}
       {discount && (

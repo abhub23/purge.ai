@@ -31,7 +31,7 @@ export const MessageContent = ({ children, className, ...props }: MessageContent
     )}
     {...props}
   >
-    <div className="is-user:dark">{children}</div>
+    <div className='is-user:dark'>{children}</div>
   </div>
 );
 
@@ -42,7 +42,7 @@ export type MessageAvatarProps = ComponentProps<typeof Avatar> & {
 
 export const MessageAvatar = ({ src, name, className, ...props }: MessageAvatarProps) => (
   <Avatar className={cn('ring-border size-8 ring ring-1', className)} {...props}>
-    <AvatarImage alt="" className="mt-0 mb-0" src={src} />
+    <AvatarImage alt='' className='mt-0 mb-0' src={src} />
     <AvatarFallback>{name?.slice(0, 2) || 'ME'}</AvatarFallback>
   </Avatar>
 );

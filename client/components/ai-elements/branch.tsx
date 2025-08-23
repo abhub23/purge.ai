@@ -126,7 +126,7 @@ export const BranchPrevious = ({ className, children, ...props }: BranchPrevious
 
   return (
     <Button
-      aria-label="Previous branch"
+      aria-label='Previous branch'
       className={cn(
         'text-muted-foreground size-7 shrink-0 rounded-full transition-colors',
         'hover:bg-accent hover:text-foreground',
@@ -135,9 +135,9 @@ export const BranchPrevious = ({ className, children, ...props }: BranchPrevious
       )}
       disabled={totalBranches <= 1}
       onClick={goToPrevious}
-      size="icon"
-      type="button"
-      variant="ghost"
+      size='icon'
+      type='button'
+      variant='ghost'
       {...props}
     >
       {children ?? <ChevronLeftIcon size={14} />}
@@ -152,7 +152,7 @@ export const BranchNext = ({ className, children, ...props }: BranchNextProps) =
 
   return (
     <Button
-      aria-label="Next branch"
+      aria-label='Next branch'
       className={cn(
         'text-muted-foreground size-7 shrink-0 rounded-full transition-colors',
         'hover:bg-accent hover:text-foreground',
@@ -161,9 +161,9 @@ export const BranchNext = ({ className, children, ...props }: BranchNextProps) =
       )}
       disabled={totalBranches <= 1}
       onClick={goToNext}
-      size="icon"
-      type="button"
-      variant="ghost"
+      size='icon'
+      type='button'
+      variant='ghost'
       {...props}
     >
       {children ?? <ChevronRightIcon size={14} />}
