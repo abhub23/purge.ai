@@ -12,12 +12,12 @@ export const Footer = () => {
 
   return (
     <footer className='bg-background border-t'>
-      <div className='px-4 py-8 md:py-8'>
-        <div className='grid grid-cols-2 gap-8 md:grid-cols-4 lg:mx-[100px]'>
+      <div className='px-4 py-8 lg:py-8'>
+        <div className='grid grid-cols-2 gap-8 lg:grid-cols-4 lg:mx-[100px]'>
           {/* Brand Section */}
           <div className='space-y-4'>
             <div className='flex items-center space-x-2'>
-              <Image src={'/purgeailogo.webp'} alt='aa' height={30} width={30} />
+              <Image src={'/purgeailogo.webp'} alt='footer' height={30} width={30} />
               <span className='text-lg font-bold'>PurgeAI</span>
             </div>
             <p className='text-muted-foreground max-w-xs text-sm'>
