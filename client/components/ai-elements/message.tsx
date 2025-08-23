@@ -25,8 +25,8 @@ export const MessageContent = ({ children, className, ...props }: MessageContent
   <div
     className={cn(
       'flex flex-col gap-80 overflow-hidden rounded-md px-4 py-2 text-sm',
-      'group-[.is-user]:bg-secondary group-[.is-user]:text-foreground',
-      'group-[.is-assistant]:text-foreground group-[.is-assistant]:bg-transparent',
+      'group-[.is-user]:bg-neutral-800 group-[.is-user]:text-neutral-100',
+      'group-[.is-assistant]:text-neutral-100 group-[.is-assistant]:bg-transparent',
       className
     )}
     {...props}

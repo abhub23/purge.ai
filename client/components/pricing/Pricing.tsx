@@ -13,7 +13,7 @@ export const Pricing = () => {
   const { isOpen } = useSignBox();
 
   return (
-    <section className="flex flex-col items-center gap-10 py-10">
+    <section className='flex flex-col items-center gap-10 py-10'>
       {isOpen && <Signin />}
       {/* Section Header */}
       <motion.div
@@ -22,8 +22,8 @@ export const Pricing = () => {
         transition={{ duration: 0.5, ease: 'easeInOut' }}
       >
         <PricingHeader
-          title="Plans and Pricing"
-          subtitle="Receive unlimited credits when you pay yearly, and save on your plan."
+          title='Plans and Pricing'
+          subtitle='Receive unlimited credits when you pay yearly, and save on your plan.'
           frequencies={PAYMENT_FREQUENCIES}
           selectedFrequency={selectedPaymentFreq}
           onFrequencyChange={setSelectedPaymentFreq}
@@ -35,7 +35,7 @@ export const Pricing = () => {
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
-        className="grid w-full max-w-6xl gap-6 sm:grid-cols-2 xl:grid-cols-3"
+        className='grid w-full max-w-6xl gap-6 sm:grid-cols-2 xl:grid-cols-3'
       >
         {TIERS.map((tier, idx) => (
           <PricingCard key={idx} tier={tier} paymentFrequency={selectedPaymentFreq} />

@@ -41,7 +41,7 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
         amount: order.amount,
         currency: order.currency,
-        name: 'Your Company',
+        name: 'PurgeAI',
         description: 'Payment',
         order_id: order.id,
         handler: async function (response: any) {
@@ -103,15 +103,15 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
       {isPopular && <PopularBackground />}
 
       {/* Card Header */}
-      <h2 className="flex items-center gap-3 text-[24px] font-medium">
+      <h2 className='flex items-center gap-3 text-[24px] font-medium'>
         {tier.name}
         {isPopular && (
-          <Badge className="bg-fuchsia-800 px-[6px] py-[1px] text-white">🔥Popular</Badge>
+          <Badge className='bg-fuchsia-800 px-[6px] py-[1px] text-white'>🔥Popular</Badge>
         )}
       </h2>
 
       {/* Price Section */}
-      <div className="relative h-12">
+      <div className='relative h-12'>
         {typeof price === 'number' ? (
           <>
             <NumberFlow
@@ -121,18 +121,18 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
                 trailingZeroDisplay: 'stripIfInteger',
               }}
               value={price}
-              className="text-4xl font-medium"
+              className='text-4xl font-medium'
             />
           </>
         ) : (
-          <h1 className="text-4xl font-medium">{price}</h1>
+          <h1 className='text-4xl font-medium'>{price}</h1>
         )}
       </div>
 
       {/* Features */}
-      <div className="flex-1 space-y-2">
-        <h3 className="text-sm font-medium">{tier.description}</h3>
-        <ul className="space-y-2">
+      <div className='flex-1 space-y-2'>
+        <h3 className='text-sm font-medium'>{tier.description}</h3>
+        <ul className='space-y-2'>
           {tier.features.map((feature, index) => (
             <li
               key={index}
@@ -150,7 +150,7 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
 
       {/* Call to Action Button */}
       <Button
-        variant="default"
+        variant='default'
         onClick={() => {
           if (tier.cta == 'Coming Soon') {
             toast.error('Coming Soon');
@@ -171,10 +171,10 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
 
 // Highlighted Background Component
 const HighlightedBackground = () => (
-  <div className="absolute inset-0 z-0 opacity-100 dark:opacity-30" />
+  <div className='absolute inset-0 z-0 opacity-100 dark:opacity-30' />
 );
 
 // Popular Background Component
 const PopularBackground = () => (
-  <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
+  <div className='absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]' />
 );

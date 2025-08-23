@@ -13,14 +13,14 @@ export const ToggleTheme: React.FC = () => {
 
   return (
     <span
-      className="flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-[12px] hover:bg-zinc-100 lg:h-[36px] lg:w-[36px] dark:text-white dark:hover:bg-zinc-800"
+      className='flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-[12px] hover:bg-zinc-100 lg:h-[36px] lg:w-[36px] dark:text-white dark:hover:bg-zinc-800'
       onClick={toggleTheme}
     >
       <SafeRender>
         {theme == 'light' ? (
-          <Moon className="h-[18px] w-[18px]" />
+          <Moon className='h-[18px] w-[18px]' />
         ) : (
-          <Sun className="h-[18px] w-[18px]" />
+          <Sun className='h-[18px] w-[18px]' />
         )}
       </SafeRender>
     </span>

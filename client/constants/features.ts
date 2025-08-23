@@ -10,7 +10,7 @@ export const features: FeatureTypes[] = [
   {
     icon: Zap,
     title: 'Blazingly Fast',
-    desc: 'Built with performance in mind. .',
+    desc: 'Built with performance in mind and blazing fast result throughput.',
     badge: 'Performance',
   },
   {
@@ -22,7 +22,7 @@ export const features: FeatureTypes[] = [
   {
     icon: Terminal,
     title: 'Customizable',
-    desc: 'Easily customize colors, fonts, and layouts to match your brand.',
+    desc: 'Easily customizable Insights and Modes, alligned with your requirements.',
     badge: 'Prompt',
   },
   {
@@ -33,8 +33,8 @@ export const features: FeatureTypes[] = [
   },
   {
     icon: BotMessageSquare,
-    title: 'SEO Optimized',
-    desc: 'Built-in SEO best practices to help your site rank better.',
+    title: 'Optimized Context',
+    desc: 'Built-in context optimization for long conversation and deep research',
     badge: 'SEO',
   },
   {

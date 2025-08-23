@@ -25,7 +25,7 @@ export const TIERS: PricingTier[] = [
       'Indepth Knowledge of PRs',
       'Limited access to Insights',
       'Limited access to Modes',
-      'Basic Models results and review'
+      'Basic Models results and review',
     ],
     cta: 'Get started',
   },

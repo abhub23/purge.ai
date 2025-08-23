@@ -1,33 +1,26 @@
-import {
-  Code,
-  FileText,
-  Settings,
-  BarChart3,
-  MessageSquare,
-} from 'lucide-react';
+import { Code, FileText, BarChart3, MessageSquare } from 'lucide-react';
 
-type CategoryType = {
+type InsightType = {
   value: string;
   label: string;
   icon: React.ElementType;
 };
 
-export const categories: CategoryType[] = [
+export const insights: InsightType[] = [
+  { value: 'general', label: 'General', icon: MessageSquare },
   { value: 'code-review', label: 'Code Review', icon: Code },
   { value: 'documentation', label: 'Documentation', icon: FileText },
-  { value: 'testing', label: 'Testing', icon: Settings },
   { value: 'analytics', label: 'Analytics', icon: BarChart3 },
-  { value: 'general', label: 'General', icon: MessageSquare },
 ];
 
-export const priorities: Record<string, string>[] = [
+export const mode: Record<string, string>[] = [
   { value: 'summary', label: 'Summary Mode' },
   { value: 'reviewer', label: 'Reviewer Mode' },
   { value: 'explainer', label: 'Explainer Mode' },
   { value: 'deepdive', label: 'Deep Dive Mode' },
 ];
 
-export const getPriorityColor = (priority: string) => {
+export const getModeColor = (priority: string) => {
   switch (priority) {
     case 'summary':
       return 'bg-slate-100 text-slate-700';

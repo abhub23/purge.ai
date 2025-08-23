@@ -10,7 +10,7 @@ const Signin = () => {
   return (
     <>
       <Dialog open={isOpen} onOpenChange={setOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className='sm:max-w-[425px]'>
           <DialogTitle>Sign In with Socials</DialogTitle>
           <GoogleButton onClick={GoogleSignIn} />
           <GithubButton onClick={() => toast.error('Coming soon, stay tuned.')} />

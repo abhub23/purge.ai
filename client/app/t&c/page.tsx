@@ -15,11 +15,10 @@ const terms: string[] = [
 
 const Terms = () => {
   return (
-    <div className='lg:max-w-4xl max-w-[328px] mx-auto'>
-      <LegalCard name="Terms & Conditions" values={terms} />
+    <div className='mx-auto max-w-[328px] lg:max-w-4xl'>
+      <LegalCard name='Terms & Conditions' values={terms} />
     </div>
-  )
-
+  );
 };
 
 export default Terms;

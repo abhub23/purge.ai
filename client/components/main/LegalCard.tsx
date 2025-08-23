@@ -19,13 +19,13 @@ const LegalCard: FC<LegalCardType> = ({ name, values }) => {
       >
         {name}
       </motion.div>
-      <ul className="mt-6 flex list-disc flex-col items-start justify-start gap-y-4 text-justify text-[9.5px] font-light lg:mx-auto lg:mt-[30px] lg:text-[16px]">
+      <ul className='mt-6 flex list-disc flex-col items-start justify-start gap-y-4 text-justify text-[9.5px] font-light lg:mx-auto lg:mt-[30px] lg:text-[16px]'>
         {values.map((val, idx) => (
           <motion.li
             key={idx}
             {...Animation}
             transition={Transition(idx * 0.05)}
-            className="pl-[1px] [-text-indent:1.25rem]"
+            className='pl-[1px] [-text-indent:1.25rem]'
           >
             {val}
           </motion.li>

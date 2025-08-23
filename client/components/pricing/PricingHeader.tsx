@@ -16,12 +16,12 @@ export const PricingHeader: FC<Headertype> = ({
   selectedFrequency,
   onFrequencyChange,
 }) => (
-  <div className="space-y-7 text-center">
-    <div className="space-y-4">
-      <h1 className="text-4xl font-medium lg:text-5xl">{title}</h1>
-      <p className="mx-2">{subtitle}</p>
+  <div className='space-y-7 text-center'>
+    <div className='space-y-4'>
+      <h1 className='text-4xl font-medium lg:text-5xl'>{title}</h1>
+      <p className='mx-2'>{subtitle}</p>
     </div>
-    <div className="mx-auto flex w-fit rounded-full bg-[#F3F4F6] p-1 dark:bg-[#222]">
+    <div className='mx-auto flex w-fit rounded-full bg-[#F3F4F6] p-1 dark:bg-[#222]'>
       {frequencies.map((freq) => (
         <Tab
           key={freq}

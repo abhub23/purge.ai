@@ -84,9 +84,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning>
       <body className={`${Bricolage}`}>
-        <script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
+        <script src='https://checkout.razorpay.com/v1/checkout.js' async></script>
         <ThemeProvider attribute={'class'}>
           <QueryProvider>{children}</QueryProvider>
           <Toaster />
