@@ -14,7 +14,12 @@ const terms: string[] = [
 ];
 
 const Terms = () => {
-  return <LegalCard name="Terms & Conditions" values={terms} />;
+  return (
+    <div className='lg:max-w-4xl max-w-[328px] mx-auto'>
+      <LegalCard name="Terms & Conditions" values={terms} />
+    </div>
+  )
+
 };
 
 export default Terms;
