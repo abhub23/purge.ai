@@ -34,7 +34,7 @@ router.get('/', async (req: Request, res: any) => {
       });
     }
 
-    const name = valid?.user.name[0]
+    const name = valid?.user.name.split(' ')[0]
 
     return res.status(200).json({
       success: true,
