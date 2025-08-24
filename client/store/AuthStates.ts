@@ -1,4 +1,3 @@
-import { BlobOptions } from 'buffer';
 import { create } from 'zustand';
 
 type Signintype = {

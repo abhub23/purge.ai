@@ -10,7 +10,7 @@ const authClient = createAuthClient({
 export const GoogleSignIn = async () => {
   await authClient.signIn.social({
     provider: 'google',
-    callbackURL: ' http://localhost:3000', //redirects to this URL after successful sign in
+    callbackURL: 'http://localhost:3000', //redirects to this URL after successful sign in
   });
 };
 

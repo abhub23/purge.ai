@@ -42,11 +42,10 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
         amount: order.amount,
         currency: order.currency,
         name: 'PurgeAI',
-        description: 'Payment',
+        description: 'PurgeAi Payment',
         order_id: order.id,
         handler: async function (response: any) {
           try {
-            // 3️⃣ Verify payment
             await api.post('/api/verifypayment', {
               ...response,
               orderId: order.id,
@@ -58,9 +57,9 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
           }
         },
         prefill: {
-          name: 'Customer Name',
-          email: 'customer@example.com',
-          contact: '9999999999',
+          name: '',
+          email: '',
+          contact: '',
         },
         theme: { color: '#3399cc' },
       };
