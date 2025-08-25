@@ -1,17 +1,21 @@
 import express, { type Request } from "express";
 import { prisma } from "../lib/prisma";
+import { cookieSchema } from "../schemas/cookie.schema";
+
 const router = express.Router()
 
 router.get('/', async (req: Request, res: any) => {
-  const fullCookie = req.cookies['better-auth.session_token'] as string;
+  const parsedCookie = cookieSchema.safeParse(req.cookies)
 
-  if (!fullCookie) {
-    return res.json({
+  if(!parsedCookie.success){
+    return res.status(400).json({
       success: false,
-      message: 'Auth Cookie was not sent to the server by client'
-    });
+      message: 'Invalid Auth Cookie',
+      error: parsedCookie.error.issues[0]
+    })
   }
-
+  const fullCookie = parsedCookie.data?.["better-auth.session_token"]
+  
   try {
     const cookie: string = fullCookie.split('.')[0];
 

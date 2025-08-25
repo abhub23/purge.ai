@@ -18,7 +18,7 @@ export const Navbar = () => {
   const { isOpen, setOpen } = useSignBox();
   const { setSignedin } = useIsSignedin();
 
-  const { data, isError, isLoading, isSuccess, error } = useQuery({
+  const { data, isError, isLoading, isSuccess } = useQuery({
     queryKey: ['checksignedin'],
     queryFn: async () => {
       const response = await api.get('/api/checkvalidsession');

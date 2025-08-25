@@ -5,7 +5,6 @@ import { Play } from 'lucide-react';
 import Link from 'next/link';
 import AnimatedText from '../micro-interactions/Animatedtext';
 import { easeInOut, motion } from 'motion/react';
-import { GoogleSignOut } from '@/lib/client-auth';
 import L2R_AnimatedSVG from '../micro-interactions/L2R_AnimatedSVG';
 import R2L_AnimatedSVG from '../micro-interactions/R2L_AnimatedSVG';
 
