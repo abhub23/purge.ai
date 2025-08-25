@@ -6,10 +6,9 @@ const Video = () => {
       loop
       playsInline
       controls={false}
-      className='pointer-events-none h-auto lg:w-[600px]'
+      className='pointer-events-none h-auto w-[320px] rounded-md lg:w-[800px]'
     >
-      <source src='/video.mp4' type='video/mp4' />
-      Your browser does not support the video tag.
+      <source src='/PurgeAI.mp4' type='video/mp4' />
     </video>
   );
 };
