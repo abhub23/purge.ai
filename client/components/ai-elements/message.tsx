@@ -31,8 +31,9 @@ export const MessageContent = ({ children, className, ...props }: MessageContent
     )}
     {...props}
   >
-    <div className='is-user:dark'>{children}</div>
-  </div>
+<div className="is-user:dark">
+    <div className="[&_a]:text-inherit [&_a]:underline">{children}</div>
+  </div>  </div>
 );
 
 export type MessageAvatarProps = ComponentProps<typeof Avatar> & {
