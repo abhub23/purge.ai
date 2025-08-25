@@ -40,7 +40,6 @@ import { toast } from 'sonner';
 
 const AIChat = () => {
   const [input, setInput] = useState('');
-  const [webSearch, setWebSearch] = useState(false);
   const [selectedInsights, setSelectedInsights] = useState<string[]>([]);
   const [selectedMode, setSelectedMode] = useState<string[]>([]);
   const [insightsOpen, setInsightsOpen] = useState(false);
