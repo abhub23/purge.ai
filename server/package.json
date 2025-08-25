@@ -5,12 +5,12 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon --exec ts-node index.ts",
-    "build": "tsc -b",
+    "build": "prisma generate && tsc -b",
     "postinstall": "prisma generate"
   },
   "dependencies": {
     "@ai-sdk/google": "^2.0.6",
-    "@google/genai": "^1.14.0",
+    "@prisma/client": "^6.14.0",
     "@prisma/engine": "^1.0.18",
     "ai": "^5.0.15",
     "axios": "^1.11.0",
@@ -22,8 +22,7 @@
     "helmet": "^8.1.0",
     "nodemon": "^3.1.10",
     "razorpay": "^2.9.6",
-    "zod": "^4.0.17",
-    "@prisma/client": "^6.14.0"
+    "zod": "^4.0.17"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
