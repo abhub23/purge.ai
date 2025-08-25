@@ -1,6 +1,6 @@
 'use client';
 import { stagger } from 'motion';
-import { easeInOut, motion, useAnimate } from 'motion/react';
+import { motion, useAnimate } from 'motion/react';
 import { FC, useEffect } from 'react';
 
 type AnimateType = {
@@ -23,7 +23,7 @@ const AnimatedText: FC<AnimateType> = ({ text, classname, blur, stg }) => {
       {
         duration: 0.5,
         delay: stagger(stg),
-        ease: easeInOut,
+        ease: 'easeInOut',
       }
     );
   };
