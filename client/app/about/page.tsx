@@ -4,7 +4,7 @@ import { Bricolage } from '@/utils/fonts';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 
-export const Animation = {
+export const Animation: any = {
   initial: {
     opacity: 0,
     y: 20,
