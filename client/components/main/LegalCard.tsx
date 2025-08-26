@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Animation, Transition } from '@/app/about/page';
+import { Animation, Transition } from '@/animations/Animation';
 import { FC } from 'react';
 
 type LegalCardType = {
