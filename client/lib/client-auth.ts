@@ -1,5 +1,5 @@
 import { createAuthClient } from 'better-auth/client';
-import { BACKEND_URL } from '@/config/config';
+import { BACKEND_URL, FRONTEND_URL } from '@/config/config';
 
 const authClient = createAuthClient({
   //backend url (necessary when frontend and backend are on seperate ports)
@@ -10,7 +10,7 @@ const authClient = createAuthClient({
 export const GoogleSignIn = async () => {
   await authClient.signIn.social({
     provider: 'google',
-    callbackURL: 'http://localhost:3000', //redirects to this URL after successful sign in
+    callbackURL: FRONTEND_URL, //redirects to this URL after successful sign in
   });
 };
 
