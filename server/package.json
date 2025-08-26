@@ -9,9 +9,8 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@ai-sdk/google": "^2.0.6",
+    "@ai-sdk/google": "^2.0.8",
     "@prisma/client": "^6.14.0",
-    "@prisma/engine": "^1.0.18",
     "ai": "^5.0.15",
     "axios": "^1.11.0",
     "better-auth": "^1.3.7",
@@ -22,7 +21,7 @@
     "helmet": "^8.1.0",
     "nodemon": "^3.1.10",
     "razorpay": "^2.9.6",
-    "zod": "^4.0.17"
+    "zod": "^4.1.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
