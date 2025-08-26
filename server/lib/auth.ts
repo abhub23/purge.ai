@@ -1,10 +1,11 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { prisma } from "../lib/prisma";
-import { FRONTEND_URL, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } from "./config";
+import { BETTER_AUTH_URL, FRONTEND_URL, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } from "./config";
 import { InitialCredits, Week_in_Ms } from "../constants/constants";
 
 export const auth = betterAuth({
+  baseURL: BETTER_AUTH_URL,
   trustedOrigins: [FRONTEND_URL],
   database: prismaAdapter(prisma, {
     provider: "postgresql",
