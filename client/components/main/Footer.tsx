@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export const Footer = () => {
   const ScrollY = () => {
-    const scrollTarget = window.innerWidth > 1500 ? 240 : 200;
+    const scrollTarget = window.innerWidth > 1500 ? 460 : 200;
     window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
   };
 
