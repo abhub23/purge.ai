@@ -40,7 +40,7 @@ router.get('/', async (req: Request, res: any) => {
     });
 
     if (!valid) {
-      return res.status(404).json({
+      return res.status(400).json({
         success: false,
         message: 'Session not found'
       });
