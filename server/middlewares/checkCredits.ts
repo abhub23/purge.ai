@@ -1,8 +1,10 @@
 import type { NextFunction } from "express";
 import { prisma } from "../lib/prisma";
+import { isProd } from "../lib/config";
 
 export const checkCredits = async (req: any, res: any, next: NextFunction): Promise<void> => {
-    const fullCookie = req?.cookies['__Secure-better-auth.session_token'];
+    const cookieString = isProd ? '__Secure-better-auth.session_token' : 'better-auth.session_token'
+    const fullCookie = req?.cookies[cookieString];
 
     try {
         if (!fullCookie) {
@@ -55,12 +57,12 @@ export const checkCredits = async (req: any, res: any, next: NextFunction): Prom
             },
         });
 
-        
+
         if (!session || !session.user) {
             return res.status(401).json({ message: "Invalid session" });
         }
 
-        
+
         if (session.user.plans.length === 0) {
             return res.status(403).json({ message: "Not enough credits", success: false });
         }
