@@ -7,6 +7,9 @@ import { InitialCredits, Week_in_Ms } from "../constants/constants";
 export const auth = betterAuth({
   baseURL: BETTER_AUTH_URL,
   trustedOrigins: [FRONTEND_URL],
+  advanced: {
+    useSecureCookies: true
+  },
   database: prismaAdapter(prisma, {
     provider: "postgresql",
   }),

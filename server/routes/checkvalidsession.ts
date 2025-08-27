@@ -5,7 +5,7 @@ import { cookieSchema } from "../schemas/cookie.schema";
 const router = express.Router()
 
 router.get('/', async (req: Request, res: any) => {
-  const fullCookie = req.cookies['better-auth.session_token'] as string;
+  const fullCookie = req.cookies['__Secure-better-auth.session_token'] as string;
 
   if (!fullCookie) {
     return res.json({

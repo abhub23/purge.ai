@@ -2,7 +2,7 @@ import type { NextFunction } from "express";
 import { prisma } from "../lib/prisma";
 
 export const checkCredits = async (req: any, res: any, next: NextFunction): Promise<void> => {
-    const fullCookie = req?.cookies['better-auth.session_token'];
+    const fullCookie = req?.cookies['__Secure-better-auth.session_token'];
 
     try {
         if (!fullCookie) {
