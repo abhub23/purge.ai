@@ -20,10 +20,10 @@ app.use(cors({
 app.use(helmet())
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-app.set('trust proxy', true); // Tells Express to trust x-forwarded-for in req header
+app.set('trust proxy', 1); // Tells Express to trust x-forwarded-for in req header
 
 
-app.all('/api/auth/*splat', toNodeHandler(auth))
+app.all('/api/auth/{*any}', toNodeHandler(auth));
 app.use(express.json());
 
 app.get("/", (_, res) => {
