@@ -1,25 +1,60 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { prisma } from "../lib/prisma";
-import { BETTER_AUTH_URL, FRONTEND_URL, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } from "./config";
+import {
+  BETTER_AUTH_URL,
+  FRONTEND_URL,
+  GOOGLE_CLIENT_ID,
+  GOOGLE_CLIENT_SECRET,
+  isProd
+} from "./config";
 import { InitialCredits, Week_in_Ms } from "../constants/constants";
 
 export const auth = betterAuth({
   baseURL: BETTER_AUTH_URL,
   trustedOrigins: [FRONTEND_URL],
+
   advanced: {
-    useSecureCookies: true
+    useSecureCookies: isProd,
+
+    cookies: {
+      session_token: {
+        name: "better-auth.session_token",
+        attributes: {
+          httpOnly: true,
+          secure: isProd,
+          sameSite: isProd ? "none" : "lax", // dev/local uses lax because of same domain and prod uses none because of different domain
+        },
+      },
+      // session_data: {
+      //   name: "better-auth.session_data",
+      //   attributes: {
+      //     httpOnly: true,
+      //     secure: isProd,
+      //     sameSite: isProd ? "none" : "lax",
+      //   },
+      // },
+      // dont_remember: {
+      //   name: "better-auth.dont_remember",
+      //   attributes: {
+      //     httpOnly: true,
+      //     secure: isProd,
+      //     sameSite: isProd ? "none" : "lax",
+      //   },
+      // },
+    },
   },
-  database: prismaAdapter(prisma, {
-    provider: "postgresql",
-  }),
+
+  database: prismaAdapter(prisma, { provider: "postgresql" }),
+
   socialProviders: {
     google: {
       prompt: "select_account",
       clientId: GOOGLE_CLIENT_ID,
-      clientSecret: GOOGLE_CLIENT_SECRET
+      clientSecret: GOOGLE_CLIENT_SECRET,
     },
   },
+
   databaseHooks: {
     user: {
       create: {
@@ -29,12 +64,10 @@ export const auth = betterAuth({
               userId: user.id,
               credits: InitialCredits,
               expiresAt: new Date(Date.now() + Week_in_Ms),
-            }
+            },
           });
         },
-      }
-    }
-  }
+      },
+    },
+  },
 });
-
-
