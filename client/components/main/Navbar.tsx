@@ -48,23 +48,23 @@ export const Navbar = () => {
             <span className='hidden font-bold sm:inline-block'>PurgeAI</span>
           </Link>
 
-          {/* Navigation Links */}
-          <nav className='flex items-center gap-[2px] text-sm'>
+          {/* Navigation Links laptop */}
+          <nav className='flex items-center font-medium gap-[2px] text-sm'>
             <Link
               href='/about'
-              className='hover:text-foreground/80 hover:bg-accent/80 text-foreground/60 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
+              className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
             >
               About
             </Link>
             <div
               onClick={() => window.scrollTo({ top: 1000, behavior: 'smooth' })}
-              className='hover:text-foreground/80 hover:bg-accent/80 text-foreground/60 cursor-pointer rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
+              className='hover:text-foreground hover:bg-accent/80 text-foreground/80 cursor-pointer rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
             >
               Features
             </div>
             <Link
               href='/pricing'
-              className='hover:text-foreground/80 hover:bg-accent/80 text-foreground/60 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
+              className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
             >
               Pricing
             </Link>

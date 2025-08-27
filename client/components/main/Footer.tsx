@@ -69,7 +69,7 @@ export const Footer = () => {
               </li>
               <li
                 className='text-muted-foreground hover:text-foreground/85 cursor-pointer transition-colors'
-                onClick={() => window.open('https:abdullahtech.dev', '_blank')}
+                onClick={() => window.open('https://abdullahtech.dev', '_blank')}
               >
                 Developer/Creator
               </li>
