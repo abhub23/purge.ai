@@ -40,7 +40,7 @@ export const Navbar = () => {
   }, [isSuccess, data]);
 
   return (
-    <nav className='md:border-border/40 md:bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur lg:fixed lg:top-5 lg:left-1/2 lg:w-[1000px] lg:-translate-x-1/2 lg:rounded-2xl lg:border-1 lg:border-neutral-200 lg:bg-transparent lg:dark:border-neutral-800'>
+    <nav className='md:border-border/40 md:bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur lg:fixed lg:top-5 lg:left-1/2 lg:w-[1000px] lg:-translate-x-1/2 lg:rounded-2xl lg:border-1 lg:border-neutral-300 lg:bg-transparent lg:dark:border-neutral-800'>
       <div className='container flex h-16 max-w-screen-2xl items-center'>
         <div className='ml-14 hidden md:flex'>
           <Link href='/' className='mr-6 flex items-center space-x-2'>
@@ -57,7 +57,7 @@ export const Navbar = () => {
               About
             </Link>
             <div
-              onClick={() => window.scrollTo({ top: 1000, behavior: 'smooth' })}
+              onClick={() => window.scrollTo({ top: 1300, behavior: 'smooth' })}
               className='hover:text-foreground hover:bg-accent/80 text-foreground/80 cursor-pointer rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
             >
               Features
