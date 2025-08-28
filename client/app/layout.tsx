@@ -3,16 +3,17 @@ import { Bricolage } from '@/utils/fonts';
 import { ThemeProvider } from 'next-themes';
 import { QueryProvider } from '@/utils/QueryProvider';
 import './globals.css';
+import { FRONTEND_URL } from '@/config/config';
 import { Toaster } from '@/components/ui/sonner';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://purgeai.abdullahtech.dev'),
+  metadataBase: new URL(FRONTEND_URL as string),
   title: 'PurgeAI',
   icons: {
     icon: '/purgeailogo.webp',
   },
   description:
-    'PurgeAI is a battle tested Ai assistant designed and deeloped to help devs manage and review there PRs efficiently',
+    'PurgeAI is a battle tested AI assistant designed and developed to help devs manage and review their PRs efficiently',
 
   keywords: [
     'AI Product',
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
   authors: [
     { url: 'https://github.com/abhub23', name: 'Abdullah Mukri' },
 
-    { url: 'https://purgeai.abdullahtech.dev', name: 'Abdullah Mukri' },
+    { url: FRONTEND_URL, name: 'Abdullah Mukri' },
 
     { url: 'https://abdullahtech.dev', name: 'Abdullah Mukri' },
   ],
@@ -43,35 +44,55 @@ export const metadata: Metadata = {
   publisher: 'Abdullah Mukri',
 
   openGraph: {
-    title: 'abdullahtech.dev',
-    description: '',
-    url: 'https://purgeai.abdullahtech.dev',
-    siteName: 'https://purgeai.abdullahtech.dev',
+    title: 'PurgeAI',
+    description: 'PurgeAI is a battle tested AI assistant designed and developed to help devs manage and review their PRs efficiently',
+    url: FRONTEND_URL,
+    siteName: 'PurgeAI',
+    videos: [
+      {
+        url: `${FRONTEND_URL}/PurgeAI.mp4`,
+        secureUrl: `${FRONTEND_URL}/PurgeAI.mp4`,
+        type: 'video/mp4',
+        width: 1280,
+        height: 720,
+      }
+    ],
+
+    //Fallback Image
     images: [
       {
-        url: 'https://abdullahtech.dev/og-image.png',
+        url: `${FRONTEND_URL}/og-image.png`,
         width: 1200,
         height: 630,
       },
     ],
-    type: 'website',
+    type: 'video.other',
   },
 
   twitter: {
-    card: 'summary_large_image',
-    site: '@abdullah_twt23',
+    site: FRONTEND_URL,
     creator: '@abdullah_twt23',
     title: 'PurgeAI',
-    description: 'abdullahtech.dev',
+    description: 'PurgeAI is a battle tested AI assistant designed and developed to help devs manage and review their PRs efficiently',
     images: {
-      url: 'https://purgeai.abdullahtech.dev/og-image.png',
+      url: `${FRONTEND_URL}/og-image.png`,
       type: 'image/png',
     },
   },
 
+  other: {
+    'twitter:card': 'player',
+    'twitter:player': `${FRONTEND_URL}/video-player.html`,
+    'twitter:player:width': '1280',
+    'twitter:player:height': '720',
+    'twitter:player:stream': `${FRONTEND_URL}/PurgeAI.mp4`,
+    'twitter:player:stream:content_type': 'video/mp4',
+    'twitter:image': `${FRONTEND_URL}/og-image.png`
+  },
+
   appLinks: {
     web: {
-      url: new URL('https://purgeai.abdullahtech.dev'),
+      url: new URL(FRONTEND_URL as string),
     },
   },
 
