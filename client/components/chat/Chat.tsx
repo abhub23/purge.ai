@@ -51,15 +51,15 @@ const AIChat = () => {
   const hasStarted =
     messages.length > 0 || status === 'submitted' || status === 'streaming' || status === 'error';
 
-  const handleInsightsSelect = (value: string) => {
-    setSelectedInsights((prev) =>
-      prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]
+  const handleInsightsSelect = (newValue: string) => {
+    setSelectedInsights((value) =>
+      newValue !== value[0] ? [newValue] : []
     );
   };
 
-  const handleModeSelect = (value: string) => {
-    setSelectedMode((prev) =>
-      prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]
+  const handleModeSelect = (newValue: string) => {
+    setSelectedMode((value) =>
+      newValue !== value[0] ? [newValue] : []
     );
   };
 
@@ -225,11 +225,11 @@ const AIChat = () => {
                     className='h-8 border-neutral-500 bg-neutral-900 text-xs hover:bg-neutral-900/90 hover:text-neutral-300'
                   >
                     Insights
-                    {selectedInsights.length > 0 && (
+                    {/* {selectedInsights.length > 0 && (
                       <Badge className='ml-1 h-4 bg-neutral-100 px-1 text-xs text-neutral-700'>
                         {selectedInsights.length}
                       </Badge>
-                    )}
+                    )} */}
                     <ChevronDown className='ml-1 h-3 w-3' />
                   </Button>
                 </PopoverTrigger>
@@ -247,27 +247,13 @@ const AIChat = () => {
                           return (
                             <CommandItem
                               key={insight.value}
-                              onSelect={() => {
-                                insight.label !== 'General'
-                                  ? toast.error('Coming soon, stay tuned')
-                                  : handleInsightsSelect(insight.value);
-                              }}
+                              onSelect={() => {handleInsightsSelect(insight.value)}}
                               className='flex cursor-pointer items-center gap-2 px-2 py-1.5 text-xs'
                             >
                               <Icon className='h-3.5 w-3.5 text-neutral-50' />
-                              <span
-                                className={cn(
-                                  'flex-1',
-                                  insight.label !== 'General' && 'line-through'
-                                )}
-                              >
+                              <span className='flex-1'>
                                 {insight.label}
                               </span>
-                              {insight.label !== 'General' && (
-                                <span className='rounded-md bg-white px-1 text-neutral-900'>
-                                  Coming soon
-                                </span>
-                              )}
                               {isSelected && <Check className='h-3 w-3 text-neutral-100' />}
                             </CommandItem>
                           );
@@ -287,11 +273,11 @@ const AIChat = () => {
                     className='h-8 border-neutral-500 bg-neutral-900 text-xs hover:bg-neutral-900/90 hover:text-neutral-300'
                   >
                     Mode
-                    {selectedMode.length > 0 && (
+                    {/* {selectedMode.length > 0 && (
                       <Badge className='ml-1 h-4 bg-neutral-100 px-1 text-xs text-neutral-700'>
                         {selectedMode.length}
                       </Badge>
-                    )}
+                    )} */}
                     <ChevronDown className='ml-1 h-3 w-3' />
                   </Button>
                 </PopoverTrigger>
@@ -299,7 +285,7 @@ const AIChat = () => {
                   <Command>
                     <CommandList className='max-h-32'>
                       <CommandGroup>
-                        {/* {mode.map((mode) => {
+                        {mode.map((mode) => {
                             const isSelected = selectedMode.includes(mode.value);
                             return (
                               <CommandItem
@@ -315,10 +301,7 @@ const AIChat = () => {
                                 {isSelected && <Check className="h-3 w-3 text-neutral-100" />}
                               </CommandItem>
                             );
-                          })} */}
-                        <span className='mx-6 my-2 flex items-center justify-center rounded-md bg-white text-xs text-neutral-900'>
-                          Coming soon
-                        </span>
+                          })}
                       </CommandGroup>
                     </CommandList>
                   </Command>
