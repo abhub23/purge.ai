@@ -74,18 +74,22 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
   });
 
   const handlePurchase = (plan_id: string, price: number | string) => {
-    if (plan_id == 'trial') {
-      isSignedin ? router.push('/chat') : router.push('/');
-    } else if (plan_id == 'enterprise') {
-      window.open(
-        'https://mail.google.com/mail/?view=cm&to=abdullahmukri25@gmail.com&su=Custom%20Purchase%20Subscription'
-      );
-    } else if (!isSignedin) {
-      setOpen(true);
-    } else {
-      if (typeof price === 'number') {
-        mutate({ plan_id, price });
-      }
+    switch (plan_id) {
+      case 'trial':
+        router.push(isSignedin ? '/chat' : '/')
+        break;
+      case 'enterprise':
+        window.open(
+          'https://mail.google.com/mail/?view=cm&to=abdullahmukri25@gmail.com&su=Custom%20Purchase%20Subscription'
+        );
+        break;
+      default:
+        if (!isSignedin) {
+          setOpen(true);
+        } else if (typeof price === 'number') {
+          mutate({ plan_id, price });
+        }
+        break;
     }
   };
 
