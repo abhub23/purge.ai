@@ -36,7 +36,6 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { ChevronDown, X, Check } from 'lucide-react';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
-import { toast } from 'sonner';
 
 const AIChat = () => {
   const [input, setInput] = useState('');
@@ -52,15 +51,11 @@ const AIChat = () => {
     messages.length > 0 || status === 'submitted' || status === 'streaming' || status === 'error';
 
   const handleInsightsSelect = (newValue: string) => {
-    setSelectedInsights((value) =>
-      newValue !== value[0] ? [newValue] : []
-    );
+    setSelectedInsights((value) => (newValue !== value[0] ? [newValue] : []));
   };
 
   const handleModeSelect = (newValue: string) => {
-    setSelectedMode((value) =>
-      newValue !== value[0] ? [newValue] : []
-    );
+    setSelectedMode((value) => (newValue !== value[0] ? [newValue] : []));
   };
 
   const removeInsightsTag = (value: string) => {
@@ -86,7 +81,7 @@ const AIChat = () => {
                 parts: [
                   {
                     type: 'text',
-                    text: 'Invent a new holiday and describe its traditions.',
+                    text: input,
                   },
                 ],
               },
@@ -247,13 +242,13 @@ const AIChat = () => {
                           return (
                             <CommandItem
                               key={insight.value}
-                              onSelect={() => {handleInsightsSelect(insight.value)}}
+                              onSelect={() => {
+                                handleInsightsSelect(insight.value);
+                              }}
                               className='flex cursor-pointer items-center gap-2 px-2 py-1.5 text-xs'
                             >
                               <Icon className='h-3.5 w-3.5 text-neutral-50' />
-                              <span className='flex-1'>
-                                {insight.label}
-                              </span>
+                              <span className='flex-1'>{insight.label}</span>
                               {isSelected && <Check className='h-3 w-3 text-neutral-100' />}
                             </CommandItem>
                           );
@@ -286,22 +281,22 @@ const AIChat = () => {
                     <CommandList className='max-h-32'>
                       <CommandGroup>
                         {mode.map((mode) => {
-                            const isSelected = selectedMode.includes(mode.value);
-                            return (
-                              <CommandItem
-                                key={mode.value}
-                                onSelect={() => handleModeSelect(mode.value)}
-                                className="flex cursor-pointer items-center justify-between px-2 py-1.5 text-xs"
+                          const isSelected = selectedMode.includes(mode.value);
+                          return (
+                            <CommandItem
+                              key={mode.value}
+                              onSelect={() => handleModeSelect(mode.value)}
+                              className='flex cursor-pointer items-center justify-between px-2 py-1.5 text-xs'
+                            >
+                              <span
+                                className={`rounded px-2 py-0.5 text-xs ${getModeColor(mode.value)}`}
                               >
-                                <span
-                                  className={`rounded px-2 py-0.5 text-xs ${getModeColor(mode.value)}`}
-                                >
-                                  {mode.label}
-                                </span>
-                                {isSelected && <Check className="h-3 w-3 text-neutral-100" />}
-                              </CommandItem>
-                            );
-                          })}
+                                {mode.label}
+                              </span>
+                              {isSelected && <Check className='h-3 w-3 text-neutral-100' />}
+                            </CommandItem>
+                          );
+                        })}
                       </CommandGroup>
                     </CommandList>
                   </Command>

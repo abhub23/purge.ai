@@ -49,7 +49,7 @@ export const Navbar = () => {
           </Link>
 
           {/* Navigation Links laptop */}
-          <nav className='flex items-center font-medium gap-[2px] text-sm'>
+          <nav className='flex items-center gap-[2px] text-sm font-medium'>
             <Link
               href='/about'
               className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'

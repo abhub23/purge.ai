@@ -45,7 +45,8 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: 'PurgeAI',
-    description: 'PurgeAI is a battle tested AI assistant designed and developed to help devs manage and review their PRs efficiently',
+    description:
+      'PurgeAI is a battle tested AI assistant designed and developed to help devs manage and review their PRs efficiently',
     url: FRONTEND_URL,
     siteName: 'PurgeAI',
     videos: [
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
         type: 'video/mp4',
         width: 1280,
         height: 720,
-      }
+      },
     ],
 
     //Fallback Image
@@ -73,7 +74,8 @@ export const metadata: Metadata = {
     site: FRONTEND_URL,
     creator: '@abdullah_twt23',
     title: 'PurgeAI',
-    description: 'PurgeAI is a battle tested AI assistant designed and developed to help devs manage and review their PRs efficiently',
+    description:
+      'PurgeAI is a battle tested AI assistant designed and developed to help devs manage and review their PRs efficiently',
     images: {
       url: `${FRONTEND_URL}/og-image.png`,
       type: 'image/png',
@@ -87,7 +89,7 @@ export const metadata: Metadata = {
     'twitter:player:height': '720',
     'twitter:player:stream': `${FRONTEND_URL}/PurgeAI.mp4`,
     'twitter:player:stream:content_type': 'video/mp4',
-    'twitter:image': `${FRONTEND_URL}/og-image.png`
+    'twitter:image': `${FRONTEND_URL}/og-image.png`,
   },
 
   appLinks: {
