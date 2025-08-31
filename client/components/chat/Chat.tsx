@@ -36,6 +36,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { ChevronDown, X, Check } from 'lucide-react';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
+import { HostGrotesk } from '@/utils/fonts';
 
 const AIChat = () => {
   const [input, setInput] = useState('');
@@ -156,7 +157,11 @@ const AIChat = () => {
           <ConversationScrollButton />
         </Conversation>
       )}
-
+      {messages.length === 0 && (
+        <div className={cn('pb-4 text-2xl lg:pb-8 lg:text-5xl', HostGrotesk)}>
+          Hey There, How's it going?
+        </div>
+      )}
       <PromptInput
         onSubmit={handleSubmit}
         className={`${hasStarted ? 'sticky bottom-4 mt-4 bg-neutral-900' : ''}`}
