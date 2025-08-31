@@ -87,8 +87,7 @@ const AIChat = () => {
                 ],
               },
             ],
-            webSearch: false,
-          },
+          }
         }
       );
       setInput('');
