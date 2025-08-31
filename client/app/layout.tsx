@@ -5,6 +5,7 @@ import { QueryProvider } from '@/utils/QueryProvider';
 import './globals.css';
 import { FRONTEND_URL } from '@/config/config';
 import { Toaster } from '@/components/ui/sonner';
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
   metadataBase: new URL(FRONTEND_URL as string),
@@ -108,7 +109,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body className={`${Bricolage}`}>
+      <body className={cn(Bricolage)}>
         <script src='https://checkout.razorpay.com/v1/checkout.js' async></script>
         <ThemeProvider attribute={'class'}>
           <QueryProvider>{children}</QueryProvider>
