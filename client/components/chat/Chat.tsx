@@ -157,7 +157,7 @@ const AIChat = () => {
         </Conversation>
       )}
       {messages.length === 0 && (
-        <div className={cn('pb-4 text-2xl lg:pb-8 lg:text-5xl', HostGrotesk)}>
+        <div className={cn('pb-4 text-2xl lg:pb-8 lg:text-4xl', HostGrotesk)}>
           Hey There, How's it going?
         </div>
       )}
