@@ -163,7 +163,7 @@ const AIChat = () => {
       )}
       <PromptInput
         onSubmit={handleSubmit}
-        className={`${hasStarted ? 'sticky bottom-4 mt-4 bg-neutral-900' : ''}`}
+        className={cn(hasStarted && 'sticky bottom-4 mt-4 bg-neutral-900')}
       >
         {(selectedInsights.length > 0 || selectedMode.length > 0) && (
           <div className='mb-4 p-2'>
@@ -196,7 +196,7 @@ const AIChat = () => {
                   <Badge
                     key={value}
                     variant='outline'
-                    className={`${getModeColor(value)} text-[11px] transition-colors`}
+                    className={cn('text-[11px] transition-colors', getModeColor(value))}
                   >
                     {priority.label}
                     <button
@@ -293,7 +293,7 @@ const AIChat = () => {
                               className='flex cursor-pointer items-center justify-between px-2 py-1.5 text-xs'
                             >
                               <span
-                                className={`rounded px-2 py-0.5 text-xs ${getModeColor(mode.value)}`}
+                                className={cn('rounded px-2 py-0.5 text-xs', getModeColor(mode.value))}
                               >
                                 {mode.label}
                               </span>
