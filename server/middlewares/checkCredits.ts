@@ -1,6 +1,7 @@
 import type { NextFunction } from "express";
 import { prisma } from "../lib/prisma";
 import { isProd } from "../lib/config";
+import { Week_in_Ms } from "../constants/constants";
 
 export const checkCredits = async (req: any, res: any, next: NextFunction): Promise<void> => {
     const cookieString = isProd ? '__Secure-better-auth.session_token' : 'better-auth.session_token'
@@ -20,7 +21,7 @@ export const checkCredits = async (req: any, res: any, next: NextFunction): Prom
                 const newUser = await prisma.tempUsers.create({
                     data: {
                         ipAddress: userIP,
-                        expiresAt: new Date(Date.now() + 604800000) // 7 days
+                        expiresAt: new Date(Date.now() + Week_in_Ms)
                     }
                 })
                 req.guestUser = newUser
