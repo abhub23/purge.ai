@@ -1,9 +1,9 @@
-import express from 'express';
+import {Router} from 'express';
 import crypto from 'crypto';
 import { validSession } from '../middlewares/validSession';
 import { VerifyPaymentSchema } from '../schemas/payment.schema';
 
-const router = express.Router();
+const router = Router();
 router.use(validSession)
 
 router.post('/', (req, res) => {

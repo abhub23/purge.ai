@@ -1,11 +1,11 @@
-import express from "express";
+import {Router} from "express";
 import type { Request } from "express";
 import razorpayInstance from "../lib/razorpay";
 import { validSession } from "../middlewares/validSession";
 import { OrderSchema } from "../schemas/payment.schema";
 
 
-const router = express.Router()
+const router = Router()
 
 router.post('/', validSession, async (req: Request, res: any) => {
     const parsedBody = OrderSchema.safeParse(req.body)
