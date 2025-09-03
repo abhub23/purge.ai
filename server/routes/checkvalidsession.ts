@@ -1,9 +1,9 @@
-import express, { type Request } from "express";
+import { type Request, Router } from "express";
 import { prisma } from "../lib/prisma";
 import { cookieSchema } from "../schemas/cookie.schema";
 import { isProd } from "../lib/config";
 
-const router = express.Router()
+const router = Router()
 
 router.get('/', async (req: Request, res: any) => {
   const cookieString = isProd ? '__Secure-better-auth.session_token' : 'better-auth.session_token'
