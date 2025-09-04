@@ -24,6 +24,7 @@ export const Navbar = () => {
       const response = await api.get('/api/checkvalidsession');
       return response.data;
     },
+    staleTime: 10000 * 60 * 10,
   });
 
   const { mutate: handleSignOut } = useMutation({
