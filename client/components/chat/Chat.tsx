@@ -37,6 +37,8 @@ import { ChevronDown, X, Check } from 'lucide-react';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
 import { HostGrotesk } from '@/utils/fonts';
+import { useQuery } from '@tanstack/react-query';
+import api from '@/lib/axios';
 
 const AIChat = () => {
   const [input, setInput] = useState('');
@@ -67,6 +69,15 @@ const AIChat = () => {
     setSelectedMode((prev) => prev.filter((item) => item !== value));
   };
 
+  const { data } = useQuery({
+    queryKey: ['checksignedin'],
+    queryFn: async () => {
+      const response = await api.get('/api/checkvalidsession');
+      return response.data;
+    },
+    staleTime: 10000 * 60 * 10,
+  });
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.trim()) {
@@ -87,7 +98,7 @@ const AIChat = () => {
                 ],
               },
             ],
-          }
+          },
         }
       );
       setInput('');
@@ -158,7 +169,7 @@ const AIChat = () => {
       )}
       {messages.length === 0 && (
         <div className={cn('pb-4 text-2xl lg:pb-8 lg:text-4xl', HostGrotesk)}>
-          Hey There, How's it going?
+          Hey {data?.success ? data?.name : 'There'}, How's it going?
         </div>
       )}
       <PromptInput
@@ -293,7 +304,10 @@ const AIChat = () => {
                               className='flex cursor-pointer items-center justify-between px-2 py-1.5 text-xs'
                             >
                               <span
-                                className={cn('rounded px-2 py-0.5 text-xs', getModeColor(mode.value))}
+                                className={cn(
+                                  'rounded px-2 py-0.5 text-xs',
+                                  getModeColor(mode.value)
+                                )}
                               >
                                 {mode.label}
                               </span>
