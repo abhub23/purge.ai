@@ -9,7 +9,10 @@ import { cn } from '@/lib/utils';
 const About = () => {
   return (
     <section
-      className={cn('bg-background text-foreground flex h-[670px] grid-cols-1 flex-col items-center justify-center space-y-8 lg:min-h-screen lg:grid-cols-2 lg:flex-row', Bricolage)}
+      className={cn(
+        'bg-background text-foreground flex h-[670px] grid-cols-1 flex-col items-center justify-center space-y-8 lg:min-h-screen lg:grid-cols-2 lg:flex-row',
+        Bricolage
+      )}
     >
       <motion.h1
         {...Animation}
