@@ -1,7 +1,7 @@
 {
   "name": "purgeai",
   "version": "1.0.0",
-  "description": "",
+  "description": "PurgeAI is a battle tested AI assistant designed and developed to help devs manage and review their PRs efficiently",
   "scripts": {
     "client": "pnpm -F client dev",
     "server": "pnpm -F server dev",
