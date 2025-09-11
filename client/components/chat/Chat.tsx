@@ -90,6 +90,8 @@ const AIChat = () => {
               {
                 id: 'msg-1',
                 role: 'user',
+                selectedInsights: selectedInsights,
+                selectedMode: selectedMode,
                 parts: [
                   {
                     type: 'text',
