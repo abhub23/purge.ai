@@ -1,0 +1,9 @@
+# ignore client files and dir
+/client
+
+# server client files and dir
+
+server/.env
+server/.env.example
+server/node_modules
+server/dist
