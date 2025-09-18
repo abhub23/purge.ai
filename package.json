@@ -5,13 +5,14 @@
   "scripts": {
     "client": "pnpm -F client dev",
     "server": "pnpm -F server dev",
+    "docker-server": "docker build -f docker/Dockerfile.server -t purgeaiserver:1.0 .",
     "test": "pnpm -F client lint",
     "prepare": "husky"
   },
   "keywords": [],
   "author": "Abdullah Mukri",
   "license": "ISC",
-  "packageManager": "pnpm@10.15.0",
+  "packageManager": "pnpm@10.17.0",
   "dependencies": {
     "husky": "^9.1.7"
   }
