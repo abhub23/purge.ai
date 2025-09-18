@@ -2,8 +2,27 @@ FROM node:24.4.1-slim
 
 WORKDIR /src
 
-COPY ../server/package.*
-COPY ../server .
+# copy root manifests
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
+# this will create ./server directory to mirror like the local workspace
+COPY server/package.json ./server/
 
+# copy Prisma schema early (so `pnpm install` postinstall works)
+COPY server/prisma ./server/prisma
 
+# install pnpm because node have npm natively so we explicitely have to install it globally
+RUN npm install -g pnpm
+
+# This installs only the workspace package named server and its dependencies, not the whole monorepo.
+# why three dots? to installs server and all workspace dependencies it relies on recursively
+RUN pnpm install --filter ./server... --frozen-lockfile
+
+# now copy the rest of the server code
+COPY server ./server
+
+WORKDIR /src/server
+
+RUN pnpm build
+
+CMD ["pnpm","start"]
