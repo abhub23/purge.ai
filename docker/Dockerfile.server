@@ -21,8 +21,11 @@ RUN pnpm install --filter ./server... --frozen-lockfile
 # now copy the rest of the server code
 COPY server ./server
 
+# switched directory to run further commands
 WORKDIR /src/server
 
 RUN pnpm build
+
+EXPOSE 4000
 
 CMD ["pnpm","start"]
