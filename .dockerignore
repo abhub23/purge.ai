@@ -16,3 +16,6 @@
 # Ignore OS junk
 .DS_Store
 Thumbs.db
+
+# husky pre-commit script
+.husky
