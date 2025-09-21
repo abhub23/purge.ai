@@ -1,9 +1,18 @@
-# ignore client files and dir
-/client
+# Ignore node_modules globally
+**/node_modules
 
-# server client files and dir
+# Ignore build outputs
+**/dist
+**/.next
 
-server/.env
-server/.env.example
-server/node_modules
-server/dist
+# Ignore env files you don’t want in Docker (optional)
+**/.env*
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore OS junk
+.DS_Store
+Thumbs.db
