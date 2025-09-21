@@ -5,7 +5,7 @@
   "scripts": {
     "client": "pnpm -F client dev",
     "server": "pnpm -F server dev",
-    "docker-server": "docker build -f docker/Dockerfile.server -t purgeaiserver:1.0 .",
+    "server-img": "docker build -f docker/Dockerfile.server -t purgeaiserver:1.0 .",
     "test": "pnpm -F client lint",
     "prepare": "husky"
   },
