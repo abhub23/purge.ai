@@ -1,1 +1,1 @@
-![Demo](./client/public/PurgeAI.mp4)
+![Demo](./client/public/og-image.png)
