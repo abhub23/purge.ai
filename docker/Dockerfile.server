@@ -1,5 +1,7 @@
 FROM node:24.4.1-slim
 
+LABEL type="backend"
+
 WORKDIR /src
 
 # copy root manifests
@@ -21,11 +23,11 @@ RUN pnpm install --filter ./server... --frozen-lockfile
 # now copy the rest of the server code
 COPY server ./server
 
-# switched directory to run further commands
+# switched directory to run further commands (absolute path)
 WORKDIR /src/server
 
 RUN pnpm build
 
 EXPOSE 4000
 
-CMD ["pnpm","start"]
+CMD [ "pnpm", "start" ]
