@@ -1,0 +1,22 @@
+FROM node:24.4.1-slim
+
+WORKDIR /src
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+
+COPY client/package.json ./client/
+
+RUN npm install -g pnpm
+
+RUN pnpm install --filter ./client... --frozen-lockfile
+
+# relative path
+WORKDIR /src/client
+
+COPY client .
+
+RUN pnpm build
+
+EXPOSE 3000
+
+CMD [ "pnpm", "dev" ]
