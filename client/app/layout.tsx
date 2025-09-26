@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
   metadataBase: new URL(FRONTEND_URL as string),
-  title: 'PurgeAI',
+  title: 'PurgeAI ● AI assistant for github PRs',
   icons: {
     icon: '/purgeailogo.webp',
   },
@@ -36,9 +36,7 @@ export const metadata: Metadata = {
   ],
   authors: [
     { url: 'https://github.com/abhub23', name: 'Abdullah Mukri' },
-
     { url: FRONTEND_URL, name: 'Abdullah Mukri' },
-
     { url: 'https://abdullahtech.dev', name: 'Abdullah Mukri' },
   ],
 
@@ -50,17 +48,7 @@ export const metadata: Metadata = {
       'PurgeAI is a battle tested AI assistant designed and developed to help devs manage and review their PRs efficiently',
     url: FRONTEND_URL,
     siteName: 'PurgeAI',
-    videos: [
-      {
-        url: `${FRONTEND_URL}/PurgeAI.mp4`,
-        secureUrl: `${FRONTEND_URL}/PurgeAI.mp4`,
-        type: 'video/mp4',
-        width: 1280,
-        height: 720,
-      },
-    ],
 
-    //Fallback Image
     images: [
       {
         url: `${FRONTEND_URL}/og-image.png`,
@@ -68,7 +56,7 @@ export const metadata: Metadata = {
         height: 630,
       },
     ],
-    type: 'video.other',
+    type: 'website',
   },
 
   twitter: {
@@ -83,22 +71,11 @@ export const metadata: Metadata = {
     },
   },
 
-  other: {
-    'twitter:card': 'player',
-    'twitter:player': `${FRONTEND_URL}/video-player.html`,
-    'twitter:player:width': '1280',
-    'twitter:player:height': '720',
-    'twitter:player:stream': `${FRONTEND_URL}/PurgeAI.mp4`,
-    'twitter:player:stream:content_type': 'video/mp4',
-    'twitter:image': `${FRONTEND_URL}/og-image.png`,
-  },
-
   appLinks: {
     web: {
       url: new URL(FRONTEND_URL as string),
     },
   },
-
   category: 'AI Product',
 };
 
