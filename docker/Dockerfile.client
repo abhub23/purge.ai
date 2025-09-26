@@ -1,5 +1,7 @@
 FROM node:24.4.1-slim
 
+LABEL type="frontend"
+
 WORKDIR /src
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
