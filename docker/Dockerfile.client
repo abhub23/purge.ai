@@ -1,4 +1,6 @@
-FROM node:24.4.1-slim
+ARG NODE_VERSION=24.4.1-slim
+
+FROM node:${NODE_VERSION}
 
 LABEL type="frontend"
 
