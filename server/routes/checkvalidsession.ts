@@ -16,18 +16,18 @@ router.get('/', async (req: Request, res: any) => {
     });
   }
 
-  const parsedCookie = cookieSchema.safeParse(fullCookie)
+  const {success, data, error} = cookieSchema.safeParse(fullCookie)
 
-  if (!parsedCookie.success) {
+  if (!success) {
     return res.status(400).json({
       success: false,
       message: 'Invalid Auth Cookie',
-      error: parsedCookie.error.issues[0]
+      error: error.issues[0]
     })
   }
 
   try {
-    const cookie: string = parsedCookie.data.split('.')[0];
+    const cookie: string = data.split('.')[0];
 
     const valid = await prisma.session.findUnique({
       where: { token: cookie },

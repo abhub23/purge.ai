@@ -8,17 +8,17 @@ import { OrderSchema } from "../schemas/payment.schema";
 const router = Router()
 
 router.post('/', validSession, async (req: Request, res: any) => {
-    const parsedBody = OrderSchema.safeParse(req.body)
+    const {success, data, error} = OrderSchema.safeParse(req.body)
 
-    if(!parsedBody.success){
+    if(!success){
         return res.status(400).json({
             success: false,
-            message: parsedBody.error.issues[0].message
+            message: error.issues[0].message
         })
     }
     
     try {
-        const { price } = parsedBody.data
+        const { price } = data
         const options = {
             amount: price * 86 * 100, // USD -> INR paise
             currency: 'INR',
