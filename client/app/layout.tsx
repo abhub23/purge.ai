@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     'AI SAAS',
     'Github AI Reviewer',
     'Github Agent',
+    'Github SAAS',
     'Review github pull requests',
     'Abdullah Technology',
     'Abdullah Developer',
