@@ -37,7 +37,7 @@ export const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: -20, filter: 'blur(20px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
           className='bg-muted/90 inline-flex items-center rounded-lg border px-3 py-1 text-sm font-medium'
         >
           🎉 <span className='ml-2'>Introducing our new features</span>
@@ -51,7 +51,7 @@ export const Hero = () => {
         <motion.p
           initial={{ opacity: 0, y: 20, filter: 'blur(20px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
           className='text-muted-foreground max-w-[750px] text-lg sm:text-xl'
         >
           An AI Powered critique who does the heavy lifting for your github PRs
@@ -60,7 +60,7 @@ export const Hero = () => {
       <motion.div
         initial={{ opacity: 0, y: 20, filter: 'blur(20px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
+        transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
         className='relative mt-2 flex flex-col gap-4 lg:flex-row'
       >
         <Button
