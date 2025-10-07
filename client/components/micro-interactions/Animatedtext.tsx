@@ -22,7 +22,7 @@ const AnimatedText: FC<AnimateType> = ({ text, classname, blur, stg }) => {
       },
       {
         duration: 0.5,
-        delay: stagger(stg),
+        delay: stagger(stg, {startDelay: 0.8}),
         ease: 'easeInOut',
       }
     );
