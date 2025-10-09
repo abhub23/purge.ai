@@ -12,7 +12,7 @@ import api from '@/lib/axios';
 import { GoogleSignOut } from '@/lib/client-auth';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
-export const Navbar = () => {
+const Navbar = () => {
   const queryClient = useQueryClient();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isOpen, setOpen } = useSignBox();
@@ -202,3 +202,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export default Navbar;

@@ -1,5 +1,5 @@
-import { Navbar } from '@/components/main/Navbar';
-import { Hero } from '@/components/main/Hero';
+import Navbar from '@/components/main/Navbar';
+import Hero from '@/components/main/Hero';
 import { Features } from '@/components/main/Features';
 import { Footer } from '@/components/main/Footer';
 

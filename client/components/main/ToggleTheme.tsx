@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
-export const ToggleTheme: React.FC = () => {
+export const ToggleTheme = () => {
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {

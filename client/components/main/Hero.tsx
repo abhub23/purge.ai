@@ -8,7 +8,7 @@ import Video from './Video';
 import L2R_AnimatedSVG from '../micro-interactions/L2R_AnimatedSVG';
 import R2L_AnimatedSVG from '../micro-interactions/R2L_AnimatedSVG';
 
-export const Hero = () => {
+const Hero = () => {
   return (
     <section className='relative flex flex-col items-center justify-center space-y-4 py-24 lg:mt-18 lg:py-32'>
       <div className='absolute inset-0 hidden lg:block'>
@@ -80,3 +80,5 @@ export const Hero = () => {
     </section>
   );
 };
+
+export default Hero;
