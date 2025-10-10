@@ -2,6 +2,7 @@
 
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
+
 type TanstackQueryPropType = {
   children: React.ReactNode;
 };

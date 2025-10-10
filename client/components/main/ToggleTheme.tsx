@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
-export const ToggleTheme = () => {
+export const ToggleTheme: FC = () => {
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {
@@ -31,7 +31,7 @@ type Child = {
   children: React.ReactNode;
 };
 
-const SafeRender: React.FC<Child> = ({ children }) => {
+const SafeRender: FC<Child> = ({ children }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
