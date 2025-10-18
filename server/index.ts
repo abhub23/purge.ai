@@ -26,8 +26,8 @@ app.set('trust proxy', 1); // Tells Express to trust x-forwarded-for in req head
 app.all('/api/auth/{*any}', toNodeHandler(auth));
 app.use(express.json());
 
-app.get("/", (_, res) => {
-  res.json({ message: "Server is alive" });
+app.get("/health", (_, res) => {
+  res.status(200).json({ message: "Server is healthy" });
 });
 
 
