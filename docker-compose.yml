@@ -10,6 +10,8 @@ services:
         - NEXT_PUBLIC_FRONTEND_URL=https://purgeai.abdullahtech.dev
         - NEXT_PUBLIC_RAZORPAY_KEY_ID=rzp_live_RFCOeQpgaecCTt     
     container_name: purge-ai-client
+    expose:
+      - 3000
     ports:
       - "3000:3000"
     restart: unless-stopped
