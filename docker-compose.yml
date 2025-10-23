@@ -1,0 +1,15 @@
+name: 'purge-ai'
+
+services:
+  client: 
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.client
+      args:
+        - NEXT_PUBLIC_BACKEND_URL=https://purgeaiserver.vercel.app
+        - NEXT_PUBLIC_FRONTEND_URL=https://purgeai.abdullahtech.dev
+        - NEXT_PUBLIC_RAZORPAY_KEY_ID=rzp_live_RFCOeQpgaecCTt     
+    container_name: purge-ai-client
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
