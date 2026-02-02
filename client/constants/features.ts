@@ -10,37 +10,32 @@ export const features: FeatureTypes[] = [
   {
     icon: Zap,
     title: 'Blazingly Fast',
-    desc: 'Built with performance in mind and blazing fast result throughput.',
+    desc: 'Experience lightning-fast performance with optimized algorithms and instant response times for maximum productivity. Our platform delivers unparalleled speed.',
     badge: 'Performance',
   },
   {
     icon: Shield,
     title: 'Secure by Default',
-    desc: 'Enterprise-grade security features built for each User and Prompts.',
+    desc: 'Enterprise-grade security with end-to-end encryption and advanced threat protection for complete data safety. Your information remains protected.',
     badge: 'Security',
   },
   {
     icon: Terminal,
     title: 'Customizable',
-    desc: 'Easily customizable Insights and Modes, alligned with your requirements.',
+    desc: 'Fully customizable interface with flexible modes and personalized insights tailored to your unique workflow needs.',
     badge: 'Prompt',
   },
   {
     icon: Code,
     title: 'Developer Friendly',
-    desc: 'Clean Model output APIs and excellent support for better DX.',
+    desc: 'Clean APIs, comprehensive documentation, and excellent developer experience for seamless integration.',
     badge: 'Dev Ex',
   },
   {
     icon: BotMessageSquare,
     title: 'Optimized Context',
-    desc: 'Built-in context optimization for long conversation and deep research',
+    desc: 'Advanced context management for lengthy conversations and deep research with intelligent content optimization.',
     badge: 'SEO',
   },
-  {
-    icon: Smartphone,
-    title: 'Mobile First',
-    desc: 'Responsive design that works perfectly on all devices.',
-    badge: 'Mobile',
-  },
+
 ];
