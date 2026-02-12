@@ -48,7 +48,7 @@ PurgeAI is a battle-tested AI assistant designed and developed to help developer
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/abhub23/purge.ai.git
 cd purge.ai
 ```
 
