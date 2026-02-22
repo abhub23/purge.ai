@@ -35,7 +35,7 @@ const Hero = () => {
 
       <div className='relative mx-auto flex max-w-[980px] flex-col items-center space-y-2 text-center'>
         <motion.div
-          initial={{ opacity: 0, y: -20, filter: 'blur(20px)' }}
+          initial={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
           className='bg-muted/90 inline-flex items-center rounded-lg border px-3 py-1 text-sm font-medium'
@@ -45,11 +45,11 @@ const Hero = () => {
         <AnimatedText
           text='The most Comprehensive AI Assistant to review your PR'
           classname='text-[26px] leading-tight font-bold tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]'
-          blur='20px'
+          blur='10px'
           stg={0.1}
         />
         <motion.p
-          initial={{ opacity: 0, y: 20, filter: 'blur(20px)' }}
+          initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
           className='text-muted-foreground max-w-[750px] text-lg sm:text-xl'
@@ -58,7 +58,7 @@ const Hero = () => {
         </motion.p>
       </div>
       <motion.div
-        initial={{ opacity: 0, y: 20, filter: 'blur(20px)' }}
+        initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
         className='relative mt-2 flex flex-col gap-4 lg:flex-row'
