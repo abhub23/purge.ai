@@ -8,8 +8,6 @@ import {motion} from 'motion/react'
 import { Inview } from '@/animations/Animation';
 
 export const Features = () => {
-  // Get the first 5 features for bento grid
-  const bentoFeatures = features.slice(0, 5);
   
   return (
     <section className='mt-[-120px] py-24 md:py-32'>
@@ -33,14 +31,14 @@ export const Features = () => {
               <CardHeader className='pb-2'>
                 <div className='flex items-center space-x-2'>
                   <div className='bg-muted flex h-10 w-10 items-center justify-center rounded-lg border'>
-                    {React.createElement(bentoFeatures[0].icon, { className: 'text-foreground h-5 w-5' })}
+                    {React.createElement(features[0].icon, { className: 'text-foreground h-5 w-5' })}
                   </div>
-                  <Badge variant='outline' className='text-xs md:text-sm'>{bentoFeatures[0].badge}</Badge>
+                  <Badge variant='outline' className='text-xs md:text-sm'>{features[0].badge}</Badge>
                 </div>
-                <CardTitle className='text-base md:text-xl lg:text-2xl'>{bentoFeatures[0].title}</CardTitle>
+                <CardTitle className='text-base md:text-xl lg:text-2xl'>{features[0].title}</CardTitle>
               </CardHeader>
               <CardContent className='mt-auto pt-0'>
-                <CardDescription className='w-full text-sm md:text-base lg:text-lg'>{bentoFeatures[0].desc}</CardDescription>
+                <CardDescription className='w-full text-sm md:text-base lg:text-lg'>{features[0].desc}</CardDescription>
               </CardContent>
             </Card>
           </motion.div>
@@ -50,14 +48,14 @@ export const Features = () => {
               <CardHeader className='pb-2'>
                 <div className='flex items-center space-x-2'>
                   <div className='bg-muted flex h-10 w-10 items-center justify-center rounded-lg border'>
-                    {React.createElement(bentoFeatures[1].icon, { className: 'text-foreground h-5 w-5' })}
+                    {React.createElement(features[1].icon, { className: 'text-foreground h-5 w-5' })}
                   </div>
-                  <Badge variant='outline' className='text-xs md:text-sm'>{bentoFeatures[1].badge}</Badge>
+                  <Badge variant='outline' className='text-xs md:text-sm'>{features[1].badge}</Badge>
                 </div>
-                <CardTitle className='text-base md:text-xl lg:text-2xl'>{bentoFeatures[1].title}</CardTitle>
+                <CardTitle className='text-base md:text-xl lg:text-2xl'>{features[1].title}</CardTitle>
               </CardHeader>
               <CardContent className='mt-auto pt-0'>
-                <CardDescription className='w-full text-sm md:text-base lg:text-lg'>{bentoFeatures[1].desc}</CardDescription>
+                <CardDescription className='w-full text-sm md:text-base lg:text-lg'>{features[1].desc}</CardDescription>
               </CardContent>
             </Card>
           </motion.div>
@@ -68,14 +66,14 @@ export const Features = () => {
               <CardHeader className='pb-2'>
                 <div className='flex items-center space-x-2'>
                   <div className='bg-muted flex h-10 w-10 items-center justify-center rounded-lg border'>
-                    {React.createElement(bentoFeatures[2].icon, { className: 'text-foreground h-5 w-5' })}
+                    {React.createElement(features[2].icon, { className: 'text-foreground h-5 w-5' })}
                   </div>
-                  <Badge variant='outline' className='text-xs md:text-sm'>{bentoFeatures[2].badge}</Badge>
+                  <Badge variant='outline' className='text-xs md:text-sm'>{features[2].badge}</Badge>
                 </div>
-                <CardTitle className='text-base md:text-lg lg:text-xl'>{bentoFeatures[2].title}</CardTitle>
+                <CardTitle className='text-base md:text-lg lg:text-xl'>{features[2].title}</CardTitle>
               </CardHeader>
               <CardContent className='mt-auto pt-0'>
-                <CardDescription className='w-full text-sm md:text-base'>{bentoFeatures[2].desc}</CardDescription>
+                <CardDescription className='w-full text-sm md:text-base'>{features[2].desc}</CardDescription>
               </CardContent>
             </Card>
           </motion.div>
@@ -85,14 +83,14 @@ export const Features = () => {
               <CardHeader className='pb-2'>
                 <div className='flex items-center space-x-2'>
                   <div className='bg-muted flex h-10 w-10 items-center justify-center rounded-lg border'>
-                    {React.createElement(bentoFeatures[3].icon, { className: 'text-foreground h-5 w-5' })}
+                    {React.createElement(features[3].icon, { className: 'text-foreground h-5 w-5' })}
                   </div>
-                  <Badge variant='outline' className='text-xs md:text-sm'>{bentoFeatures[3].badge}</Badge>
+                  <Badge variant='outline' className='text-xs md:text-sm'>{features[3].badge}</Badge>
                 </div>
-                <CardTitle className='text-base md:text-lg lg:text-xl'>{bentoFeatures[3].title}</CardTitle>
+                <CardTitle className='text-base md:text-lg lg:text-xl'>{features[3].title}</CardTitle>
               </CardHeader>
               <CardContent className='mt-auto pt-0'>
-                <CardDescription className='w-full text-sm md:text-base'>{bentoFeatures[3].desc}</CardDescription>
+                <CardDescription className='w-full text-sm md:text-base'>{features[3].desc}</CardDescription>
               </CardContent>
             </Card>
           </motion.div>
@@ -102,14 +100,14 @@ export const Features = () => {
               <CardHeader className='pb-2'>
                 <div className='flex items-center space-x-2'>
                   <div className='bg-muted flex h-10 w-10 items-center justify-center rounded-lg border'>
-                    {React.createElement(bentoFeatures[4].icon, { className: 'text-foreground h-5 w-5' })}
+                    {React.createElement(features[4].icon, { className: 'text-foreground h-5 w-5' })}
                   </div>
-                  <Badge variant='outline' className='text-xs md:text-sm'>{bentoFeatures[4].badge}</Badge>
+                  <Badge variant='outline' className='text-xs md:text-sm'>{features[4].badge}</Badge>
                 </div>
-                <CardTitle className='text-base md:text-lg lg:text-xl'>{bentoFeatures[4].title}</CardTitle>
+                <CardTitle className='text-base md:text-lg lg:text-xl'>{features[4].title}</CardTitle>
               </CardHeader>
               <CardContent className='mt-auto pt-0'>
-                <CardDescription className='w-full text-sm md:text-base'>{bentoFeatures[4].desc}</CardDescription>
+                <CardDescription className='w-full text-sm md:text-base'>{features[4].desc}</CardDescription>
               </CardContent>
             </Card>
           </motion.div>
