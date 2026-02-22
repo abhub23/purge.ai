@@ -1,4 +1,4 @@
-import { Zap, Shield, Terminal, Code, BotMessageSquare, Smartphone } from 'lucide-react';
+import { Zap, Shield, Terminal, Code, BotMessageSquare } from 'lucide-react';
 
 type FeatureTypes = {
   icon: React.ElementType;
@@ -6,6 +6,7 @@ type FeatureTypes = {
   desc: string;
   badge: string;
 };
+
 export const features: FeatureTypes[] = [
   {
     icon: Zap,
