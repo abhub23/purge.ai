@@ -4,11 +4,12 @@ import Link from 'next/link';
 import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
 import Image from 'next/image';
 
+const ScrollY = () => {
+  const scrollTarget = window.innerWidth > 1500 ? 460 : 200;
+  window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
+};
+
 const Footer = () => {
-  const ScrollY = () => {
-    const scrollTarget = window.innerWidth > 1500 ? 460 : 200;
-    window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
-  };
 
   return (
     <footer className='bg-background border-t'>
