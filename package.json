@@ -1,12 +1,13 @@
 {
   "name": "purgeai",
   "version": "1.0.0",
+  "workspaces": ["client", "server"],
   "description": "PurgeAI is a battle tested AI assistant designed and developed to help devs manage and review their PRs efficiently",
   "scripts": {
-    "client": "pnpm -F client dev",
-    "serv": "pnpm -F server dev",
+    "client": "bun --filter client dev",
+    "serv": "bun --filter server dev",
     "server-img": "docker build -f docker/Dockerfile.server -t purgeaiserver:1.0 .",
-    "test": "pnpm -F client lint",
+    "test": "bun --filter client lint",
     "prepare": "husky"
   },
   "keywords": [],
