@@ -1,6 +1,3 @@
-import dotenv from 'dotenv'
-dotenv.config({ path: './.env' })
-
 export const isProd = process.env.NODE_ENV === 'production';
 
 export const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID as string

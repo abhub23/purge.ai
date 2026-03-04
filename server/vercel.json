@@ -12,11 +12,6 @@
       "dest": "/dist/index.js"
     }
   ],
-  "installCommand": "pnpm install --prod --no-frozen-lockfile",
-  "buildCommand": "pnpm run build",
-  "build": {
-    "env": {
-      "VERCEL_FORCE_NO_BUILD_CACHE": "1"
-    }
-  }
+"installCommand": "bun install --prod",
+  "buildCommand": "bun run build"
 }

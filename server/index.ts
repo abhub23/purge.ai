@@ -13,7 +13,7 @@ import verifypayment from './routes/verifypayment'
 const Port = 4000;
 const app = express();
 app.use(cors({
-  origin: [FRONTEND_URL],
+  origin: ["https://purgeai.abdullahtech.dev", "http://localhost:3000"],
   credentials: true
 }));
 
