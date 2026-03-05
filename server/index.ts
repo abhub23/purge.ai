@@ -30,6 +30,10 @@ app.get("/health", (_, res) => {
   res.status(200).json({ message: "Server is healthy" });
 });
 
+app.get("/", (_, res) => {
+  res.status(200).json({ message: "Server is running" });
+});
+
 
 app.use('/api/chat', chat)
 app.use('/api/checkvalidsession', checkvalidsession)
