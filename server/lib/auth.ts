@@ -23,7 +23,14 @@ export const auth = betterAuth({
         attributes: {
           httpOnly: true,
           secure: isProd,
-          sameSite: isProd ? "none" : "lax", // dev/local uses lax because of same domain and prod uses none because of different domain
+          sameSite: isProd ? "none" : "lax",
+        },
+      },
+      state: {
+        attributes: {
+          httpOnly: true,
+          secure: isProd,
+          sameSite: isProd ? "none" : "lax",
         },
       },
       // session_data: {
