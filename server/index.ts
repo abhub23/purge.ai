@@ -31,7 +31,7 @@ app.get("/health", (_, res) => {
 });
 
 app.get("/", (_, res) => {
-  res.status(200).json({ message: "Server is running" });
+  res.status(200).json({ message: "server is running" });
 });
 
 
@@ -47,5 +47,3 @@ if (process.env.VERCEL !== "1") {
 }
 
 export default app;
-
-// ci check
