@@ -13,7 +13,7 @@ import verifypayment from './routes/verifypayment'
 const Port = 4000;
 const app = express();
 app.use(cors({
-  origin: ["https://purgeai.abdullahtech.dev", "http://localhost:3000"],
+  origin: [FRONTEND_URL],
   credentials: true
 }));
 
@@ -28,6 +28,10 @@ app.use(express.json());
 
 app.get("/health", (_, res) => {
   res.status(200).json({ message: "Server is healthy" });
+});
+
+app.get("/", (_, res) => {
+  res.status(200).json({ message: "Server is running" });
 });
 
 
