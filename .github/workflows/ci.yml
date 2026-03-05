@@ -15,7 +15,7 @@ jobs:
       - name: install vercel CLI
         run: npm i -g vercel
       - name: server deployment
-        run: vercel --prod
+        run: vercel --prod --yes
         working-directory: ./server
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}  
