@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, MailIcon, XIcon } from './logos';
 import Image from 'next/image';
 
 const ScrollY = () => {
@@ -30,28 +30,28 @@ const Footer = () => {
                 className='text-muted-foreground hover:text-foreground/85 transition-colors'
                 target='_blank'
               >
-                <Github className='h-5 w-5' />
+              <GithubIcon className='size-5' />
               </Link>
               <Link
                 href='https://x.com/abdullah_twt23'
                 className='text-muted-foreground hover:text-foreground/85 transition-colors'
                 target='_blank'
               >
-                <Twitter className='h-5 w-5' />
+              <XIcon className='size-5' />
               </Link>
               <Link
                 href='https://www.linkedin.com/in/abdullah-mukri-84a56b220/'
                 className='text-muted-foreground hover:text-foreground/85 transition-colors'
                 target='_blank'
               >
-                <Linkedin className='h-5 w-5' />
+              <LinkedinIcon className='size-5' />
               </Link>
               <Link
                 href='https://mail.google.com/mail/?view=cm&to=abdullahmukri25@gmail.com'
                 className='text-muted-foreground hover:text-foreground/85 transition-colors'
                 target='_blank'
               >
-                <Mail className='h-5 w-5' />
+              <MailIcon className='size-5' />
               </Link>
             </div>
           </div>
