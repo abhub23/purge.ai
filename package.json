@@ -7,7 +7,7 @@
     "client": "bun --filter client dev",
     "serv": "bun --filter server dev",
     "server-img": "docker build -f docker/Dockerfile.server -t purgeaiserver:1.0 .",
-    "test": "bun --filter client lint",
+    "test": "cd client && bun run lint",
     "prepare": "husky"
   },
   "keywords": [],
