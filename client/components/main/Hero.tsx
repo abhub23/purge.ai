@@ -27,7 +27,7 @@ const Hero = () => {
 
       {/* Mobile viewport */}
       <div className='bg-gradient-radial absolute inset-0 block overflow-hidden sm:hidden'>
-        <div className='flex flex-col gap-y-[287px] pt-7'>
+        <div className='flex flex-col gap-y-[276px] pt-7'>
           <L2R_AnimatedSVG duration={2.7} />
           <L2R_AnimatedSVG duration={3.2} />
         </div>
@@ -35,7 +35,7 @@ const Hero = () => {
 
       <div className='relative mx-auto flex max-w-[980px] flex-col items-center space-y-2 text-center'>
         <motion.div
-          initial={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
+          initial={{ opacity: 0, y: -20, filter: 'blur(5px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
           className='bg-muted/90 inline-flex items-center rounded-lg border px-3 py-1 text-sm font-medium'
@@ -45,20 +45,20 @@ const Hero = () => {
         <AnimatedText
           text='The most Comprehensive AI Assistant to review your PR'
           classname='text-[26px] leading-tight font-bold tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]'
-          blur='10px'
+          blur='5px'
           stg={0.1}
         />
         <motion.p
-          initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+          initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
-          className='text-muted-foreground max-w-[750px] text-lg sm:text-xl'
+          className='text-muted-foreground max-w-[750px] lg:text-xl text-[15px] mx-10 lg:mx-0'
         >
           An AI Powered critique who does the heavy lifting for your github PRs
         </motion.p>
       </div>
       <motion.div
-        initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+        initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
         className='relative mt-2 flex flex-col gap-4 lg:flex-row'
@@ -74,7 +74,7 @@ const Hero = () => {
           <Link href='/chat'> Try Assistant </Link>
         </Button>
       </motion.div>
-      <div className='relative mx-auto mt-18 max-w-[1200px] rounded-2xl lg:mt-36'>
+      <div className='relative mx-auto mt-20 max-w-[1200px] rounded-2xl lg:mt-36'>
         <Video />
       </div>
     </section>
