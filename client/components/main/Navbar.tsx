@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Equal, X } from 'lucide-react';
 import { ToggleTheme } from './ToggleTheme';
 import Image from 'next/image';
 import { useSignBox, useIsSignedin } from '@/store/AuthStates';
@@ -74,7 +74,7 @@ const Navbar = () => {
 
         {/* Mobile viewport */}
         <div className='flex flex-1 items-center justify-between space-x-2'>
-          <div className='ml-2 w-full flex-1 md:w-auto md:flex-none'>
+          <div className='ml-4 w-full flex-1 md:w-auto md:flex-none'>
             <Link href='/' className='mr-6 flex items-center space-x-2 md:hidden'>
               <Image src={'/purgeailogo.webp'} alt='aa' height={30} width={30} />
               <span className='font-bold'>PurgeAI</span>
@@ -132,10 +132,10 @@ const Navbar = () => {
             {isMenuOpen ? (
               <>
                 <ToggleTheme />
-                <X className='mr-2 h-6 w-6' onClick={() => setIsMenuOpen(!isMenuOpen)} />
+                <X className='mr-4 h-6 w-6' onClick={() => setIsMenuOpen(!isMenuOpen)} />
               </>
             ) : (
-              <Menu className='mr-2 h-6 w-6' onClick={() => setIsMenuOpen(!isMenuOpen)} />
+              <Equal className='mr-4 h-6 w-6' onClick={() => setIsMenuOpen(!isMenuOpen)} />
             )}
             <span className='sr-only'>Toggle Menu</span>
           </button>
