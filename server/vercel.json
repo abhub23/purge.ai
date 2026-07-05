@@ -1,7 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "version": 2,
-  "bunVersion": "1.x",
-  "installCommand": "bun install",
-  "buildCommand": "bun run build"
+  "functions": {
+    "api/index.ts": {
+      "runtime": "@godsreveal/vercel-bun@0.2.7"
+    }
+  }
 }
