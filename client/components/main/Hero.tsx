@@ -27,7 +27,7 @@ const Hero = () => {
 
       {/* Mobile viewport */}
       <div className='bg-gradient-radial absolute inset-0 block overflow-hidden sm:hidden'>
-        <div className='flex flex-col gap-y-[220px] pt-7'>
+        <div className='flex flex-col gap-y-[240px] pt-7'>
           <L2R_AnimatedSVG duration={2.7} />
           <L2R_AnimatedSVG duration={3.2} />
         </div>
@@ -38,13 +38,13 @@ const Hero = () => {
           initial={{ opacity: 0, y: -20, filter: 'blur(5px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
-          className='bg-muted/90 inline-flex items-center rounded-lg border px-3 py-1 text-sm font-medium'
+          className='bg-muted/90 inline-flex items-center rounded-lg border px-2 py-1 text-[12px] lg:text-sm font-medium'
         >
           🎉 <span className='ml-2'>Introducing our new features</span>
         </motion.div>
         <AnimatedText
           text='The most Comprehensive AI Assistant to review your PR'
-          classname='text-[26px] leading-tight font-bold tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]'
+          classname='text-[28px] leading-tight font-bold tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]'
           blur='5px'
           stg={0.1}
         />
@@ -74,7 +74,7 @@ const Hero = () => {
           <Link href='/chat'> Try Assistant </Link>
         </Button>
       </motion.div>
-      <div className='relative mx-auto mt-20 max-w-[1200px] rounded-2xl lg:mt-36'>
+      <div className='relative mx-auto mt-28 max-w-[1200px] rounded-2xl lg:mt-36'>
         <Video />
       </div>
     </section>
