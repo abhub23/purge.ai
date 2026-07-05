@@ -129,14 +129,21 @@ const Navbar = () => {
             ) : (
               <></>
             )}
-            {isMenuOpen ? (
-              <>
-                <ToggleTheme />
-                <X className='mr-4 h-6 w-6' onClick={() => setIsMenuOpen(!isMenuOpen)} />
-              </>
-            ) : (
-              <Equal className='mr-4 h-6 w-6' onClick={() => setIsMenuOpen(!isMenuOpen)} />
-            )}
+            {isMenuOpen && <ToggleTheme />}
+            <div className='relative mr-4 h-6 w-6'>
+              <Equal
+                className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${
+                  isMenuOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
+                }`}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              />
+              <X
+                className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${
+                  isMenuOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
+                }`}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              />
+            </div>
             <span className='sr-only'>Toggle Menu</span>
           </button>
         </div>
