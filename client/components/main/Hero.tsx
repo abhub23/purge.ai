@@ -27,7 +27,7 @@ const Hero = () => {
 
       {/* Mobile viewport */}
       <div className='bg-gradient-radial absolute inset-0 block overflow-hidden sm:hidden'>
-        <div className='flex flex-col gap-y-[276px] pt-7'>
+        <div className='flex flex-col gap-y-[220px] pt-7'>
           <L2R_AnimatedSVG duration={2.7} />
           <L2R_AnimatedSVG duration={3.2} />
         </div>
@@ -61,7 +61,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
-        className='relative mt-2 flex flex-col gap-4 lg:flex-row'
+        className='relative mt-2 flex flex-row gap-4'
       >
         <Button
           size='lg'
