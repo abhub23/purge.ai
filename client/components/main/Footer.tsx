@@ -13,8 +13,8 @@ const Footer = () => {
 
   return (
     <footer className='bg-background border-t'>
-      <div className='px-4 py-8 lg:py-8'>
-        <div className='grid gap-8 lg:mx-[100px] lg:grid-cols-4'>
+      <div className='px-4 py-8 lg:py-8 lg:h-72'>
+        <div className='grid gap-8 lg:mx-auto lg:max-w-[1200px] lg:w-full lg:flex lg:justify-between'>
           {/* Brand Section */}
           <div className='space-y-4'>
             <div className='flex items-center space-x-2'>
@@ -56,72 +56,66 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Product Links */}
-          <div className='space-y-4 lg:ml-[110px]'>
-            <h3 className='font-semibold'>Product</h3>
-            <ul className='space-y-2 text-sm'>
-              <li>
-                <Link
-                  href='/pricing'
-                  className='text-muted-foreground hover:text-foreground/85 transition-colors'
+          <div className='flex flex-col gap-8 lg:flex-row lg:gap-16'>
+            {/* Product Links */}
+            <div className='space-y-4'>
+              <h3 className='font-semibold'>Product</h3>
+              <ul className='space-y-3 text-sm'>
+                <li>
+                  <Link
+                    href='/pricing'
+                    className='text-muted-foreground hover:text-foreground/85 transition-colors'
+                  >
+                    Pricing
+                  </Link>
+                </li>
+                <li
+                  className='text-muted-foreground hover:text-foreground/85 cursor-pointer transition-colors'
+                  onClick={() => window.open('https://abdullahtech.dev', '_blank')}
                 >
-                  Pricing
-                </Link>
-              </li>
-              <li
-                className='text-muted-foreground hover:text-foreground/85 cursor-pointer transition-colors'
-                onClick={() => window.open('https://abdullahtech.dev', '_blank')}
-              >
-                Developer/Creator
-              </li>
-            </ul>
-          </div>
+                  Developer/Creator
+                </li>
+                <li>
+                  <Link
+                    href='/about'
+                    className='text-muted-foreground hover:text-foreground/85 transition-colors'
+                  >
+                    About
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-          {/* Resources Links */}
-          <div className='space-y-4 lg:ml-[110px]'>
-            <h3 className='font-semibold'>Resources</h3>
-            <ul className='space-y-2 text-sm'>
-              <li
-                className='text-muted-foreground hover:text-foreground/85 transition-colors hover:cursor-pointer'
-                onClick={ScrollY}
-              >
-                Tutorial
-              </li>
-              <li>
-                <Link
-                  href='https://mail.google.com/mail/?view=cm&to=abdullahmukri25@gmail.com&su=PurgeAI%20Support%20Team'
-                  className='text-muted-foreground hover:text-foreground/85 transition-colors'
-                  target='_blank'
+            {/* Resources Links */}
+            <div className='space-y-4'>
+              <h3 className='font-semibold'>Resources</h3>
+              <ul className='space-y-3 text-sm'>
+                <li
+                  className='text-muted-foreground hover:text-foreground/85 transition-colors hover:cursor-pointer'
+                  onClick={ScrollY}
                 >
-                  Support
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company Links */}
-          <div className='space-y-4 lg:ml-[110px]'>
-            <h3 className='font-semibold'>Company</h3>
-            <ul className='space-y-2 text-sm'>
-              <li>
-                <Link
-                  href='/about'
-                  className='text-muted-foreground hover:text-foreground/85 transition-colors'
-                >
-                  About
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href='https://mail.google.com/mail/?view=cm&to=abdullahmukri25@gmail.com&su=PurgeAI%20Contact'
-                  target='_blank'
-                  className='text-muted-foreground hover:text-foreground/85 transition-colors'
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
+                  Tutorial
+                </li>
+                <li>
+                  <Link
+                    href='https://mail.google.com/mail/?view=cm&to=abdullahmukri25@gmail.com&su=PurgeAI%20Support%20Team'
+                    className='text-muted-foreground hover:text-foreground/85 transition-colors'
+                    target='_blank'
+                  >
+                    Support
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='https://mail.google.com/mail/?view=cm&to=abdullahmukri25@gmail.com&su=PurgeAI%20Contact'
+                    target='_blank'
+                    className='text-muted-foreground hover:text-foreground/85 transition-colors'
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
