@@ -16,7 +16,6 @@ type ChatReqBody = {
 
 router.post('/', async (req: any, res: any) => {
 
-  console.log(req.body)
   const { text, messages }: ChatReqBody = req.body;
   const userId = req.authUser?.id || req.guestUser?.id
 

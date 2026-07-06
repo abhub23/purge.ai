@@ -42,7 +42,7 @@ app.use('/api/verifypayment', verifypayment)
 
 if (process.env.VERCEL !== "1") {
   app.listen(Port, () => {
-    console.log(`Local Server Running on ${Port}`);
+    console.log(`Local server running on ${Port}`);
   });
 }
 
