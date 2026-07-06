@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "bun run index.ts",
-    "dev": "bun run index.ts --watch",
+    "dev": "bun run --watch index.ts",
     "build": "prisma generate && tsc -b",
     "postinstall": "prisma generate"
   },
