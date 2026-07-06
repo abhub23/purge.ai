@@ -1,7 +1,7 @@
 import {Router} from 'express';
 import crypto from 'crypto';
-import { validSession } from '../middlewares/validSession';
-import { VerifyPaymentSchema } from '../schemas/payment.schema';
+import { validSession } from '../middlewares/validSession.js';
+import { VerifyPaymentSchema } from '../schemas/payment.schema.js';
 
 const router = Router();
 router.use(validSession)

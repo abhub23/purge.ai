@@ -1,7 +1,7 @@
 import { type Request, Router } from "express";
-import { prisma } from "../lib/prisma";
-import { cookieSchema } from "../schemas/cookie.schema";
-import { isProd } from "../lib/config";
+import { prisma } from "../lib/prisma.js";
+import { cookieSchema } from "../schemas/cookie.schema.js";
+import { isProd } from "../lib/config.js";
 
 const router = Router()
 

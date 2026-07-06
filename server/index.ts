@@ -2,13 +2,13 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
-import chat from './routes/chat';
-import checkvalidsession from './routes/checkvalidsession'
-import orderpay from './routes/orderpay'
+import chat from './routes/chat.js';
+import checkvalidsession from './routes/checkvalidsession.js'
+import orderpay from './routes/orderpay.js'
 import { toNodeHandler } from 'better-auth/node'
-import { auth } from './lib/auth'
-import { FRONTEND_URL } from "./lib/config";
-import verifypayment from './routes/verifypayment'
+import { auth } from './lib/auth.js'
+import { FRONTEND_URL } from "./lib/config.js";
+import verifypayment from './routes/verifypayment.js'
 
 const Port = 4000;
 const app = express();

@@ -1,10 +1,10 @@
 import { type Request, Router } from 'express';
 import { streamText, convertToModelMessages, UIMessage } from 'ai';
 import { google } from '@ai-sdk/google';
-import { checkCredits } from '../middlewares/checkCredits';
+import { checkCredits } from '../middlewares/checkCredits.js';
 import axios from 'axios';
-import { rejectionMessages, githubPrUrlRegex, Prompt } from '../constants/constants';
-import { LLM_MODEL } from '../lib/config';
+import { rejectionMessages, githubPrUrlRegex, Prompt } from '../constants/constants.js';
+import { LLM_MODEL } from '../lib/config.js';
 
 const router = Router();
 router.use(checkCredits)

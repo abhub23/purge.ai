@@ -1,7 +1,7 @@
 import type { NextFunction } from "express";
-import { prisma } from "../lib/prisma";
-import { isProd } from "../lib/config";
-import { Week_in_Ms } from "../constants/constants";
+import { prisma } from "../lib/prisma.js";
+import { isProd } from "../lib/config.js";
+import { Week_in_Ms } from "../constants/constants.js";
 
 export const checkCredits = async (req: any, res: any, next: NextFunction): Promise<void> => {
     const cookieString = isProd ? '__Secure-better-auth.session_token' : 'better-auth.session_token'

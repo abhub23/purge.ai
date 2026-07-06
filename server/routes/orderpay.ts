@@ -1,8 +1,8 @@
 import {Router} from "express";
 import type { Request } from "express";
-import razorpayInstance from "../lib/razorpay";
-import { validSession } from "../middlewares/validSession";
-import { OrderSchema } from "../schemas/payment.schema";
+import razorpayInstance from "../lib/razorpay.js";
+import { validSession } from "../middlewares/validSession.js";
+import { OrderSchema } from "../schemas/payment.schema.js";
 
 
 const router = Router()
