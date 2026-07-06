@@ -10,11 +10,10 @@ const ScrollY = () => {
 };
 
 const Footer = () => {
-
   return (
     <footer className='bg-background border-t'>
-      <div className='px-4 py-8 lg:py-8 lg:h-72'>
-        <div className='grid gap-8 lg:mx-auto lg:max-w-[1200px] lg:w-full lg:flex lg:justify-between'>
+      <div className='px-4 py-8 lg:h-72 lg:py-8'>
+        <div className='grid gap-8 lg:mx-auto lg:flex lg:w-full lg:max-w-[1200px] lg:justify-between'>
           {/* Brand Section */}
           <div className='space-y-4'>
             <div className='flex items-center space-x-2'>
@@ -30,28 +29,28 @@ const Footer = () => {
                 className='text-muted-foreground hover:text-foreground/85 transition-colors'
                 target='_blank'
               >
-              <GithubIcon className='size-5' />
+                <GithubIcon className='size-5' />
               </Link>
               <Link
                 href='https://x.com/abdullah_twt23'
                 className='text-muted-foreground hover:text-foreground/85 transition-colors'
                 target='_blank'
               >
-              <XIcon className='size-5' />
+                <XIcon className='size-5' />
               </Link>
               <Link
                 href='https://www.linkedin.com/in/abdullah-mukri-84a56b220/'
                 className='text-muted-foreground hover:text-foreground/85 transition-colors'
                 target='_blank'
               >
-              <LinkedinIcon className='size-5' />
+                <LinkedinIcon className='size-5' />
               </Link>
               <Link
                 href='https://mail.google.com/mail/?view=cm&to=abdullahmukri25@gmail.com'
                 className='text-muted-foreground hover:text-foreground/85 transition-colors'
                 target='_blank'
               >
-              <MailIcon className='size-5' />
+                <MailIcon className='size-5' />
               </Link>
             </div>
           </div>
@@ -120,7 +119,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className='text-muted-foreground flex h-18 items-center justify-center border-t pb-2 lg:pb-0 text-[12px] lg:h-16 lg:text-[14px]'>
+      <p className='text-muted-foreground flex h-18 items-center justify-center border-t pb-2 text-[12px] lg:h-16 lg:pb-0 lg:text-[14px]'>
         © 2025 PurgeAI. All rights reserved.
         <Link href={'/t&c'} className='hover:text-foreground/75 ml-2 underline transition-colors'>
           Terms & Conditions{' '}

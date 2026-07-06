@@ -38,7 +38,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: -20, filter: 'blur(5px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
-          className='bg-muted/90 inline-flex items-center rounded-lg border px-2 py-1 text-[12px] lg:text-sm font-medium'
+          className='bg-muted/90 inline-flex items-center rounded-lg border px-2 py-1 text-[12px] font-medium lg:text-sm'
         >
           🎉 <span className='ml-2'>Introducing our new features</span>
         </motion.div>
@@ -52,7 +52,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
-          className='text-muted-foreground max-w-[750px] lg:text-xl text-[15px] mx-10 lg:mx-0'
+          className='text-muted-foreground mx-10 max-w-[750px] text-[15px] lg:mx-0 lg:text-xl'
         >
           An AI Powered critique who does the heavy lifting for your github PRs
         </motion.p>

@@ -38,5 +38,4 @@ export const features: FeatureTypes[] = [
     desc: 'Advanced context management for lengthy conversations and deep research with intelligent content optimization.',
     badge: 'SEO',
   },
-
 ];
