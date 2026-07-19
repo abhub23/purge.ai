@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
-import chat from './routes/chat.js';
+import chat from './modules/chat/chat.routes.js';
 import checkvalidsession from './routes/checkvalidsession.js'
 import orderpay from './routes/orderpay.js'
 import { toNodeHandler } from 'better-auth/node'
