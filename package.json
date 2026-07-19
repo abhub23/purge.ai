@@ -4,8 +4,8 @@
   "workspaces": ["client", "server"],
   "description": "PurgeAI is a battle tested AI assistant designed and developed to help devs manage and review their PRs efficiently",
   "scripts": {
-    "client": "bun --filter client dev",
-    "serv": "bun --filter server dev",
+    "web": "bun --filter client dev",
+    "api": "bun --filter server dev",
     "server-img": "docker build -f docker/Dockerfile.server -t purgeaiserver:1.0 .",
     "test": "cd client && bun run lint",
     "prepare": "husky"
