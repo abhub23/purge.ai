@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Equal, X } from 'lucide-react';
+import { TextAlignStart, X } from 'lucide-react';
 import { ToggleTheme } from './ToggleTheme';
 import Image from 'next/image';
 import { useSignBox, useIsSignedin } from '@/store/AuthStates';
@@ -131,7 +131,7 @@ const Navbar = () => {
             )}
             {isMenuOpen && <ToggleTheme />}
             <div className='relative mr-4 h-6 w-6'>
-              <Equal
+              <TextAlignStart
                 className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${
                   isMenuOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
                 }`}
