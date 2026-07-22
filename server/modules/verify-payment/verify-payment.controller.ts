@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
-import { VerifyPaymentSchema } from "./verify-payment.schema";
-import { generateSignature } from './verify-payment.service';
+import { VerifyPaymentSchema } from "./verify-payment.schema.js";
+import { generateSignature } from './verify-payment.service.js';
 
 export const verifyPayment = async (req: Request, res: Response) => {
 
