@@ -169,7 +169,7 @@ const Navbar = () => {
                 Pricing
               </Link>
               <div className='flex flex-col space-y-2 pt-2'>
-                <div className='flex flex-row justify-center pb-2'>
+                <div className='flex w-full flex-row justify-center pb-2'>
                   {isLoading || isError ? (
                     <></>
                   ) : data?.success ? (
@@ -177,7 +177,7 @@ const Navbar = () => {
                       variant='ghost'
                       size='lg'
                       asChild
-                      className='border-2 px-29 shadow-2xs'
+                      className='w-full border-2 shadow-2xs'
                       onClick={() => handleSignOut()}
                     >
                       <span>Sign out</span>
@@ -187,7 +187,7 @@ const Navbar = () => {
                       variant='ghost'
                       size='lg'
                       asChild
-                      className='border-2 px-29 shadow-2xs'
+                      className='w-full border-2 shadow-2xs'
                       onClick={() => {
                         setOpen(true);
                         setIsMenuOpen(false);
@@ -198,7 +198,7 @@ const Navbar = () => {
                   )}
                 </div>
 
-                <Button size='lg' asChild>
+                <Button size='lg' className='w-full' asChild>
                   <Link href='/chat'>Get Started</Link>
                 </Button>
               </div>
