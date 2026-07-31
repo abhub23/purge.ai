@@ -3,7 +3,7 @@ import { rejectionMessages, githubPrUrlRegex } from '../../constants/constants.j
 import { fetchPullRequestDiff, createReviewStream } from './chat.service.js';
 import type { ChatReqBody } from './chat.schema.js';
 
-export const handleChat = async (req: Request, res: Response) => {
+export async function handleChat(req: Request, res: Response) {
   const { text, messages }: ChatReqBody = req.body;
 
   if (!githubPrUrlRegex.test(text)) {
@@ -22,4 +22,4 @@ export const handleChat = async (req: Request, res: Response) => {
     console.error('Error in /api/chat:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
-};
+}

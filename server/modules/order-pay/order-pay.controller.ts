@@ -2,7 +2,7 @@ import type { Request, Response } from 'express';
 import { OrderSchema } from './order-pay.schema.js';
 import { createOrder } from './order-pay.service.js';
 
-export const handleOrderPay = async (req: Request, res: Response) => {
+export async function handleOrderPay(req: Request, res: Response) {
   const { success, data, error } = OrderSchema.safeParse(req.body);
 
   if (!success) {
@@ -22,4 +22,4 @@ export const handleOrderPay = async (req: Request, res: Response) => {
       message: 'error in creating order'
     });
   }
-};
+}

@@ -3,7 +3,7 @@ import { isProd } from '../../lib/config.js';
 import { cookieSchema } from './check-valid-session.schema.js';
 import { validateSession } from './check-valid-session.service.js';
 
-export const checkValidSession = async (req: Request, res: Response) => {
+export async function checkValidSession(req: Request, res: Response) {
   const cookieString = isProd ? '__Secure-better-auth.session_token' : 'better-auth.session_token';
   const fullCookie = req?.cookies[cookieString];
 
@@ -47,4 +47,4 @@ export const checkValidSession = async (req: Request, res: Response) => {
       message: 'Server error while validating session'
     });
   }
-};
+}

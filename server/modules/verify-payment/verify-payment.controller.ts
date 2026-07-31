@@ -2,7 +2,7 @@ import type { Request, Response } from 'express';
 import { VerifyPaymentSchema } from "./verify-payment.schema.js";
 import { generateSignature } from './verify-payment.service.js';
 
-export const verifyPayment = async (req: Request, res: Response) => {
+export async function verifyPayment(req: Request, res: Response) {
 
     const parsedBody = VerifyPaymentSchema.safeParse(req.body)
 
