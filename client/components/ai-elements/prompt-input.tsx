@@ -133,10 +133,15 @@ export const PromptInputSubmit = ({
     Icon = <XIcon className='size-5' />;
   }
 
+  const isActive = status === 'streaming' || status === 'submitted';
+
   return (
     <Button
       className={cn(
-        'h-8 w-8 cursor-pointer rounded-full bg-blue-500 p-0 text-xl text-white hover:bg-blue-500 disabled:bg-neutral-700 disabled:text-neutral-800 disabled:opacity-100'
+        'h-8 w-8 cursor-pointer rounded-full bg-blue-500 p-0 text-xl text-white hover:bg-blue-500',
+        isActive
+          ? 'disabled:bg-blue-500 disabled:text-white disabled:opacity-100'
+          : 'disabled:bg-neutral-700 disabled:text-neutral-800 disabled:opacity-100'
       )}
       size={size}
       type='submit'
