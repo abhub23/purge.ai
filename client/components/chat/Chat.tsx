@@ -21,19 +21,17 @@ import { Response } from '@/components/ai-elements/response';
 import { Source, Sources, SourcesContent, SourcesTrigger } from '@/components/ai-elements/source';
 import { Reasoning, ReasoningContent, ReasoningTrigger } from '@/components/ai-elements/reasoning';
 import { Loader } from '@/components/ai-elements/loader';
-import { Badge } from '../ui/badge';
 import { insights, mode } from '@/constants/chat_tools';
-import { getModeColor } from '@/constants/chat_tools';
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from '@/components/ui/command';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { ChevronDown, X, Check } from 'lucide-react';
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { Check, MessageSquare, Plus, SlidersHorizontal, X } from 'lucide-react';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
 import { HostGrotesk } from '@/utils/fonts';
@@ -44,8 +42,6 @@ const AIChat = () => {
   const [input, setInput] = useState('');
   const [selectedInsights, setSelectedInsights] = useState<string[]>([]);
   const [selectedMode, setSelectedMode] = useState<string[]>([]);
-  const [insightsOpen, setInsightsOpen] = useState(false);
-  const [modeOpen, setModeOpen] = useState(false);
   const { messages, sendMessage, status } = useChat({
     transport: new TextStreamChatTransport({ api: `${BACKEND_URL}/api/chat` }),
   });
@@ -176,153 +172,104 @@ const AIChat = () => {
       )}
       <PromptInput
         onSubmit={handleSubmit}
-        className={cn(hasStarted && 'sticky bottom-4 mt-4 bg-neutral-900')}
+        className={cn(hasStarted && 'sticky bottom-4 mt-4')}
       >
-        {(selectedInsights.length > 0 || selectedMode.length > 0) && (
-          <div className='mb-4 p-2'>
-            <div className='flex flex-wrap gap-2'>
-              {selectedInsights.map((value) => {
-                const insight = insights.find((c) => c.value === value);
-                if (!insight) return null;
-                const Icon = insight.icon;
-                return (
-                  <Badge
-                    key={value}
-                    variant='secondary'
-                    className='border border-slate-200 bg-slate-100 text-[11px] text-neutral-700'
-                  >
-                    <Icon className='mr-[2px] h-3 w-3' />
-                    {insight.label}
-                    <button
-                      onClick={() => removeInsightsTag(value)}
-                      className='ml-[2px] rounded-full p-0.5 transition-colors hover:bg-neutral-400'
-                    >
-                      <X className='size-2.5' />
-                    </button>
-                  </Badge>
-                );
-              })}
-              {selectedMode.map((value) => {
-                const priority = mode.find((p) => p.value === value);
-                if (!priority) return null;
-                return (
-                  <Badge
-                    key={value}
-                    variant='outline'
-                    className={cn('text-[11px] transition-colors', getModeColor(value))}
-                  >
-                    {priority.label}
-                    <button
-                      onClick={() => removeModeTag(value)}
-                      className='ml-[2px] rounded-full p-0.5 transition-colors hover:bg-black/10'
-                    >
-                      <X className='size-2.5' />
-                    </button>
-                  </Badge>
-                );
-              })}
-            </div>
-          </div>
-        )}
         <PromptInputTextarea onChange={(e) => setInput(e.target.value)} value={input} />
         <PromptInputToolbar>
           <PromptInputTools>
-            <div className='ml-2 flex items-center gap-2'>
-              {/* Insights Selector */}
-              <Popover open={insightsOpen} onOpenChange={setInsightsOpen}>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant='outline'
-                    size='sm'
-                    className='h-8 border-neutral-500 bg-neutral-900 text-xs hover:bg-neutral-900/90 hover:text-neutral-300'
-                  >
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant='ghost'
+                  size='icon'
+                  className='h-8 w-8 cursor-pointer rounded-full text-neutral-300 ring-0 outline-none hover:bg-neutral-700! hover:text-neutral-300 focus-visible:ring-0'
+                >
+                  <Plus className='size-5' />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                side='bottom'
+                align='start'
+                className='min-w-40 border-neutral-700 bg-neutral-900 text-neutral-100'
+              >
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger className='cursor-pointer gap-2 text-sm focus:bg-neutral-800 focus:text-neutral-100 data-[state=open]:bg-neutral-800 data-[state=open]:text-neutral-100'>
+                    <MessageSquare className='size-3.5 text-neutral-50' />
                     Insights
-                    {/* {selectedInsights.length > 0 && (
-                      <Badge className='ml-1 h-4 bg-neutral-100 px-1 text-xs text-neutral-700'>
-                        {selectedInsights.length}
-                      </Badge>
-                    )} */}
-                    <ChevronDown className='ml-1 h-3 w-3' />
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className='w-64 p-0' align='start'>
-                  <Command>
-                    <CommandInput placeholder='Search...' className='h-8 text-xs' />
-                    <CommandList className='max-h-48'>
-                      <CommandEmpty className='p-2 text-xs text-neutral-100'>
-                        No categories found.
-                      </CommandEmpty>
-                      <CommandGroup>
-                        {insights.map((insight) => {
-                          const Icon = insight.icon;
-                          const isSelected = selectedInsights.includes(insight.value);
-                          return (
-                            <CommandItem
-                              key={insight.value}
-                              onSelect={() => {
-                                handleInsightsSelect(insight.value);
-                              }}
-                              className='flex cursor-pointer items-center gap-2 px-2 py-1.5 text-xs'
-                            >
-                              <Icon className='h-3.5 w-3.5 text-neutral-50' />
-                              <span className='flex-1'>{insight.label}</span>
-                              {isSelected && <Check className='h-3 w-3 text-neutral-100' />}
-                            </CommandItem>
-                          );
-                        })}
-                      </CommandGroup>
-                    </CommandList>
-                  </Command>
-                </PopoverContent>
-              </Popover>
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent sideOffset={6} className='min-w-44 border-neutral-700 bg-neutral-900 text-neutral-100'>
+                    {insights.map((insight) => {
+                      const Icon = insight.icon;
+                      const isSelected = selectedInsights.includes(insight.value);
+                      return (
+                        <DropdownMenuItem
+                          key={insight.value}
+                          onSelect={() => handleInsightsSelect(insight.value)}
+                          className='cursor-pointer gap-2 text-sm text-neutral-100 focus:bg-neutral-800 focus:text-neutral-100'
+                        >
+                          <Icon className='size-3.5 text-neutral-50' />
+                          <span className='flex-1'>{insight.label}</span>
+                          {isSelected && <Check className='size-3 text-neutral-100' />}
+                        </DropdownMenuItem>
+                      );
+                    })}
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
 
-              {/* Priority Selector */}
-              <Popover open={modeOpen} onOpenChange={setModeOpen}>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant='outline'
-                    size='sm'
-                    className='h-8 border-neutral-500 bg-neutral-900 text-xs hover:bg-neutral-900/90 hover:text-neutral-300'
-                  >
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger className='cursor-pointer gap-2 text-sm focus:bg-neutral-800 focus:text-neutral-100 data-[state=open]:bg-neutral-800 data-[state=open]:text-neutral-100'>
+                    <SlidersHorizontal className='size-3.5 text-neutral-50' />
                     Mode
-                    {/* {selectedMode.length > 0 && (
-                      <Badge className='ml-1 h-4 bg-neutral-100 px-1 text-xs text-neutral-700'>
-                        {selectedMode.length}
-                      </Badge>
-                    )} */}
-                    <ChevronDown className='ml-1 h-3 w-3' />
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className='w-48 p-0' align='start'>
-                  <Command>
-                    <CommandList className='max-h-32'>
-                      <CommandGroup>
-                        {mode.map((mode) => {
-                          const isSelected = selectedMode.includes(mode.value);
-                          return (
-                            <CommandItem
-                              key={mode.value}
-                              onSelect={() => handleModeSelect(mode.value)}
-                              className='flex cursor-pointer items-center justify-between px-2 py-1.5 text-xs'
-                            >
-                              <span
-                                className={cn(
-                                  'rounded px-2 py-0.5 text-xs',
-                                  getModeColor(mode.value)
-                                )}
-                              >
-                                {mode.label}
-                              </span>
-                              {isSelected && <Check className='h-3 w-3 text-neutral-100' />}
-                            </CommandItem>
-                          );
-                        })}
-                      </CommandGroup>
-                    </CommandList>
-                  </Command>
-                </PopoverContent>
-              </Popover>
-            </div>
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent sideOffset={6} className='min-w-44 border-neutral-700 bg-neutral-900 text-neutral-100'>
+                    {mode.map((item) => {
+                      const isSelected = selectedMode.includes(item.value);
+                      return (
+                        <DropdownMenuItem
+                          key={item.value}
+                          onSelect={() => handleModeSelect(item.value)}
+                          className='cursor-pointer gap-2 text-sm text-neutral-100 focus:bg-neutral-800 focus:text-neutral-100'
+                        >
+                          <item.icon className='size-3.5 text-neutral-50' />
+                          <span className='flex-1'>{item.label}</span>
+                          {isSelected && <Check className='size-3 text-neutral-100' />}
+                        </DropdownMenuItem>
+                      );
+                    })}
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            {selectedInsights.map((value) => {
+              const insight = insights.find((c) => c.value === value);
+              if (!insight) return null;
+              return (
+                <button
+                  key={value}
+                  onClick={() => removeInsightsTag(value)}
+                  className='flex h-7 cursor-pointer items-center gap-1 rounded-full bg-neutral-700/70 px-3 text-xs text-neutral-200 transition-colors hover:bg-neutral-700'
+                  title={`Remove ${insight.label}`}
+                >
+                  {insight.label}
+                  <X className='size-3' />
+                </button>
+              );
+            })}
+            {selectedMode.map((value) => {
+              const item = mode.find((p) => p.value === value);
+              if (!item) return null;
+              return (
+                <button
+                  key={value}
+                  onClick={() => removeModeTag(value)}
+                  className='flex h-7 cursor-pointer items-center gap-1 rounded-full bg-neutral-700/70 px-3 text-xs text-neutral-200 transition-colors hover:bg-neutral-700'
+                  title={`Remove ${item.label}`}
+                >
+                  {item.label}
+                  <X className='size-3' />
+                </button>
+              );
+            })}
           </PromptInputTools>
           <PromptInputSubmit disabled={!input} status={status} />
         </PromptInputToolbar>
