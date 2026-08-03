@@ -22,7 +22,10 @@ export const Conversation = ({ className, ...props }: ConversationProps) => (
 export type ConversationContentProps = ComponentProps<typeof StickToBottom.Content>;
 
 export const ConversationContent = ({ className, ...props }: ConversationContentProps) => (
-  <StickToBottom.Content className={cn('mx-auto max-w-182 p-4', className)} {...props} />
+  <StickToBottom.Content
+    className={cn('mx-auto w-[90%] py-4 lg:w-170', className)}
+    {...props}
+  />
 );
 
 export type ConversationScrollButtonProps = ComponentProps<typeof Button>;
@@ -40,7 +43,14 @@ export const ConversationScrollButton = ({
   return (
     !isAtBottom && (
       <Button
-        className={cn('absolute bottom-4 left-[50%] translate-x-[-50%] rounded-full', className)}
+        className={cn(
+          'absolute bottom-4 left-[50%] translate-x-[-50%] rounded-full',
+          'text-neutral-950',
+          'bg-neutral-300 shadow-xs',
+          'hover:bg-neutral-300 hover:text-neutral-950',
+          'dark:bg-neutral-300 dark:hover:bg-neutral-300 dark:hover:text-neutral-950',
+          className
+        )}
         onClick={handleScrollToBottom}
         size='icon'
         type='button'
