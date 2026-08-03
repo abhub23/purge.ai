@@ -46,6 +46,10 @@ const AIChat = () => {
     transport: new TextStreamChatTransport({ api: `${BACKEND_URL}/api/chat` }),
   });
 
+  const dedupedMessages = messages.filter(
+    (message, index, arr) => arr.findIndex((m) => m.id === message.id) === index
+  );
+
   const hasStarted =
     messages.length > 0 || status === 'submitted' || status === 'streaming' || status === 'error';
 
@@ -108,7 +112,7 @@ const AIChat = () => {
       {hasStarted && (
         <Conversation className='min-h-0 flex-1'>
           <ConversationContent>
-            {messages.map((message) => (
+            {dedupedMessages.map((message) => (
               <div key={message.id}>
                 {message.role === 'assistant' && (
                   <Sources>
