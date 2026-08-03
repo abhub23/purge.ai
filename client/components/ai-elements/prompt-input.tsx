@@ -1,6 +1,6 @@
 'use client';
 
-import { Loader2Icon, Send, SquareIcon, XIcon } from 'lucide-react';
+import { ArrowUp, Loader2Icon, SquareIcon, XIcon } from 'lucide-react';
 import type { ComponentProps, HTMLAttributes, KeyboardEventHandler } from 'react';
 import { Children } from 'react';
 import { Button } from '@/components/ui/button';
@@ -20,7 +20,7 @@ export type PromptInputProps = HTMLAttributes<HTMLFormElement>;
 export const PromptInput = ({ className, ...props }: PromptInputProps) => (
   <form
     className={cn(
-      'mx-auto w-[90%] divide-y overflow-hidden rounded-xl border-2 border-neutral-500 p-3 shadow-sm lg:w-180',
+      'mx-auto w-[90%] divide-y divide-neutral-700/60 rounded-xl border border-transparent bg-neutral-800 p-3 shadow-sm transition-colors hover:border-neutral-700/60 focus-within:border-neutral-600/70 lg:w-170',
       className
     )}
     {...props}
@@ -59,8 +59,8 @@ export const PromptInputTextarea = ({
   return (
     <Textarea
       className={cn(
-        'w-full resize-none rounded-none border-none p-3 text-sm shadow-none ring-0 outline-none',
-        'field-sizing-content max-h-[6lh] dark:bg-neutral-900',
+        'w-full resize-none rounded-none border-none p-3 text-sm text-neutral-100 shadow-none ring-0 outline-none placeholder:text-neutral-500',
+        'field-sizing-content max-h-[6lh] bg-transparent dark:bg-transparent',
         'focus-visible:ring-0',
         className
       )}
@@ -123,20 +123,20 @@ export const PromptInputSubmit = ({
   children,
   ...props
 }: PromptInputSubmitProps) => {
-  let Icon = <Send className='size-4' />;
+  let Icon = <ArrowUp className='size-5' />;
 
   if (status === 'submitted') {
-    Icon = <Loader2Icon className='size-4 animate-spin' />;
+    Icon = <Loader2Icon className='size-5 animate-spin' />;
   } else if (status === 'streaming') {
-    Icon = <SquareIcon className='size-4' />;
+    Icon = <SquareIcon className='size-5' />;
   } else if (status === 'error') {
-    Icon = <XIcon className='size-4' />;
+    Icon = <XIcon className='size-5' />;
   }
 
   return (
     <Button
       className={cn(
-        'h-8 cursor-pointer rounded-lg bg-neutral-500 px-2 text-xl text-neutral-100 hover:bg-neutral-500 hover:text-neutral-100 disabled:opacity-70'
+        'h-8 w-8 cursor-pointer rounded-full bg-blue-500 p-0 text-xl text-white hover:bg-blue-500 disabled:bg-neutral-700 disabled:text-neutral-800 disabled:opacity-100'
       )}
       size={size}
       type='submit'
