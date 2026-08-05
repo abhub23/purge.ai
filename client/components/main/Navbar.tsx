@@ -198,7 +198,7 @@ const Navbar = () => {
                   )}
                 </div>
 
-                <Button size='lg' className='w-full border-b-2 border-gray-400 dark:border-neutral-600' asChild>
+                <Button size='lg' className='w-full' asChild>
                   <Link href='/chat'>Get Started</Link>
                 </Button>
               </div>
