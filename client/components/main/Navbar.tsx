@@ -124,14 +124,12 @@ const Navbar = () => {
             className='focus-visible:ring-ring hover:text-accent-foreground mr-2 inline-flex h-9 items-center justify-end rounded-md px-0 py-2 text-base font-medium transition-colors hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 md:hidden'
             type='button'
           >
-            {data?.success ? (
+            {data?.success && (
               <span className='p-3 text-[15px]'>Hey,&nbsp; {data?.name}</span>
-            ) : (
-              <></>
             )}
             <span className='sr-only'>Toggle Menu</span>
           </button>
-          <div className='flex items-center gap-2'>
+          <div className='flex items-center gap-2 md:hidden'>
             <ToggleTheme />
             <div className='relative mr-4 h-6 w-6'>
               <TextAlignStart
@@ -153,7 +151,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className='border-border/40 border-b md:hidden'>
+        <div className='absolute top-full left-4 right-4 bg-background border-b border-border/40 md:hidden'>
           <div className='container py-4'>
             <nav className='flex flex-col space-y-3 px-10 font-semibold'>
               <Link
@@ -200,7 +198,7 @@ const Navbar = () => {
                   )}
                 </div>
 
-                <Button size='lg' className='w-full' asChild>
+                <Button size='lg' className='w-full border-b-2 border-gray-400 dark:border-neutral-600' asChild>
                   <Link href='/chat'>Get Started</Link>
                 </Button>
               </div>
