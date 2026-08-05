@@ -13,11 +13,11 @@ export interface PricingTier {
 
 export const TIERS: PricingTier[] = [
   {
-    id: 'trial',
-    name: 'Trial Tier',
+    id: 'free',
+    name: 'Free Tier',
     price: {
-      monthly: 'Free',
-      yearly: 'Free',
+      monthly: 0,
+      yearly: 0,
     },
     description: 'For your hobby projects',
     features: [
