@@ -1,5 +1,3 @@
-import LegalCard from '@/components/main/LegalCard';
-
 const terms: string[] = [
   'By accessing and using this website, you accept and agree to be bound by the terms and provisions of this agreement.',
   'The use of this website is subject to the following terms of use which you acknowledge and accept by browsing this site.',
@@ -13,12 +11,22 @@ const terms: string[] = [
   'We aim to maintain a 99.9% uptime but do not guarantee uninterrupted or error-free service. We may perform maintenance or experience outages that affect availability. Additionally, we reserve the right to modify, remove, or discontinue features or services at any time, with or without notice.',
 ];
 
-const Terms = () => {
+export default function Terms() {
   return (
     <div className='mx-auto max-w-[328px] lg:max-w-4xl'>
-      <LegalCard name='Terms & Conditions' values={terms} />
+      <div className='mt-8 flex justify-center text-[18px] lg:mt-[20px] lg:text-[32px]'>
+        Terms & Conditions
+      </div>
+      <ul className='mt-6 flex list-disc flex-col items-start justify-start gap-y-4 text-justify text-[9.5px] font-light lg:mx-auto lg:mt-[30px] lg:text-[16px]'>
+        {terms.map((val, idx) => (
+          <li
+            key={idx}
+            className='pl-[1px] [-text-indent:1.25rem]'
+          >
+            {val}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
-
-export default Terms;
