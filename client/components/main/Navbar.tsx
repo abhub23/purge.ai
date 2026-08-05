@@ -129,7 +129,10 @@ const Navbar = () => {
             ) : (
               <></>
             )}
-            {isMenuOpen && <ToggleTheme />}
+            <span className='sr-only'>Toggle Menu</span>
+          </button>
+          <div className='flex items-center gap-2'>
+            <ToggleTheme />
             <div className='relative mr-4 h-6 w-6'>
               <TextAlignStart
                 className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${
@@ -144,8 +147,7 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               />
             </div>
-            <span className='sr-only'>Toggle Menu</span>
-          </button>
+          </div>
         </div>
       </div>
 
