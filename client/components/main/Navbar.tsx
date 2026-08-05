@@ -131,7 +131,7 @@ const Navbar = () => {
           </button>
           <div className='flex items-center gap-2 md:hidden'>
             <ToggleTheme />
-            <div className='relative mr-4 h-6 w-6'>
+            <div className='relative mr-5 size-6'>
               <TextAlignStart
                 className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${
                   isMenuOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
@@ -151,7 +151,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className='absolute top-full left-4 right-4 bg-background border-b border-border/40 md:hidden'>
+        <div className='absolute top-full left-4 right-6 bg-background border-b border-border/40 md:hidden'>
           <div className='container py-4'>
             <nav className='flex flex-col space-y-3 px-10 font-semibold'>
               <Link
