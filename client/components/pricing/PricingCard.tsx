@@ -75,7 +75,7 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
 
   const handlePurchase = (plan_id: string, price: number | string) => {
     switch (plan_id) {
-      case 'trial':
+      case 'free':
         router.push(isSignedin ? '/chat' : '/');
         break;
       case 'enterprise':

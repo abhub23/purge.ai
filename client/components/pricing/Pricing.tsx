@@ -3,7 +3,6 @@
 import { PricingCard } from '@/components/pricing/PricingCard';
 import { PricingHeader } from '@/components/pricing/PricingHeader';
 import { PAYMENT_FREQUENCIES, TIERS } from '@/constants/price';
-import { motion } from 'motion/react';
 import { useState } from 'react';
 import Signin from '../auth/Signin';
 import { useSignBox } from '@/store/AuthStates';
@@ -16,11 +15,7 @@ export const Pricing = () => {
     <section className='flex flex-col items-center gap-10 py-10'>
       {isOpen && <Signin />}
       {/* Section Header */}
-      <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
-      >
+      <div>
         <PricingHeader
           title='Plans and Pricing'
           subtitle='Receive unlimited credits when you pay yearly, and save on your plan.'
@@ -28,19 +23,14 @@ export const Pricing = () => {
           selectedFrequency={selectedPaymentFreq}
           onFrequencyChange={setSelectedPaymentFreq}
         />
-      </motion.div>
+      </div>
 
       {/* Pricing Cards */}
-      <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
-        className='grid w-full max-w-6xl gap-6 sm:grid-cols-2 xl:grid-cols-3'
-      >
+      <div className='grid w-full max-w-6xl gap-6 sm:grid-cols-2 xl:grid-cols-3'>
         {TIERS.map((tier, idx) => (
           <PricingCard key={idx} tier={tier} paymentFrequency={selectedPaymentFreq} />
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 };
