@@ -13,11 +13,11 @@ const terms: string[] = [
 
 export default function Terms() {
   return (
-    <div className='mx-auto max-w-[328px] lg:max-w-4xl'>
-      <div className='mt-8 flex justify-center text-[18px] lg:mt-[20px] lg:text-[32px]'>
+    <div className='mx-auto max-w-[328px] lg:max-w-4xl pb-10 lg:pb-0'>
+      <div className='mt-8 flex justify-center text-[20px] lg:mt-[20px] lg:text-[32px]'>
         Terms & Conditions
       </div>
-      <ul className='mt-6 flex list-disc flex-col items-start justify-start gap-y-4 text-justify text-[9.5px] font-light lg:mx-auto lg:mt-[30px] lg:text-[16px]'>
+      <ul className='mt-6 flex list-disc flex-col items-start justify-start gap-y-4 text-justify text-sm font-light lg:mx-auto lg:mt-[30px] lg:text-[16px]'>
         {terms.map((val, idx) => (
           <li
             key={idx}
