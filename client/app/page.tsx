@@ -1,6 +1,6 @@
 import Navbar from '@/components/main/Navbar';
 import Hero from '@/components/main/Hero';
-import { Features } from '@/components/main/Features';
+import { Bento } from '@/components/main/Bento';
 import Footer from '@/components/main/Footer';
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
     <div className='bg-background min-h-screen lg:min-w-4xl'>
       <Navbar />
       <Hero />
-      <Features />
+      <Bento />
       <Footer />
     </div>
   );
