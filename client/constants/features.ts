@@ -1,4 +1,4 @@
-import { Zap, Shield, Terminal, Code, BotMessageSquare } from 'lucide-react';
+import { GitMerge, BotMessageSquare, TerminalSquare, GitCommitHorizontal, Shield } from 'lucide-react';
 
 type FeatureTypes = {
   icon: React.ElementType;
@@ -9,33 +9,33 @@ type FeatureTypes = {
 
 export const features: FeatureTypes[] = [
   {
-    icon: Zap,
-    title: 'Blazingly Fast',
-    desc: 'Experience lightning-fast performance with optimized algorithms and instant response times for maximum productivity. Our platform delivers unparalleled speed.',
-    badge: 'Performance',
-  },
-  {
-    icon: Shield,
-    title: 'Secure by Default',
-    desc: 'Enterprise-grade security with end-to-end encryption and advanced threat protection for complete data safety. Your information remains protected.',
-    badge: 'Security',
-  },
-  {
-    icon: Terminal,
-    title: 'Customizable',
-    desc: 'Fully customizable interface with flexible modes and personalized insights tailored to your unique workflow needs.',
-    badge: 'Prompt',
-  },
-  {
-    icon: Code,
-    title: 'Developer Friendly',
-    desc: 'Clean APIs, comprehensive documentation, and excellent developer experience for seamless integration.',
-    badge: 'Dev Ex',
+    icon: GitMerge,
+    title: 'Merges it for you',
+    desc: 'PurgeAI doesn’t just review — it handles the merge. Approves passing checks, flags failing ones, and lands your PR the moment everything turns green.',
+    badge: 'Autopilot',
   },
   {
     icon: BotMessageSquare,
-    title: 'Optimized Context',
-    desc: 'Advanced context management for lengthy conversations and deep research with intelligent content optimization.',
-    badge: 'SEO',
+    title: 'Reads the diff, not the title',
+    desc: 'It actually reasons over every changed file — spotting logic errors, edge cases, and conflicts reviewers scroll past.',
+    badge: 'Deep Review',
+  },
+  {
+    icon: TerminalSquare,
+    title: 'Inline comments make sense',
+    desc: 'Actionable, right on the exact line, in an agenda so you can act and merge instead of playing 20 questions.',
+    badge: 'Actionable',
+  },
+  {
+    icon: GitCommitHorizontal,
+    title: 'Runs your checks',
+    desc: 'Hooks straight into CI. Failed tests, lint errors, and merge conflicts are caught before they ever hit main.',
+    badge: 'CI Aware',
+  },
+  {
+    icon: Shield,
+    title: 'Ships without the drama',
+    desc: 'Pinpoint review summaries mean PRs stop being a bottleneck. Your team moves, main stays clean, and no one burns a day arguing over a semicolon.',
+    badge: 'Zero Drama',
   },
 ];
