@@ -1,6 +1,6 @@
 'use client';
 
-import { Bricolage } from '@/utils/fonts';
+import { HostGrotesk } from '@/utils/fonts';
 import { motion } from 'motion/react';
 import { Animation, Transition } from '@/animations/Animation';
 import { cn } from '@/lib/utils';
@@ -15,7 +15,7 @@ const values = [
 
 export default function About(){
   return (
-    <section className={cn('bg-background text-foreground', Bricolage)}>
+    <section className={cn('bg-background text-foreground', HostGrotesk)}>
       <div className='mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-6 py-20'>
         <motion.div {...Animation} transition={Transition(0.15)} className='text-center'>
           <motion.h1 className='text-foreground text-[32px] font-bold tracking-tight lg:text-6xl'>

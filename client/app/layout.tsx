@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Bricolage } from '@/utils/fonts';
+import { HostGrotesk } from '@/utils/fonts';
 import { ThemeProvider } from 'next-themes';
 import { QueryProvider } from '@/utils/QueryProvider';
 import './globals.css';
@@ -90,7 +90,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body className={cn(Bricolage)}>
+      <body className={cn(HostGrotesk)}>
         <script src='https://checkout.razorpay.com/v1/checkout.js' async></script>
         <ThemeProvider attribute={'class'}>
           <QueryProvider>{children}</QueryProvider>

@@ -35,7 +35,7 @@ export const Bento = () => {
         <Badge variant='secondary' className='border py-1'>
           Features
         </Badge>
-        <h2 className='mx-2 text-3xl leading-tight font-bold tracking-tighter lg:text-5xl'>
+        <h2 className='mx-2 text-3xl leading-tight font-bold tracking-tight lg:text-5xl'>
           Everything you need to know for building amazing SaaS products
         </h2>
         <p className='text-muted-foreground mx-2 text-[15px] lg:max-w-[800px] lg:text-lg'>
