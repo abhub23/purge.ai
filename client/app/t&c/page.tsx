@@ -1,3 +1,5 @@
+import Footer from '@/components/main/Footer';
+
 const terms: string[] = [
   'By accessing and using this website, you accept and agree to be bound by the terms and provisions of this agreement.',
   'The use of this website is subject to the following terms of use which you acknowledge and accept by browsing this site.',
@@ -13,7 +15,8 @@ const terms: string[] = [
 
 export default function Terms() {
   return (
-    <div className='mx-auto max-w-[328px] lg:max-w-4xl pb-10 lg:pb-0'>
+    <>
+      <div className='mx-auto max-w-[328px] lg:max-w-4xl pb-10 lg:pb-0'>
       <div className='mt-8 flex justify-center text-[20px] lg:mt-[20px] lg:text-[32px]'>
         Terms & Conditions
       </div>
@@ -28,5 +31,7 @@ export default function Terms() {
         ))}
       </ul>
     </div>
+    <Footer />
+    </>
   );
-};
+}
