@@ -7,7 +7,7 @@ export const Bento = () => {
   // Define grid layout: first 2 cards span 3 columns, next 3 cards span 2 columns each
   const getCardClasses = (index: number) => {
     const baseClasses =
-      'relative h-full overflow-hidden transition-all delay-50 hover:scale-101 hover:shadow-lg flex flex-col';
+      'relative h-full overflow-hidden transition-all delay-50 hover:shadow-lg flex flex-col';
     const gridClasses = index < 2 ? 'md:col-span-1 lg:col-span-3' : 'md:col-span-1 lg:col-span-2';
 
     return { baseClasses, gridClasses };
@@ -17,14 +17,14 @@ export const Bento = () => {
     return index < 2
       ? {
           badge: 'text-xs md:text-sm',
-          title: 'text-lg md:text-xl lg:text-2xl',
-          desc: 'w-full text-sm md:text-base lg:text-lg',
+          title: 'text-xl md:text-xl lg:text-2xl',
+          desc: 'w-full text-base md:text-base lg:text-lg',
           padding: 'p-6',
         }
       : {
           badge: 'text-xs md:text-sm',
-          title: 'text-lg md:text-lg lg:text-xl',
-          desc: 'w-full text-sm md:text-base',
+          title: 'text-xl md:text-lg lg:text-xl',
+          desc: 'w-full text-base md:text-base',
           padding: 'p-5',
         };
   };
@@ -36,7 +36,7 @@ export const Bento = () => {
           Features
         </Badge>
         <h2 className='mx-2 text-3xl leading-tight font-bold tracking-tight lg:text-5xl'>
-          Everything you need to know for building amazing SaaS products
+          Everything you need for building amazing SaaS products
         </h2>
         <p className='text-muted-foreground mx-2 text-[15px] lg:max-w-[800px] lg:text-lg'>
           Our platform provides all the tools and features you need to create exceptional Products
