@@ -41,35 +41,13 @@ export default function Navbar() {
   }, [isSuccess, data]);
 
   return (
-    <nav className='md:border-border/40 md:bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur lg:fixed lg:top-5 lg:left-1/2 lg:w-[1000px] lg:-translate-x-1/2 lg:rounded-2xl lg:border-1 lg:border-neutral-300 lg:bg-transparent lg:dark:border-neutral-800'>
+    <nav className='md:border-border/40 md:bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur'>
       <div className='container flex h-16 max-w-screen-2xl items-center'>
-        <div className='ml-14 hidden md:flex'>
+        <div className='ml-26 hidden md:flex'>
           <Link href='/' className='mr-6 flex items-center space-x-2'>
-            <Image src={'/purgeailogo.webp'} alt='aa' height={30} width={30} />
-            <span className='hidden font-bold sm:inline-block'>PurgeAI</span>
+            <Image src={'/purgeailogo.webp'} alt='aa' height={35} width={35} />
+            <span className='hidden text-xl font-bold sm:inline-block'>PurgeAI</span>
           </Link>
-
-          {/* Navigation Links laptop */}
-          <nav className='flex items-center gap-[2px] text-sm font-medium'>
-            <Link
-              href='/about'
-              className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
-            >
-              About
-            </Link>
-            <div
-              onClick={() => window.scrollTo({ top: 1300, behavior: 'smooth' })}
-              className='hover:text-foreground hover:bg-accent/80 text-foreground/80 cursor-pointer rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
-            >
-              Features
-            </div>
-            <Link
-              href='/pricing'
-              className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
-            >
-              Pricing
-            </Link>
-          </nav>
         </div>
 
         {/* Mobile viewport */}
@@ -82,7 +60,29 @@ export default function Navbar() {
           </div>
 
           {/* Right side buttons */}
-          <div className='mr-14 hidden items-center space-x-2 md:flex'>
+          <div className='mr-26 hidden items-center space-x-2 md:flex'>
+            {/* Navigation Links laptop */}
+            <nav className='flex items-center gap-[2px] text-base font-medium mr-4'>
+              <Link
+                href='/about'
+                className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
+              >
+                About
+              </Link>
+              <div
+                onClick={() => window.scrollTo({ top: 1300, behavior: 'smooth' })}
+                className='hover:text-foreground hover:bg-accent/80 text-foreground/80 cursor-pointer rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
+              >
+                Features
+              </div>
+              <Link
+                href='/pricing'
+                className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
+              >
+                Pricing
+              </Link>
+            </nav>
+
             <div className='items-center space-x-2 md:flex'>
               {isLoading || isError ? (
                 <></>
@@ -111,7 +111,7 @@ export default function Navbar() {
                 </Button>
               )}
 
-              <Button size='sm' asChild>
+              <Button asChild className='text-base'>
                 <Link href='/chat'>Get Started</Link>
               </Button>
             </div>
