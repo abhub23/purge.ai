@@ -42,13 +42,35 @@ export default function Navbar() {
 
   return (
     <nav className='md:border-border/40 md:bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur'>
-      <div className='container flex h-16 max-w-screen-2xl items-center'>
+      <div className='container relative flex h-16 max-w-screen-2xl items-center'>
         <div className='ml-26 hidden md:flex'>
           <Link href='/' className='mr-6 flex items-center space-x-2'>
             <Image src={'/purgeailogo.webp'} alt='aa' height={35} width={35} />
             <span className='hidden text-xl font-bold sm:inline-block'>PurgeAI</span>
           </Link>
         </div>
+
+        {/* Navigation Links laptop - centered */}
+        <nav className='hidden items-center gap-[2px] text-base font-medium md:flex absolute left-1/2 -translate-x-1/2'>
+          <Link
+            href='/about'
+            className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors'
+          >
+            About
+          </Link>
+          <div
+            onClick={() => window.scrollTo({ top: 1300, behavior: 'smooth' })}
+            className='hover:text-foreground hover:bg-accent/80 text-foreground/80 cursor-pointer rounded-md p-1.5 px-2.5 transition-colors'
+          >
+            Features
+          </div>
+          <Link
+            href='/pricing'
+            className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors'
+          >
+            Pricing
+          </Link>
+        </nav>
 
         {/* Mobile viewport */}
         <div className='flex flex-1 items-center justify-between space-x-2'>
@@ -61,40 +83,20 @@ export default function Navbar() {
 
           {/* Right side buttons */}
           <div className='mr-26 hidden items-center space-x-2 md:flex'>
-            {/* Navigation Links laptop */}
-            <nav className='flex items-center gap-[2px] text-base font-medium mr-4'>
-              <Link
-                href='/about'
-                className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
-              >
-                About
-              </Link>
-              <div
-                onClick={() => window.scrollTo({ top: 1300, behavior: 'smooth' })}
-                className='hover:text-foreground hover:bg-accent/80 text-foreground/80 cursor-pointer rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
-              >
-                Features
-              </div>
-              <Link
-                href='/pricing'
-                className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors hover:scale-101'
-              >
-                Pricing
-              </Link>
-            </nav>
+            {isSuccess && data?.success && (
+              <span className='font-medium p-2 text-base'>Hey,&nbsp; {data?.name}</span>
+            )}
 
             <div className='items-center space-x-2 md:flex'>
               {isLoading || isError ? (
                 <></>
               ) : data?.success ? (
                 <>
-                  <span className='p-2 text-[15px]'>Hey,&nbsp; {data?.name}</span>
                   <Button
                     variant='ghost'
-                    size='sm'
                     asChild
                     onClick={() => handleSignOut()}
-                    className='cursor-pointer'
+                    className='cursor-pointer text-base bg-accent text-accent-foreground dark:hover:bg-accent'
                   >
                     <span>Sign Out</span>
                   </Button>
@@ -102,10 +104,9 @@ export default function Navbar() {
               ) : (
                 <Button
                   variant='ghost'
-                  size='sm'
                   asChild
                   onClick={() => setOpen(true)}
-                  className='cursor-pointer'
+                  className='cursor-pointer text-base bg-accent text-accent-foreground dark:hover:bg-accent'
                 >
                   <span>Sign In</span>
                 </Button>
