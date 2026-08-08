@@ -41,7 +41,7 @@ export default function Navbar() {
   }, [isSuccess, data]);
 
   return (
-    <nav className='md:border-border/40 md:bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur'>
+    <nav className='md:border-border/40 md:bg-background/95 supports-backdrop-filter:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur'>
       <div className='container relative flex h-16 max-w-screen-2xl items-center'>
         <div className='ml-26 hidden md:flex'>
           <Link href='/' className='mr-6 flex items-center space-x-2'>
@@ -51,7 +51,7 @@ export default function Navbar() {
         </div>
 
         {/* Navigation Links laptop - centered */}
-        <nav className='hidden items-center gap-[2px] text-base font-medium md:flex absolute left-1/2 -translate-x-1/2'>
+        <nav className='hidden items-center gap-2.5 text-base font-medium md:flex absolute left-1/2 -translate-x-1/2'>
           <Link
             href='/about'
             className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors'

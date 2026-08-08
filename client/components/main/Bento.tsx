@@ -30,20 +30,20 @@ export const Bento = () => {
   };
 
   return (
-    <section className='mt-[-120px] py-24 md:py-32'>
-      <div className='mx-auto flex max-w-[980px] flex-col items-center space-y-4 text-center'>
+    <section className='-mt-30 py-24 md:py-32'>
+      <div className='mx-auto flex max-w-245 flex-col items-center space-y-4 text-center'>
         <Badge variant='secondary' className='border py-1'>
           Features
         </Badge>
         <h2 className='mx-2 text-3xl leading-tight font-bold tracking-tight lg:text-5xl'>
           Everything you need for building amazing SaaS products
         </h2>
-        <p className='text-muted-foreground mx-2 text-[15px] lg:max-w-[800px] lg:text-lg'>
+        <p className='text-muted-foreground mx-2 text-[15px] lg:max-w-200 lg:text-lg'>
           Our platform provides all the tools and features you need to create exceptional Products
         </p>
       </div>
 
-      <div className='mx-2 mt-16 max-w-[1200px] lg:mx-auto'>
+      <div className='mx-2 mt-16 max-w-300 lg:mx-auto'>
         <div className='grid auto-rows-[18rem] gap-6 md:grid-cols-2 lg:grid-cols-6'>
           {features.map((feature, index) => {
             const { baseClasses, gridClasses } = getCardClasses(index);
