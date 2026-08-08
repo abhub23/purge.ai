@@ -44,7 +44,7 @@ const Hero = () => {
           Rethinking the Pull Request Workflow
         </motion.div>
         <AnimatedText
-          text='The most Comprehensive AI Assistant to review your PR'
+          text='The most comprehensive AI assistant to review your PR'
           classname='text-[28px] leading-tight font-bold tracking-tight md:text-5xl lg:text-6xl lg:leading-[1.1]'
           blur='5px'
           stg={0.1}

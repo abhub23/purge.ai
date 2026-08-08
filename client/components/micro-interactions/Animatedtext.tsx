@@ -35,7 +35,7 @@ const AnimatedText: FC<AnimateType> = ({ text, classname, blur, stg }) => {
   }, []);
 
   return (
-    <h1 ref={scope}>
+    <h1 ref={scope} className='w-full text-balance'>
       {text.split(' ').map((word, idx) => (
         <motion.span
           initial={{ opacity: 0, y: -100, filter: `blur(${blur})` }}
