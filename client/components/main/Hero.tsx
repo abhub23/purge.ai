@@ -65,12 +65,16 @@ const Hero = () => {
       >
         <Button
           size='lg'
-          className='rounded-4xl bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90'
+          className='rounded-4xl bg-black text-white hover:bg-black/90 lg:h-12 lg:px-6 lg:text-lg dark:bg-white dark:text-black dark:hover:bg-white/90'
           asChild
         >
           <Link href='/chat'>Get Started</Link>
         </Button>
-        <Button variant='outline' size='lg' className='cursor-pointer rounded-4xl'>
+        <Button
+          variant='outline'
+          size='lg'
+          className='cursor-pointer rounded-4xl lg:h-12 lg:px-6 lg:text-lg'
+        >
           <Link href='/chat'> Try Assistant </Link>
         </Button>
       </motion.div>
