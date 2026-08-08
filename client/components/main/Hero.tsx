@@ -10,7 +10,7 @@ import R2L_AnimatedSVG from '../micro-interactions/R2L_AnimatedSVG';
 
 const Hero = () => {
   return (
-    <section className='relative flex flex-col items-center justify-center space-y-4 py-24 lg:mt-18 lg:py-32'>
+    <section className='relative flex flex-col items-center justify-center space-y-4 py-24 lg:py-32'>
       <div className='absolute inset-0 hidden lg:block'>
         <div className='flex justify-between px-10'>
           <div className='flex flex-col gap-y-[400px] pt-10'>
