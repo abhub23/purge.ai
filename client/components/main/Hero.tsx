@@ -40,7 +40,8 @@ const Hero = () => {
           transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
           className='bg-muted/90 inline-flex items-center rounded-lg border px-2 py-1 text-[12px] font-medium lg:text-sm'
         >
-          🎉 <span className='ml-2'>Introducing our new features</span>
+          <span className='mr-2 h-1.5 w-1.5 rounded-full bg-primary animate-pulse' />
+          Rethinking the Pull Request Workflow
         </motion.div>
         <AnimatedText
           text='The most Comprehensive AI Assistant to review your PR'
