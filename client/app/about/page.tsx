@@ -9,7 +9,7 @@ import Footer from '@/components/main/Footer';
 const stats = [
   { label: 'Automated PR Reviews', value: '10x Faster' },
   { label: 'Codebase Accuracy', value: '99.4%' },
-  { label: 'Developer Hours Saved', value: '20+ hrs/wk' },
+  { label: 'Developer Hours Saved', value: '5+ hrs/wk' },
 ];
 
 const values = [
