@@ -39,7 +39,7 @@ export default function About() {
         {/* Badge & Hero */}
         <motion.div {...Animation} transition={Transition(0.15)} className="text-center">
           <span className="mb-6 inline-block font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            // Rethinking the PR Queue
+            // About PurgeAI
           </span>
 
           <motion.h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
