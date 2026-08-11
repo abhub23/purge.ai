@@ -38,14 +38,15 @@ const Hero = () => {
           initial={{ opacity: 0, y: -20, filter: 'blur(5px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
-          className='bg-muted/90 inline-flex items-center rounded-lg border px-2 py-1 text-[12px] font-medium lg:text-sm'
+          className='text-center'
         >
-          <span className='mr-2 h-1.5 w-1.5 rounded-full bg-primary animate-pulse' />
-          Rethinking the Pull Request Workflow
+          <span className='text-muted-foreground inline-block font-mono text-[10px] uppercase tracking-widest lg:text-xs'>
+            // Rethinking the Pull Request Workflow
+          </span>
         </motion.div>
         <AnimatedText
           text='The most comprehensive AI assistant to review your PR'
-          classname='text-[28px] leading-tight font-bold tracking-tight md:text-5xl lg:text-6xl lg:leading-[1.1]'
+          classname='text-[28px] leading-tight font-semibold tracking-tight md:text-5xl lg:text-6xl lg:leading-[1.1]'
           blur='5px'
           stg={0.1}
         />
