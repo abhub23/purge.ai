@@ -44,7 +44,7 @@ export const Bento = () => {
       </div>
 
       <div className='mx-2 mt-16 max-w-300 lg:mx-auto'>
-        <div className='grid auto-rows-[18rem] gap-6 md:grid-cols-2 lg:grid-cols-6'>
+        <div className='grid auto-rows-[18rem] gap-5 md:grid-cols-2 lg:grid-cols-6'>
           {features.map((feature, index) => {
             const { baseClasses, gridClasses } = getCardClasses(index);
             const sizes = getTextSizes(index);

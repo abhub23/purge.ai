@@ -100,18 +100,15 @@ export default function Terms() {
         <motion.div
           {...Animation}
           transition={Transition(0.5)}
-          className="mt-20 flex flex-col items-center gap-6 text-center"
+          className="mt-20 flex flex-col items-center gap-4 text-center"
         >
           <span className="inline-block font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            // Questions?
+            Questions?
           </span>
-          <h2 className="text-2xl font-bold tracking-tight lg:text-3xl">
-            The docs are clear, but our inbox is open.
-          </h2>
-          <p className="max-w-xl text-sm leading-relaxed text-muted-foreground lg:text-base">
+          <p className="max-w-xs text-sm leading-relaxed text-muted-foreground lg:text-base">
             If any of these terms feel unclear, or you just want to talk shop, reach out.
           </p>
-          <div className="mt-2 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-1 flex flex-col gap-4 sm:flex-row">
             <Button
               variant='outline'
               size='lg'
