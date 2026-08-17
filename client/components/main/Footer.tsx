@@ -119,7 +119,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className='text-muted-foreground flex h-18 items-center justify-center border-t pb-2 text-[12px] lg:h-16 lg:pb-0 lg:text-[14px]'>
+      <p className='text-muted-foreground mx-auto flex h-18 w-full max-w-[1200px] items-center justify-center border-t pb-2 text-[12px] lg:h-16 lg:justify-start lg:pb-0 lg:text-[14px]'>
         © 2025 PurgeAI. All rights reserved.
         <Link href={'/t&c'} className='hover:text-foreground/75 ml-2 underline transition-colors'>
           Terms & Conditions{' '}
