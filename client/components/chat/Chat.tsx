@@ -38,13 +38,10 @@ import { HostGrotesk } from '@/utils/fonts';
 import { useQuery } from '@tanstack/react-query';
 import api from '@/lib/axios';
 
-const greetings = ['Got a PR up?', 'Need a review?', "Where's the diff?", 'Ready for review?'];
-
 const AIChat = () => {
   const [input, setInput] = useState('');
   const [selectedInsights, setSelectedInsights] = useState<string[]>([]);
   const [selectedMode, setSelectedMode] = useState<string[]>([]);
-  const [greeting] = useState(() => greetings[Math.floor(Math.random() * greetings.length)]);
   const { messages, sendMessage, status } = useChat({
     transport: new TextStreamChatTransport({ api: `${BACKEND_URL}/api/chat` }),
   });
@@ -174,7 +171,7 @@ const AIChat = () => {
       )}
       {messages.length === 0 && (
         <div className={cn('pb-4 text-2xl lg:pb-8 lg:text-4xl', HostGrotesk)}>
-          Hey {data?.success ? data?.name : 'There'}, {greeting}
+          Hey {data?.success ? data?.name : 'There'}, Ready for review?
         </div>
       )}
       <PromptInput
