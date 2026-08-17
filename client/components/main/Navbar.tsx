@@ -152,7 +152,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className='absolute top-full left-4 right-6 bg-background border-b border-border/40 md:hidden'>
+        <div className='bg-background absolute top-full left-0 right-0 border-b border-border/40 md:hidden'>
           <div className='container py-4'>
             <nav className='flex flex-col space-y-3 px-10 font-semibold'>
               <Link
