@@ -31,12 +31,32 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
 
   type CreateOrderVariables = { plan_id: string; price: number };
 
+  const loadRazorpay = () =>
+    new Promise<void>((resolve, reject) => {
+      if ((window as any).Razorpay) {
+        resolve();
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error('Failed to load Razorpay'));
+      document.body.appendChild(script);
+    });
+
   const { mutate } = useMutation<any, Error, CreateOrderVariables>({
     mutationFn: async ({ plan_id, price }) => {
       const response = await api.post('/api/orderpay', { plan_id, price });
       return response.data.order;
     },
     onSuccess: async (order) => {
+      try {
+        await loadRazorpay();
+      } catch (err) {
+        console.error('Razorpay could not be loaded', err);
+        toast.error('Unable to load payment gateway. Please try again.');
+        return;
+      }
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
         amount: order.amount,
