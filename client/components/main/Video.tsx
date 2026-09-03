@@ -6,7 +6,7 @@ const Video = () => {
       loop
       playsInline
       controls={false}
-      className='pointer-events-none h-auto w-[320px] rounded-md lg:w-[800px]'
+      className='pointer-events-none h-auto w-[320px] rounded-md lg:w-200'
     >
       <source src='/PurgeAI.mp4' type='video/mp4' />
     </video>

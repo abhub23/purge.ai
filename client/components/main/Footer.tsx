@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer className='bg-background border-t'>
       <div className='px-4 py-8 lg:h-72 lg:py-8'>
-        <div className='grid gap-8 lg:mx-auto lg:flex lg:w-full lg:max-w-[1200px] lg:justify-between'>
+        <div className='grid gap-8 lg:mx-auto lg:flex lg:w-full lg:max-w-300 lg:justify-between'>
           {/* Brand Section */}
           <div className='space-y-4'>
             <div className='flex items-center space-x-2'>
@@ -119,7 +119,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className='text-muted-foreground mx-auto flex h-18 w-full max-w-[1200px] items-center justify-center border-t pb-2 text-[12px] lg:h-16 lg:justify-start lg:pb-0 lg:text-[14px]'>
+      <p className='text-muted-foreground mx-auto flex h-18 w-full max-w-300 items-center justify-center border-t pb-2 text-[12px] lg:h-16 lg:justify-start lg:pb-0 lg:text-[14px]'>
         © 2025 PurgeAI. All rights reserved.
         <Link href={'/t&c'} className='hover:text-foreground/75 ml-2 underline transition-colors'>
           Terms & Conditions{' '}

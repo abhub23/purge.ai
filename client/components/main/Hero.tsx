@@ -8,17 +8,17 @@ import Video from './Video';
 import L2R_AnimatedSVG from '../micro-interactions/L2R_AnimatedSVG';
 import R2L_AnimatedSVG from '../micro-interactions/R2L_AnimatedSVG';
 
-const Hero = () => {
+export default function Hero(){
   return (
     <section className='relative flex flex-col items-center justify-center space-y-4 py-24 lg:py-32'>
       <div className='absolute inset-0 hidden lg:block'>
         <div className='flex justify-between px-10'>
-          <div className='flex flex-col gap-y-[400px] pt-10'>
+          <div className='flex flex-col gap-y-100 pt-10'>
             <L2R_AnimatedSVG duration={2.7} />
             <L2R_AnimatedSVG duration={3.2} />
           </div>
 
-          <div className='flex flex-col items-end gap-y-[380px] pt-14'>
+          <div className='flex flex-col items-end gap-y-95 pt-14'>
             <R2L_AnimatedSVG duration={2.8} />
             <R2L_AnimatedSVG duration={3.3} />
           </div>
@@ -27,13 +27,13 @@ const Hero = () => {
 
       {/* Mobile viewport */}
       <div className='bg-gradient-radial absolute inset-0 block overflow-hidden sm:hidden'>
-        <div className='flex flex-col gap-y-[240px] pt-7'>
+        <div className='flex flex-col gap-y-60 pt-7'>
           <L2R_AnimatedSVG duration={2.7} />
           <L2R_AnimatedSVG duration={3.2} />
         </div>
       </div>
 
-      <div className='relative mx-auto flex max-w-[980px] flex-col items-center space-y-2 text-center'>
+      <div className='relative mx-auto flex max-w-245 flex-col items-center space-y-2 text-center'>
         <motion.div
           initial={{ opacity: 0, y: -20, filter: 'blur(5px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -54,7 +54,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
-          className='text-muted-foreground mx-10 max-w-[750px] text-[15px] lg:mx-0 lg:text-xl'
+          className='text-muted-foreground mx-10 max-w-187.5 text-[15px] lg:mx-0 lg:text-xl'
         >
           An AI Powered critique who does the heavy lifting for your github PRs
         </motion.p>
@@ -80,11 +80,9 @@ const Hero = () => {
           <Link href='/chat'> Try Assistant </Link>
         </Button>
       </motion.div>
-      <div className='relative mx-auto mt-28 max-w-[1200px] rounded-2xl lg:mt-36'>
+      <div className='relative mx-auto mt-28 max-w-300 rounded-2xl lg:mt-36'>
         <Video />
       </div>
     </section>
   );
 };
-
-export default Hero;
