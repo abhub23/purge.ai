@@ -35,7 +35,7 @@ export type PromptInputTextareaProps = ComponentProps<typeof Textarea> & {
 export const PromptInputTextarea = ({
   onChange,
   className,
-  placeholder = 'Paste your  Pull / Merge Request Url',
+  placeholder = 'Paste your Pull Request URL',
   minHeight = 48,
   maxHeight = 164,
   ...props
