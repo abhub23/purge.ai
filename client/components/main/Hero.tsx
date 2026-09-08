@@ -8,7 +8,7 @@ import Video from './Video';
 import L2R_AnimatedSVG from '../micro-interactions/L2R_AnimatedSVG';
 import R2L_AnimatedSVG from '../micro-interactions/R2L_AnimatedSVG';
 
-export default function Hero(){
+export default function Hero() {
   return (
     <section className='relative flex flex-col items-center justify-center space-y-4 py-24 lg:py-32'>
       <div className='absolute inset-0 hidden lg:block'>
@@ -40,7 +40,7 @@ export default function Hero(){
           transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
           className='text-center'
         >
-          <span className='text-muted-foreground inline-block font-mono text-[10px] uppercase tracking-widest lg:text-xs'>
+          <span className='text-muted-foreground inline-block font-mono text-[10px] tracking-widest uppercase lg:text-xs'>
             // Rethinking the Pull Request Workflow
           </span>
         </motion.div>
@@ -85,4 +85,4 @@ export default function Hero(){
       </div>
     </section>
   );
-};
+}

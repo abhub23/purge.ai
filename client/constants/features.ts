@@ -1,4 +1,10 @@
-import { GitMerge, BotMessageSquare, TerminalSquare, GitCommitHorizontal, Shield } from 'lucide-react';
+import {
+  GitMerge,
+  BotMessageSquare,
+  TerminalSquare,
+  GitCommitHorizontal,
+  Shield,
+} from 'lucide-react';
 
 type FeatureTypes = {
   icon: React.ElementType;

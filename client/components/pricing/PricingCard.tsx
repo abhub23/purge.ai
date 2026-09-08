@@ -146,7 +146,7 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
               value={price}
               className='text-4xl font-medium'
             />
-            {tier.id !== 'enterprise' && <span className='text-sm text-foreground/60'>/month</span>}
+            {tier.id !== 'enterprise' && <span className='text-foreground/60 text-sm'>/month</span>}
           </>
         ) : (
           <h1 className='text-4xl font-medium'>{price}</h1>

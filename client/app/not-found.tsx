@@ -8,12 +8,12 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <div className='flex min-h-screen flex-col items-center justify-center bg-background px-4'>
+    <div className='bg-background flex min-h-screen flex-col items-center justify-center px-4'>
       <div className='text-center'>
-        <h1 className='bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-8xl font-bold tracking-tighter text-transparent lg:text-9xl'>
+        <h1 className='from-foreground to-foreground/60 bg-gradient-to-r bg-clip-text text-8xl font-bold tracking-tighter text-transparent lg:text-9xl'>
           404
         </h1>
-        <p className='mt-6 text-lg text-muted-foreground lg:text-xl'>
+        <p className='text-muted-foreground mt-6 text-lg lg:text-xl'>
           The page you are looking for does not exist or has been moved.
         </p>
         <Button

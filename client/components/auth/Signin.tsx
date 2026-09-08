@@ -8,12 +8,12 @@ import { toast } from 'sonner';
 export default function Signin() {
   const { isOpen, setOpen } = useSignBox();
   return (
-      <Dialog open={isOpen} onOpenChange={setOpen}>
-        <DialogContent className='sm:max-w-[425px]'>
-          <DialogTitle>Sign In with Socials</DialogTitle>
-          <GoogleButton onClick={GoogleSignIn} />
-          <GithubButton onClick={() => toast.error('Coming soon, stay tuned.')} />
-        </DialogContent>
-      </Dialog>
+    <Dialog open={isOpen} onOpenChange={setOpen}>
+      <DialogContent className='sm:max-w-[425px]'>
+        <DialogTitle>Sign In with Socials</DialogTitle>
+        <GoogleButton onClick={GoogleSignIn} />
+        <GithubButton onClick={() => toast.error('Coming soon, stay tuned.')} />
+      </DialogContent>
+    </Dialog>
   );
-};
+}

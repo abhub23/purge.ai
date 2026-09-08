@@ -17,11 +17,7 @@ export const ToggleTheme: FC = () => {
       onClick={toggleTheme}
     >
       <SafeRender>
-        {theme == 'light' ? (
-          <Moon className='h-4.5 w-4.5' />
-        ) : (
-          <Sun className='h-4.5 w-4.5' />
-        )}
+        {theme == 'light' ? <Moon className='h-4.5 w-4.5' /> : <Sun className='h-4.5 w-4.5' />}
       </SafeRender>
     </span>
   );

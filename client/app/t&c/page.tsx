@@ -54,59 +54,59 @@ const sections = [
 export default function Terms() {
   return (
     <section className={cn('bg-background text-foreground', HostGrotesk)}>
-      <div className="mx-auto flex w-full max-w-4xl flex-col px-6 py-20 lg:py-28">
+      <div className='mx-auto flex w-full max-w-4xl flex-col px-6 py-20 lg:py-28'>
         {/* Badge & Hero */}
-        <FadeIn delay={0.15} className="text-center">
-          <span className="mb-6 inline-block font-mono text-xs uppercase tracking-widest text-muted-foreground">
+        <FadeIn delay={0.15} className='text-center'>
+          <span className='text-muted-foreground mb-6 inline-block font-mono text-xs tracking-widest uppercase'>
             // Terms & Conditions
           </span>
 
-          <motion.h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
+          <motion.h1 className='text-4xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl'>
             Terms, decoded.
             <br />
-            <span className="text-muted-foreground">Legalese, purged.</span>
+            <span className='text-muted-foreground'>Legalese, purged.</span>
           </motion.h1>
 
-          <p className="text-muted-foreground mx-auto mt-6 max-w-2xl font-mono text-xs uppercase tracking-widest">
+          <p className='text-muted-foreground mx-auto mt-6 max-w-2xl font-mono text-xs tracking-widest uppercase'>
             tldr — don't abuse the service, uptime isn't guaranteed, third-party links are on you.
           </p>
         </FadeIn>
 
         {/* Sections */}
-        <div className="mt-16 w-full">
+        <div className='mt-16 w-full'>
           {sections.map((section, idx) => (
             <FadeIn
               key={section.number}
               delay={0.2 + idx * 0.06}
-              className="group grid gap-3 border-t border-border/40 py-8 sm:grid-cols-[180px_1fr] sm:gap-8 lg:gap-16"
+              className='group border-border/40 grid gap-3 border-t py-8 sm:grid-cols-[180px_1fr] sm:gap-8 lg:gap-16'
             >
-              <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+              <div className='text-muted-foreground group-hover:text-foreground font-mono text-xs tracking-widest uppercase transition-colors duration-300'>
                 {section.number} / {section.label}
               </div>
-              <ul className="space-y-3">
+              <ul className='space-y-3'>
                 {section.points.map((point) => (
-                  <li key={point} className="text-sm leading-relaxed text-muted-foreground lg:text-base">
+                  <li
+                    key={point}
+                    className='text-muted-foreground text-sm leading-relaxed lg:text-base'
+                  >
                     {point}
                   </li>
                 ))}
               </ul>
             </FadeIn>
           ))}
-          <div className="border-t border-border/40" />
+          <div className='border-border/40 border-t' />
         </div>
 
         {/* CTA */}
-        <FadeIn
-          delay={0.5}
-          className="mt-20 flex flex-col items-center gap-4 text-center"
-        >
-          <span className="inline-block font-mono text-xs uppercase tracking-widest text-muted-foreground">
+        <FadeIn delay={0.5} className='mt-20 flex flex-col items-center gap-4 text-center'>
+          <span className='text-muted-foreground inline-block font-mono text-xs tracking-widest uppercase'>
             Questions?
           </span>
-          <p className="max-w-xs text-sm leading-relaxed text-muted-foreground lg:text-base">
+          <p className='text-muted-foreground max-w-xs text-sm leading-relaxed lg:text-base'>
             If any of these terms feel unclear, or you just want to talk shop, reach out.
           </p>
-          <div className="mt-1 flex flex-col gap-4 sm:flex-row">
+          <div className='mt-1 flex flex-col gap-4 sm:flex-row'>
             <Button
               variant='outline'
               size='lg'

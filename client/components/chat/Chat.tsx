@@ -174,10 +174,7 @@ const AIChat = () => {
           Hey {data?.success ? data?.name : 'There'}, Ready for review?
         </div>
       )}
-      <PromptInput
-        onSubmit={handleSubmit}
-        className={cn(hasStarted && 'sticky bottom-4 mt-4')}
-      >
+      <PromptInput onSubmit={handleSubmit} className={cn(hasStarted && 'sticky bottom-4 mt-4')}>
         <PromptInputTextarea onChange={(e) => setInput(e.target.value)} value={input} />
         <PromptInputToolbar>
           <PromptInputTools>
@@ -201,7 +198,10 @@ const AIChat = () => {
                     <MessageSquare className='size-3.5 text-neutral-50' />
                     Insights
                   </DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent sideOffset={6} className='min-w-44 border-neutral-700 bg-neutral-900 text-neutral-100'>
+                  <DropdownMenuSubContent
+                    sideOffset={6}
+                    className='min-w-44 border-neutral-700 bg-neutral-900 text-neutral-100'
+                  >
                     {insights.map((insight) => {
                       const Icon = insight.icon;
                       const isSelected = selectedInsights.includes(insight.value);
@@ -225,7 +225,10 @@ const AIChat = () => {
                     <SlidersHorizontal className='size-3.5 text-neutral-50' />
                     Mode
                   </DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent sideOffset={6} className='min-w-44 border-neutral-700 bg-neutral-900 text-neutral-100'>
+                  <DropdownMenuSubContent
+                    sideOffset={6}
+                    className='min-w-44 border-neutral-700 bg-neutral-900 text-neutral-100'
+                  >
                     {mode.map((item) => {
                       const isSelected = selectedMode.includes(item.value);
                       return (

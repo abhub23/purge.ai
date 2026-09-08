@@ -42,7 +42,7 @@ export default function Navbar() {
 
   return (
     <nav className='md:border-border/40 md:bg-background/95 supports-backdrop-filter:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur'>
-      <div className='container relative flex h-16 max-w-screen-2xl items-center'>
+      <div className='relative container flex h-16 max-w-screen-2xl items-center'>
         <div className='ml-26 hidden md:flex'>
           <Link href='/' className='mr-6 flex items-center space-x-2'>
             <Image src={'/purgeailogo.webp'} alt='aa' height={35} width={35} />
@@ -51,7 +51,7 @@ export default function Navbar() {
         </div>
 
         {/* Navigation Links laptop - centered */}
-        <nav className='hidden items-center gap-2.5 text-base font-medium md:flex absolute left-1/2 -translate-x-1/2'>
+        <nav className='absolute left-1/2 hidden -translate-x-1/2 items-center gap-2.5 text-base font-medium md:flex'>
           <Link
             href='/about'
             className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors'
@@ -84,7 +84,7 @@ export default function Navbar() {
           {/* Right side buttons */}
           <div className='mr-26 hidden items-center space-x-2 md:flex'>
             {isSuccess && data?.success && (
-              <span className='font-medium p-2 text-base'>Hey,&nbsp; {data?.name}</span>
+              <span className='p-2 text-base font-medium'>Hey,&nbsp; {data?.name}</span>
             )}
 
             <div className='items-center space-x-2 md:flex'>
@@ -96,7 +96,7 @@ export default function Navbar() {
                     variant='ghost'
                     asChild
                     onClick={() => handleSignOut()}
-                    className='cursor-pointer text-base bg-accent text-accent-foreground dark:hover:bg-accent'
+                    className='bg-accent text-accent-foreground dark:hover:bg-accent cursor-pointer text-base'
                   >
                     <span>Sign Out</span>
                   </Button>
@@ -106,7 +106,7 @@ export default function Navbar() {
                   variant='ghost'
                   asChild
                   onClick={() => setOpen(true)}
-                  className='cursor-pointer text-base bg-accent text-accent-foreground dark:hover:bg-accent'
+                  className='bg-accent text-accent-foreground dark:hover:bg-accent cursor-pointer text-base'
                 >
                   <span>Sign In</span>
                 </Button>
@@ -125,9 +125,7 @@ export default function Navbar() {
             className='focus-visible:ring-ring hover:text-accent-foreground mr-2 inline-flex h-9 items-center justify-end rounded-md px-0 py-2 text-base font-medium transition-colors hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 md:hidden'
             type='button'
           >
-            {data?.success && (
-              <span className='p-3 text-[15px]'>Hey,&nbsp; {data?.name}</span>
-            )}
+            {data?.success && <span className='p-3 text-[15px]'>Hey,&nbsp; {data?.name}</span>}
             <span className='sr-only'>Toggle Menu</span>
           </button>
           <div className='flex items-center gap-2 md:hidden'>
@@ -152,7 +150,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className='bg-background absolute top-full left-0 right-0 border-b border-border/40 md:hidden'>
+        <div className='bg-background border-border/40 absolute top-full right-0 left-0 border-b md:hidden'>
           <div className='container py-4'>
             <nav className='flex flex-col space-y-3 px-10 font-semibold'>
               <Link
@@ -209,4 +207,4 @@ export default function Navbar() {
       )}
     </nav>
   );
-};
+}

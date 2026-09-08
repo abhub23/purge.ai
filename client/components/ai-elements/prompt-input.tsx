@@ -20,7 +20,7 @@ export type PromptInputProps = HTMLAttributes<HTMLFormElement>;
 export const PromptInput = ({ className, ...props }: PromptInputProps) => (
   <form
     className={cn(
-      'mx-auto w-[90%] divide-y divide-neutral-700/60 rounded-xl border border-transparent bg-neutral-800 p-3 shadow-sm transition-colors hover:border-neutral-700/60 focus-within:border-neutral-600/70 lg:w-170',
+      'mx-auto w-[90%] divide-y divide-neutral-700/60 rounded-xl border border-transparent bg-neutral-800 p-3 shadow-sm transition-colors focus-within:border-neutral-600/70 hover:border-neutral-700/60 lg:w-170',
       className
     )}
     {...props}
