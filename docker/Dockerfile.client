@@ -1,18 +1,14 @@
-ARG NODE_VERSION=24.4.1-slim
-
-FROM node:${NODE_VERSION}
+FROM oven/bun:1.3.13-slim
 
 LABEL type="frontend"
 
 WORKDIR /src
 
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY package.json bun.lock ./
 
 COPY client/package.json ./client/
 
-RUN npm install -g pnpm
-
-RUN pnpm install --filter ./client... --frozen-lockfile
+RUN bun install --filter ./client... --frozen-lockfile
 
 # relative path
 WORKDIR /src/client
@@ -29,8 +25,8 @@ ENV NEXT_PUBLIC_BACKEND_URL=$NEXT_PUBLIC_BACKEND_URL
 ENV NEXT_PUBLIC_FRONTEND_URL=$NEXT_PUBLIC_FRONTEND_URL
 ENV NEXT_PUBLIC_RAZORPAY_KEY_ID=$NEXT_PUBLIC_RAZORPAY_KEY_ID
 
-RUN pnpm build
+RUN bun run build
 
 EXPOSE 3000
 
-CMD [ "pnpm", "dev" ]
+CMD [ "bun", "run", "start" ]
