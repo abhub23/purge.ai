@@ -2,7 +2,7 @@
 
 import { HostGrotesk } from '@/utils/fonts';
 import { motion } from 'motion/react';
-import { Animation, Transition } from '@/animations/Animation';
+import { FadeIn } from '@/components/micro-interactions/FadeIn';
 import { cn } from '@/lib/utils';
 import Footer from '@/components/main/Footer';
 import { Button } from '@/components/ui/button';
@@ -56,7 +56,7 @@ export default function Terms() {
     <section className={cn('bg-background text-foreground', HostGrotesk)}>
       <div className="mx-auto flex w-full max-w-4xl flex-col px-6 py-20 lg:py-28">
         {/* Badge & Hero */}
-        <motion.div {...Animation} transition={Transition(0.15)} className="text-center">
+        <FadeIn delay={0.15} className="text-center">
           <span className="mb-6 inline-block font-mono text-xs uppercase tracking-widest text-muted-foreground">
             // Terms & Conditions
           </span>
@@ -70,15 +70,14 @@ export default function Terms() {
           <p className="text-muted-foreground mx-auto mt-6 max-w-2xl font-mono text-xs uppercase tracking-widest">
             tldr — don't abuse the service, uptime isn't guaranteed, third-party links are on you.
           </p>
-        </motion.div>
+        </FadeIn>
 
         {/* Sections */}
         <div className="mt-16 w-full">
           {sections.map((section, idx) => (
-            <motion.div
+            <FadeIn
               key={section.number}
-              {...Animation}
-              transition={Transition(0.2 + idx * 0.06)}
+              delay={0.2 + idx * 0.06}
               className="group grid gap-3 border-t border-border/40 py-8 sm:grid-cols-[180px_1fr] sm:gap-8 lg:gap-16"
             >
               <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
@@ -91,15 +90,14 @@ export default function Terms() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </FadeIn>
           ))}
           <div className="border-t border-border/40" />
         </div>
 
         {/* CTA */}
-        <motion.div
-          {...Animation}
-          transition={Transition(0.5)}
+        <FadeIn
+          delay={0.5}
           className="mt-20 flex flex-col items-center gap-4 text-center"
         >
           <span className="inline-block font-mono text-xs uppercase tracking-widest text-muted-foreground">
@@ -123,7 +121,7 @@ export default function Terms() {
               </Link>
             </Button>
           </div>
-        </motion.div>
+        </FadeIn>
       </div>
 
       <Footer />
