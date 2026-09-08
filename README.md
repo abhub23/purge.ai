@@ -34,14 +34,13 @@ PurgeAI is a battle-tested AI assistant designed and developed to help developer
 ### Infrastructure
 - [Docker](https://www.docker.com/) - Containerization
 - [Vercel](https://vercel.com/) - Deployment platform
-- [pnpm](https://pnpm.io/) - Package manager
+- [Bun](https://bun.sh/) - Package manager and runtime
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 20+
-- pnpm 10.17.0+
+- Bun 1.3.13+
 - Docker (optional)
 
 ### Installation
@@ -54,7 +53,7 @@ cd purge.ai
 
 2. Install dependencies:
 ```bash
-pnpm install
+bun install
 ```
 
 3. Set up environment variables:
@@ -64,19 +63,19 @@ pnpm install
 4. Run database migrations:
 ```bash
 cd server
-pnpm prisma migrate dev
+bunx prisma migrate dev
 ```
 
 ### Development
 
 Run the client (Next.js with Turbopack):
 ```bash
-pnpm client
+bun run web
 ```
 
 Run the server (Express with hot reload):
 ```bash
-pnpm serv
+bun run api
 ```
 
 ### Docker Deployment
@@ -110,10 +109,10 @@ purge.ai/
 
 ## 🔧 Available Scripts
 
-- `pnpm client` - Start client development server
-- `pnpm serv` - Start server development server
-- `pnpm server-img` - Build server Docker image
-- `pnpm test` - Run linting
+- `bun run web` - Start client development server
+- `bun run api` - Start server development server
+- `bun run server-img` - Build server Docker image
+- `bun run test` - Run linting
 
 ## 🔒 Security
 

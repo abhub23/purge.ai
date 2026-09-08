@@ -1,6 +1,6 @@
 # Architecture
 
-PurgeAI is a full-stack AI-powered code review assistant built as a monorepo using pnpm workspaces.
+PurgeAI is a full-stack AI-powered code review assistant built as a monorepo using Bun workspaces.
 
 ## High-Level Architecture
 
@@ -40,7 +40,7 @@ PurgeAI is a full-stack AI-powered code review assistant built as a monorepo usi
 ### Infrastructure
 - **Docker** - Containerization
 - **Vercel** - Deployment platform
-- **pnpm** - Package manager with workspaces
+- **Bun** - Package manager and runtime with workspaces
 
 ---
 
@@ -213,8 +213,8 @@ Custom Routes
 
 ### Development
 ```bash
-pnpm client  # Start Next.js dev server (localhost:3000)
-pnpm serv   # Start Express server (localhost:4000)
+bun run web  # Start Next.js dev server (localhost:3000)
+bun run api   # Start Express server (localhost:4000)
 ```
 
 ### Production (Docker)
