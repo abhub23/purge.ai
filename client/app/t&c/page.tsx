@@ -3,7 +3,7 @@
 import { HostGrotesk } from '@/utils/fonts';
 import { motion } from 'motion/react';
 import { FadeIn } from '@/components/micro-interactions/FadeIn';
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 import Footer from '@/components/main/Footer';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';

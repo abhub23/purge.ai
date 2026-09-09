@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 import { Badge } from '@/components/ui/badge';
 import { FC } from 'react';
 import { Button } from '@/components/ui/button';

@@ -6,7 +6,7 @@ import { createContext, useContext, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 type CodeBlockContextType = {
   code: string;

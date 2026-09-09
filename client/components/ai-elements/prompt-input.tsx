@@ -12,7 +12,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 import type { ChatStatus } from 'ai';
 
 export type PromptInputProps = HTMLAttributes<HTMLFormElement>;

@@ -5,7 +5,7 @@ import { QueryProvider } from '@/utils/QueryProvider';
 import './globals.css';
 import { FRONTEND_URL } from '@/config/config';
 import { Toaster } from '@/components/ui/sonner';
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 export const metadata: Metadata = {
   metadataBase: new URL(FRONTEND_URL as string),

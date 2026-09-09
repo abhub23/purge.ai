@@ -33,7 +33,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Check, MessageSquare, Plus, SlidersHorizontal, X } from 'lucide-react';
 import { Button } from '../ui/button';
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 import { HostGrotesk } from '@/utils/fonts';
 import { useQuery } from '@tanstack/react-query';
 import api from '@/lib/axios';
