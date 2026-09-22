@@ -17,7 +17,7 @@ export const Bento = () => {
   const getTextSizes = (index: number) => {
     return {
       badge: 'text-xs md:text-sm lg:text-base',
-      title: 'text-xl md:text-xl lg:text-3xl',
+      title: 'text-xl md:text-xl lg:text-3xl pt-4',
       desc: 'max-w-md text-base md:text-base lg:text-xl',
       padding: 'p-6 lg:p-8',
     };

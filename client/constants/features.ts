@@ -15,9 +15,9 @@ type FeatureTypes = {
 export const features: FeatureTypes[] = [
   {
     icon: GitMerge,
-    title: 'Merges it for you',
+    title: 'Approves & Flags',
     desc: 'PurgeAI doesn’t just review it handles the merge. Approves passing checks, flags failing ones, and lands your PR the moment everything turns green.',
-    badge: 'Autopilot',
+    badge: 'Zero Effort',
   },
   {
     icon: BotMessageSquare,
