@@ -4,29 +4,23 @@ import { Badge } from '@/components/ui/badge';
 import { features } from '@/constants/features';
 
 export const Bento = () => {
-  // Define grid layout: first 2 cards span 3 columns, next 3 cards span 2 columns each
+  // Define grid layout: 4 cards in a 2×2 grid, each spanning 3 columns on lg
   const getCardClasses = (index: number) => {
     const baseClasses =
-      'relative h-full overflow-hidden transition-all delay-50 hover:shadow-lg flex flex-col';
-    const gridClasses = index < 2 ? 'md:col-span-1 lg:col-span-3' : 'md:col-span-1 lg:col-span-2';
+      'relative h-full overflow-hidden transition-all delay-50 flex flex-col';
+    const gridClasses =
+      index === 0 || index === 3 ? 'md:col-span-1 lg:col-span-9' : 'md:col-span-1 lg:col-span-6';
 
     return { baseClasses, gridClasses };
   };
 
   const getTextSizes = (index: number) => {
-    return index < 2
-      ? {
-          badge: 'text-xs md:text-sm',
-          title: 'text-xl md:text-xl lg:text-2xl',
-          desc: 'w-full text-base md:text-base lg:text-lg',
-          padding: 'p-6',
-        }
-      : {
-          badge: 'text-xs md:text-sm',
-          title: 'text-xl md:text-lg lg:text-xl',
-          desc: 'w-full text-base md:text-base',
-          padding: 'p-5',
-        };
+    return {
+      badge: 'text-xs md:text-sm lg:text-base',
+      title: 'text-xl md:text-xl lg:text-3xl',
+      desc: 'max-w-md text-base md:text-base lg:text-xl',
+      padding: 'p-6 lg:p-8',
+    };
   };
 
   return (
@@ -44,14 +38,14 @@ export const Bento = () => {
       </div>
 
       <div className='mx-2 mt-16 max-w-300 lg:mx-auto'>
-        <div className='grid auto-rows-[18rem] gap-5 md:grid-cols-2 lg:grid-cols-6'>
+        <div className='grid auto-rows-[24rem] gap-5 md:grid-cols-2 lg:grid-cols-15 lg:gap-0'>
           {features.map((feature, index) => {
             const { baseClasses, gridClasses } = getCardClasses(index);
             const sizes = getTextSizes(index);
 
             return (
               <div key={index} className={gridClasses}>
-                <Card className={`${baseClasses} ${sizes.padding}`}>
+                <Card className={`${baseClasses} ${sizes.padding} lg:rounded-none lg:gap-0 lg:bg-transparent`}>
                   <CardHeader className='pb-2'>
                     <div className='flex items-center space-x-2'>
                       <div className='bg-muted flex h-10 w-10 items-center justify-center rounded-lg border'>
@@ -65,7 +59,7 @@ export const Bento = () => {
                     </div>
                     <CardTitle className={sizes.title}>{feature.title}</CardTitle>
                   </CardHeader>
-                  <CardContent className='mt-auto pt-0'>
+                  <CardContent className='mt-2 pt-0'>
                     <CardDescription className={sizes.desc}>{feature.desc}</CardDescription>
                   </CardContent>
                 </Card>
