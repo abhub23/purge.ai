@@ -45,7 +45,7 @@ export default function Hero() {
           </span>
         </motion.div>
         <AnimatedText
-          text='The most comprehensive AI assistant to review your PRx'
+          text='The most comprehensive AI assistant to review your PR'
           classname='text-[28px] leading-tight font-semibold tracking-tight md:text-5xl lg:text-6xl lg:leading-[1.1]'
           blur='5px'
           stg={0.1}
