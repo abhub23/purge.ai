@@ -58,12 +58,16 @@ export default function Navbar() {
           >
             About
           </Link>
-          <div
-            onClick={() => window.scrollTo({ top: 1300, behavior: 'smooth' })}
-            className='hover:text-foreground hover:bg-accent/80 text-foreground/80 cursor-pointer rounded-md p-1.5 px-2.5 transition-colors'
+          <Link
+            href='#features'
+            onClick={(event) => {
+              event.preventDefault();
+              document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors'
           >
             Features
-          </div>
+          </Link>
           <Link
             href='/pricing'
             className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors'
