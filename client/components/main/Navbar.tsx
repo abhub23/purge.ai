@@ -43,7 +43,7 @@ export default function Navbar() {
   return (
     <nav className='md:border-border/40 md:bg-background/95 supports-backdrop-filter:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur'>
       <div className='relative container flex h-16 max-w-screen-2xl items-center'>
-        <div className='ml-26 hidden md:flex'>
+        <div className='ml-50 hidden md:flex'>
           <Link href='/' className='mr-6 flex items-center space-x-2'>
             <Image src={'/purgeailogo.webp'} alt='aa' height={35} width={35} />
             <span className='hidden text-xl font-bold sm:inline-block'>PurgeAI</span>
@@ -86,7 +86,7 @@ export default function Navbar() {
           </div>
 
           {/* Right side buttons */}
-          <div className='mr-26 hidden items-center space-x-2 md:flex'>
+          <div className='mr-50 hidden items-center space-x-2 md:flex'>
             {isSuccess && data?.success && (
               <span className='p-2 text-base font-medium'>Hey,&nbsp; {data?.name}</span>
             )}
