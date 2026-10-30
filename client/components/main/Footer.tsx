@@ -12,7 +12,7 @@ const ScrollY = () => {
 const Footer = () => {
   return (
     <footer className='bg-background border-t'>
-      <div className='px-4 py-8 lg:h-72 lg:py-8'>
+      <div className='px-4 py-8 lg:h-78 lg:py-8'>
         <div className='grid gap-8 lg:mx-auto lg:flex lg:w-full lg:max-w-300 lg:justify-between'>
           {/* Brand Section */}
           <div className='space-y-4'>
@@ -20,7 +20,7 @@ const Footer = () => {
               <Image src={'/purgeailogo.webp'} alt='footer' height={30} width={30} />
               <span className='text-lg font-bold'>PurgeAI</span>
             </div>
-            <p className='text-muted-foreground max-w-xs text-sm'>
+            <p className='text-muted-foreground max-w-xs text-sm lg:text-base'>
               Building the future of AI driven PR Merges with modern tools and beautiful design.
             </p>
             <div className='flex h-5 w-5 space-x-4'>
@@ -119,7 +119,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className='text-muted-foreground mx-auto flex h-18 w-full max-w-300 items-center justify-center border-t pb-2 text-[12px] lg:h-16 lg:justify-start lg:pb-0 lg:text-[14px]'>
+      <p className='text-muted-foreground mx-auto flex h-20 w-full max-w-300 items-center justify-center border-t pb-2 text-[12px] lg:h-20 lg:justify-start lg:pb-0 lg:text-[14px]'>
         © 2025 PurgeAI. All rights reserved.
         <Link href={'/t&c'} className='hover:text-foreground/75 ml-2 underline transition-colors'>
           Terms & Conditions{' '}
