@@ -2,8 +2,6 @@
 
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import AnimatedText from '../micro-interactions/Animatedtext';
-import { motion } from 'motion/react';
 import Video from './Video';
 import L2R_AnimatedSVG from '../micro-interactions/L2R_AnimatedSVG';
 import R2L_AnimatedSVG from '../micro-interactions/R2L_AnimatedSVG';
@@ -34,37 +32,19 @@ export default function Hero() {
       </div>
 
       <div className='relative mx-auto flex max-w-245 flex-col items-center space-y-2 text-center'>
-        <motion.div
-          initial={{ opacity: 0, y: -20, filter: 'blur(5px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
-          className='text-center'
-        >
+        <div className='animate-fade-up text-center motion-reduce:animate-none'>
           <span className='text-muted-foreground inline-block font-mono text-[10px] tracking-widest uppercase lg:text-xs'>
             // Rethinking the Pull Request Workflow
           </span>
-        </motion.div>
-        <AnimatedText
-          text='The most comprehensive AI assistant to review your PR'
-          classname='text-[28px] leading-tight font-semibold tracking-tight md:text-5xl lg:text-6xl lg:leading-[1.1]'
-          blur='5px'
-          stg={0.1}
-        />
-        <motion.p
-          initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
-          className='text-muted-foreground mx-10 max-w-187.5 text-[15px] lg:mx-0 lg:text-xl'
-        >
+        </div>
+        <h1 className='animate-fade-up w-full text-balance text-[28px] leading-tight font-semibold tracking-tight [animation-delay:120ms] motion-reduce:animate-none md:text-5xl lg:text-6xl lg:leading-[1.1]'>
+          The most comprehensive AI assistant to review your PR
+        </h1>
+        <p className='animate-fade-up text-muted-foreground mx-10 max-w-187.5 text-[15px] [animation-delay:240ms] motion-reduce:animate-none lg:mx-0 lg:text-xl'>
           An AI Powered critique who does the heavy lifting for your github PRs
-        </motion.p>
+        </p>
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
-        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-        transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
-        className='relative mt-2 flex flex-row gap-4'
-      >
+      <div className='animate-fade-up relative mt-2 flex flex-row gap-4 [animation-delay:360ms] motion-reduce:animate-none'>
         <Button
           size='lg'
           className='rounded-4xl bg-black text-white hover:bg-black/90 lg:h-12 lg:px-6 lg:text-lg dark:bg-white dark:text-black dark:hover:bg-white/90'
@@ -79,7 +59,7 @@ export default function Hero() {
         >
           <Link href='/chat'> Try Assistant </Link>
         </Button>
-      </motion.div>
+      </div>
       <div className='relative mx-auto mt-28 max-w-300 rounded-2xl lg:mt-36'>
         <Video />
       </div>
