@@ -47,7 +47,7 @@ export default function About() {
 
           <motion.h1 className='text-4xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl'>
             Your PR queue. <br />
-            <span className='text-muted-foreground'>Handled by AI.</span>
+            Handled by AI.
           </motion.h1>
 
           <p className='text-muted-foreground mx-auto mt-6 max-w-2xl text-base leading-relaxed sm:text-lg lg:text-xl'>
