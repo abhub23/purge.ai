@@ -1,6 +1,7 @@
 import Navbar from '@/components/main/Navbar';
 import Hero from '@/components/main/Hero';
 import { Bento } from '@/components/main/Bento';
+import { Proof } from '@/components/main/Proof';
 import Footer from '@/components/main/Footer';
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Bento />
+      <Proof />
       <Footer />
     </div>
   );
