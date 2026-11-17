@@ -476,7 +476,7 @@ export const Bento = () => {
                 id='features-heading'
                 className='mt-5 text-3xl leading-[1.05] font-semibold tracking-tight text-balance sm:text-4xl lg:text-5xl'
               >
-                From diff to <span className='text-muted-foreground'>done.</span>
+                From diff to done.
               </h2>
             </div>
             <div className='lg:pb-1'>

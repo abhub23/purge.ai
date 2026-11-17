@@ -64,7 +64,7 @@ export default function Terms() {
           <motion.h1 className='text-4xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl'>
             Terms, decoded.
             <br />
-            <span className='text-muted-foreground'>Legalese, purged.</span>
+            Legalese, purged.
           </motion.h1>
 
           <p className='text-muted-foreground mx-auto mt-6 max-w-2xl font-mono text-xs tracking-widest uppercase'>
