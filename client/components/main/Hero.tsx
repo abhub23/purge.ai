@@ -37,8 +37,12 @@ export default function Hero() {
             // Rethinking the Pull Request Workflow
           </span>
         </div>
-        <h1 className='animate-fade-up w-full text-balance text-[28px] leading-tight font-semibold tracking-tight [animation-delay:120ms] motion-reduce:animate-none md:text-5xl lg:text-6xl lg:leading-[1.1]'>
-          The most comprehensive AI assistant to review your PR
+        <h1 className='animate-fade-up w-full text-balance text-[40px] leading-[1.15] font-semibold tracking-tight [animation-delay:120ms] motion-reduce:animate-none md:text-5xl md:leading-tight lg:text-6xl lg:leading-[1.1]'>
+          The AI Agent
+          <br className='sm:hidden' />{' '}
+          for every
+          <br className='sm:hidden' />{' '}
+          code review
         </h1>
         <p className='animate-fade-up text-muted-foreground mx-10 max-w-187.5 text-[15px] [animation-delay:240ms] motion-reduce:animate-none lg:mx-0 lg:text-xl'>
           An AI Powered critique who does the heavy lifting for your github PRs
