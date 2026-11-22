@@ -37,7 +37,7 @@ export default function Hero() {
             // Rethinking the Pull Request Workflow
           </span>
         </div>
-        <h1 className='animate-fade-up w-full text-balance text-[40px] leading-[1.15] font-semibold tracking-tight [animation-delay:120ms] motion-reduce:animate-none md:text-5xl md:leading-tight lg:text-6xl lg:leading-[1.1]'>
+        <h1 className='animate-fade-up w-full text-balance text-[38px] leading-[1.15] font-medium tracking-tight [animation-delay:120ms] motion-reduce:animate-none md:text-5xl md:leading-tight lg:text-6xl lg:leading-[1.1]'>
           The AI Agent
           <br className='sm:hidden' />{' '}
           for every
