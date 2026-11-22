@@ -139,7 +139,7 @@ export const Proof = () => {
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className='bg-background hover:bg-muted/40 relative flex flex-col p-6 transition-colors duration-300 lg:p-8'
+                className='bg-card hover:bg-muted/40 relative flex flex-col p-6 transition-colors duration-300 lg:p-8'
               >
                 <span
                   aria-hidden='true'
