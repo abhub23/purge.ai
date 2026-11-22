@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Video from './Video';
 import L2R_AnimatedSVG from '../micro-interactions/L2R_AnimatedSVG';
@@ -51,10 +52,13 @@ export default function Hero() {
       <div className='animate-fade-up relative mt-2 flex flex-row gap-4 [animation-delay:360ms] motion-reduce:animate-none'>
         <Button
           size='lg'
-          className='rounded-4xl bg-black text-white hover:bg-black/90 lg:h-12 lg:px-6 lg:text-lg dark:bg-white dark:text-black dark:hover:bg-white/90'
+          className='group/cta rounded-4xl bg-black text-white hover:bg-black/90 lg:h-12 lg:px-6 lg:text-lg dark:bg-white dark:text-black dark:hover:bg-white/90'
           asChild
         >
-          <Link href='/chat'>Get Started</Link>
+          <Link href='/chat' className='inline-flex items-center gap-2'>
+            Start Free
+            <ArrowRight className='size-4 transition-transform duration-300 group-hover/cta:translate-x-0.5 lg:size-5' />
+          </Link>
         </Button>
         <Button
           variant='outline'
