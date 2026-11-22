@@ -12,10 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: install vercel CLI
-        run: npm i -g vercel
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.5
+      - name: install dependencies
+        run: bun i --frozen-lockfile
       - name: server deployment
-        run: vercel --prod --yes
+        run: bunx vercel --prod --yes
         working-directory: ./server
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
