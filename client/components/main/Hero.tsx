@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import Video from './Video';
+import VideoDialog from './VideoDialog';
 import L2R_AnimatedSVG from '../micro-interactions/L2R_AnimatedSVG';
 import R2L_AnimatedSVG from '../micro-interactions/R2L_AnimatedSVG';
 
@@ -38,7 +38,7 @@ export default function Hero() {
             // Rethinking the Pull Request Workflow
           </span>
         </div>
-        <h1 className='animate-fade-up w-full text-balance text-[38px] leading-[1.15] font-medium tracking-tight [animation-delay:120ms] motion-reduce:animate-none md:text-5xl md:leading-tight lg:text-6xl lg:leading-[1.1]'>
+        <h1 className='animate-fade-up w-full text-balance text-[40px] leading-[1.15] font-medium tracking-tight [animation-delay:120ms] motion-reduce:animate-none md:text-5xl md:leading-tight lg:text-6xl lg:leading-[1.1]'>
           The AI Agent
           <br className='sm:hidden' />{' '}
           for every
@@ -49,27 +49,18 @@ export default function Hero() {
           An AI Powered critique who does the heavy lifting for your github PRs
         </p>
       </div>
-      <div className='animate-fade-up relative mt-2 flex flex-row gap-4 [animation-delay:360ms] motion-reduce:animate-none'>
+      <div className='animate-fade-up relative mt-2 flex w-full max-w-[300px] flex-col items-center gap-4 [animation-delay:360ms] motion-reduce:animate-none sm:w-auto sm:max-w-none sm:flex-row'>
         <Button
           size='lg'
-          className='group/cta rounded-4xl bg-black text-white hover:bg-black/90 lg:h-12 lg:px-6 lg:text-lg dark:bg-white dark:text-black dark:hover:bg-white/90'
+          className='group/cta h-12 w-full bg-black px-8 text-base text-white hover:bg-black/90 sm:h-10 sm:w-auto sm:px-6 sm:text-sm lg:h-12 lg:px-6 lg:text-lg dark:bg-white dark:text-black dark:hover:bg-white/90'
           asChild
         >
           <Link href='/chat' className='inline-flex items-center gap-2'>
             Start Free
-            <ArrowRight className='size-4 transition-transform duration-300 group-hover/cta:translate-x-0.5 lg:size-5' />
+            <ArrowRight className='size-5 transition-transform duration-300 group-hover/cta:translate-x-0.5 sm:size-4 lg:size-5' />
           </Link>
         </Button>
-        <Button
-          variant='outline'
-          size='lg'
-          className='cursor-pointer rounded-4xl lg:h-12 lg:px-6 lg:text-lg'
-        >
-          <Link href='/chat'> Try Assistant </Link>
-        </Button>
-      </div>
-      <div className='relative mx-auto mt-28 max-w-300 rounded-2xl lg:mt-36'>
-        <Video />
+        <VideoDialog />
       </div>
     </section>
   );
