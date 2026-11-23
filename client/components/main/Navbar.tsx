@@ -116,7 +116,7 @@ export default function Navbar() {
                 </Button>
               )}
 
-              <Button asChild className='text-base'>
+              <Button asChild className='bg-emerald-700 text-base text-white hover:bg-emerald-800 dark:hover:bg-emerald-800'>
                 <Link href='/chat'>Get Started</Link>
               </Button>
             </div>
@@ -190,7 +190,7 @@ export default function Navbar() {
                       variant='ghost'
                       size='lg'
                       asChild
-                      className='w-full border-2 shadow-2xs'
+                      className='w-full border-2 border-emerald-700 bg-emerald-700 text-white shadow-2xs hover:bg-emerald-800 hover:text-white'
                       onClick={() => {
                         setOpen(true);
                         setIsMenuOpen(false);
@@ -201,7 +201,11 @@ export default function Navbar() {
                   )}
                 </div>
 
-                <Button size='lg' className='w-full' asChild>
+                <Button
+                  size='lg'
+                  className='w-full bg-emerald-700 text-base text-white hover:bg-emerald-800'
+                  asChild
+                >
                   <Link href='/chat'>Get Started</Link>
                 </Button>
               </div>

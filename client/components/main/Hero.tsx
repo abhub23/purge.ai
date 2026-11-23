@@ -52,7 +52,7 @@ export default function Hero() {
       <div className='animate-fade-up relative mt-2 flex w-full max-w-[300px] flex-col items-center gap-4 [animation-delay:360ms] motion-reduce:animate-none sm:w-auto sm:max-w-none sm:flex-row'>
         <Button
           size='lg'
-          className='group/cta h-12 w-full bg-black px-8 text-base text-white hover:bg-black/90 sm:h-10 sm:w-auto sm:px-6 sm:text-sm lg:h-12 lg:px-6 lg:text-lg dark:bg-white dark:text-black dark:hover:bg-white/90'
+          className='group/cta h-12 w-full bg-emerald-700 px-8 text-base text-white hover:bg-emerald-800 sm:h-10 sm:w-auto sm:px-6 sm:text-sm lg:h-12 lg:px-6 lg:text-lg dark:bg-emerald-700 dark:text-white dark:hover:bg-emerald-800'
           asChild
         >
           <Link href='/chat' className='inline-flex items-center gap-2'>
