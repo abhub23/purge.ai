@@ -26,7 +26,7 @@ export const Pricing = () => {
       </div>
 
       {/* Pricing Cards */}
-      <div className='grid w-full max-w-6xl gap-6 sm:grid-cols-2 xl:grid-cols-3'>
+      <div className='grid w-full max-w-4xl gap-6 sm:grid-cols-2'>
         {TIERS.map((tier, idx) => (
           <PricingCard key={idx} tier={tier} paymentFrequency={selectedPaymentFreq} />
         ))}

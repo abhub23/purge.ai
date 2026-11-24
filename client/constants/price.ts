@@ -7,7 +7,6 @@ export interface PricingTier {
   description: string;
   features: string[];
   cta: string;
-  highlighted?: boolean;
   popular?: boolean;
 }
 
@@ -47,24 +46,5 @@ export const TIERS: PricingTier[] = [
     ],
     cta: 'Purchase Plan',
     popular: true,
-  },
-
-  {
-    id: 'enterprise',
-    name: 'Enterprise',
-    price: {
-      monthly: 'Custom',
-      yearly: 'Custom',
-    },
-    description: 'Great For Enterprise product',
-    features: [
-      'Unlimited Prompt Credits',
-      'Indepth Knowledge of PRs',
-      'Unlimited access to all Insights',
-      'Unlimited access to all Modes ',
-      'Premium Models results and review',
-    ],
-    cta: 'Contact Us',
-    highlighted: true,
   },
 ];

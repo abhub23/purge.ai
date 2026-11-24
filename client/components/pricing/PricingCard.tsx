@@ -1,6 +1,5 @@
 'use client';
 
-import { cn } from 'cn';
 import { FC } from 'react';
 import { Button } from '@/components/ui/button';
 import NumberFlow from '@number-flow/react';
@@ -20,7 +19,6 @@ type PricingCardtype = {
 export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => {
   const price = tier.price[paymentFrequency];
   const plan_id = tier.id;
-  const isHighlighted = tier.highlighted as boolean;
   const isPopular = tier.popular;
 
   const { setOpen } = useSignBox();
@@ -97,11 +95,6 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
       case 'free':
         router.push(isSignedin ? '/chat' : '/');
         break;
-      case 'enterprise':
-        window.open(
-          'https://mail.google.com/mail/?view=cm&to=abdullahmukri25@gmail.com&su=Custom%20Purchase%20Subscription'
-        );
-        break;
       default:
         if (!isSignedin) {
           setOpen(true);
@@ -114,17 +107,13 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
 
   return (
     <div
-      className={cn(
-        'relative mx-6 flex flex-col gap-7 overflow-hidden rounded-2xl border p-6 shadow lg:mx-0',
-        isHighlighted ? 'bg-foreground text-background' : 'bg-background text-foreground'
-      )}
+      className='bg-background text-foreground relative mx-6 flex flex-col gap-7 overflow-hidden rounded-2xl border px-6 py-10 shadow lg:mx-0'
     >
       {/* Background Decoration */}
-      {isHighlighted && <HighlightedBackground />}
       {isPopular && <PopularBackground />}
 
       {/* Card Header */}
-      <h2 className='flex items-center gap-3 text-[24px] font-medium'>{tier.name}</h2>
+      <h2 className='flex items-center gap-3 text-[26px] font-medium'>{tier.name}</h2>
 
       {/* Price Section */}
       <div className='relative h-12'>
@@ -139,7 +128,7 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
               value={price}
               className='text-4xl font-medium'
             />
-            {tier.id !== 'enterprise' && <span className='text-foreground/60 text-sm'>/month</span>}
+            <span className='text-foreground/60 text-sm'>/month</span>
           </>
         ) : (
           <h1 className='text-4xl font-medium'>{price}</h1>
@@ -149,14 +138,11 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
       {/* Features */}
       <div className='flex-1 space-y-2'>
         <h3 className='text-sm font-medium'>{tier.description}</h3>
-        <ul className='space-y-2'>
+        <ul className='space-y-3'>
           {tier.features.map((feature, index) => (
             <li
               key={index}
-              className={cn(
-                'flex items-center gap-2 text-sm font-medium',
-                isHighlighted ? 'text-background' : 'text-foreground/60'
-              )}
+              className='text-foreground/60 flex items-center gap-2 text-sm font-medium'
             >
               <BadgeCheck strokeWidth={1} size={16} />
               {feature}
@@ -175,21 +161,13 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
             handlePurchase(plan_id, price);
           }
         }}
-        className={cn(
-          'relative z-10 h-fit w-full cursor-pointer rounded-lg',
-          isHighlighted && 'bg-accent text-foreground hover:bg-accent/95 cursor-pointer'
-        )}
+        className='relative z-10 h-fit w-full cursor-pointer rounded-lg'
       >
         {tier.cta}
       </Button>
     </div>
   );
 };
-
-// Highlighted Background Component
-const HighlightedBackground = () => (
-  <div className='absolute inset-0 z-0 opacity-100 dark:opacity-30' />
-);
 
 // Popular Background Component
 const PopularBackground = () => (
