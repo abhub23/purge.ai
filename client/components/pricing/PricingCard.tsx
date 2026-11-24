@@ -118,7 +118,7 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
       className={cn(
         'relative mx-6 flex flex-col gap-7 overflow-hidden rounded-2xl border p-6 shadow lg:mx-0',
         isHighlighted ? 'bg-foreground text-background' : 'bg-background text-foreground',
-        isPopular && 'outline outline-[rgba(120,119,198)]'
+        isPopular && 'outline outline-emerald-300'
       )}
     >
       {/* Background Decoration */}
@@ -129,7 +129,7 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
       <h2 className='flex items-center gap-3 text-[24px] font-medium'>
         {tier.name}
         {isPopular && (
-          <Badge className='bg-fuchsia-800 px-[6px] py-[1px] text-white'>🔥Popular</Badge>
+          <Badge className='bg-emerald-700 px-1.5 py-px text-white'>🔥Popular</Badge>
         )}
       </h2>
 
@@ -200,5 +200,5 @@ const HighlightedBackground = () => (
 
 // Popular Background Component
 const PopularBackground = () => (
-  <div className='absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]' />
+  <div className='absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(16,185,129,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(16,185,129,0.3),rgba(255,255,255,0))]' />
 );
