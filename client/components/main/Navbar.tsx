@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { TextAlignStart, X } from 'lucide-react';
+
+import { Equal } from 'lucide-react';
 import { ToggleTheme } from './ToggleTheme';
 import Image from 'next/image';
 import { useSignBox, useIsSignedin } from '@/store/AuthStates';
@@ -133,19 +134,9 @@ export default function Navbar() {
             <span className='sr-only'>Toggle Menu</span>
           </button>
           <div className='flex items-center gap-2 md:hidden'>
-            <ToggleTheme />
-            <div className='relative mr-5 size-6'>
-              <TextAlignStart
-                className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${
-                  isMenuOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
-                }`}
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              />
-              <X
-                className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${
-                  isMenuOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
-                }`}
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+            <div className='relative mr-5 size-7' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <Equal
+                className={`absolute inset-0 h-7 w-7 [&>line]:transform-fill [&>line]:origin-center [&>line]:transition-all [&>line]:duration-300 ${isMenuOpen ? '[&>line:nth-child(1)]:translate-y-0.75 [&>line:nth-child(1)]:rotate-45 [&>line:nth-child(2)]:-translate-y-0.75 [&>line:nth-child(2)]:-rotate-45' : '[&>line:nth-child(1)]:translate-y-0 [&>line:nth-child(1)]:rotate-0 [&>line:nth-child(2)]:translate-y-0 [&>line:nth-child(2)]:rotate-0'}`}
               />
             </div>
           </div>
@@ -156,7 +147,7 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className='bg-background border-border/40 absolute top-full right-0 left-0 border-b md:hidden'>
           <div className='container py-4'>
-            <nav className='flex flex-col space-y-3 px-10 font-semibold'>
+            <nav className='flex flex-col space-y-4 px-10 font-medium'>
               <Link
                 href='/about'
                 className='hover:text-foreground/80 text-foreground/60 transition-colors'
@@ -190,7 +181,7 @@ export default function Navbar() {
                       variant='ghost'
                       size='lg'
                       asChild
-                      className='w-full border-2 border-emerald-700 bg-emerald-700 text-white shadow-2xs hover:bg-emerald-800 hover:text-white'
+                      className='w-full border-2 shadow-2xs'
                       onClick={() => {
                         setOpen(true);
                         setIsMenuOpen(false);
@@ -208,6 +199,10 @@ export default function Navbar() {
                 >
                   <Link href='/chat'>Get Started</Link>
                 </Button>
+              </div>
+
+              <div className='mt-6 pt-4 border-t border-border/40'>
+                <ToggleTheme />
               </div>
             </nav>
           </div>
