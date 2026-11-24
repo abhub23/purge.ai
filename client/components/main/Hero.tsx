@@ -4,34 +4,10 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import VideoDialog from './VideoDialog';
-import L2R_AnimatedSVG from '../micro-interactions/L2R_AnimatedSVG';
-import R2L_AnimatedSVG from '../micro-interactions/R2L_AnimatedSVG';
 
 export default function Hero() {
   return (
     <section className='relative flex flex-col items-center justify-center space-y-4 py-24 lg:py-32'>
-      <div className='absolute inset-0 hidden lg:block'>
-        <div className='flex justify-between px-10'>
-          <div className='flex flex-col gap-y-100 pt-10'>
-            <L2R_AnimatedSVG duration={2.7} />
-            <L2R_AnimatedSVG duration={3.2} />
-          </div>
-
-          <div className='flex flex-col items-end gap-y-95 pt-14'>
-            <R2L_AnimatedSVG duration={2.8} />
-            <R2L_AnimatedSVG duration={3.3} />
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile viewport */}
-      <div className='bg-gradient-radial absolute inset-0 block overflow-hidden sm:hidden'>
-        <div className='flex flex-col gap-y-60 pt-7'>
-          <L2R_AnimatedSVG duration={2.7} />
-          <L2R_AnimatedSVG duration={3.2} />
-        </div>
-      </div>
-
       <div className='relative mx-auto flex max-w-245 flex-col items-center space-y-2 text-center'>
         <div className='animate-fade-up text-center motion-reduce:animate-none'>
           <span className='text-muted-foreground inline-block font-mono text-[10px] tracking-widest uppercase lg:text-xs'>
