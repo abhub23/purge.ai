@@ -1,7 +1,6 @@
 'use client';
 
 import { cn } from 'cn';
-import { Badge } from '@/components/ui/badge';
 import { FC } from 'react';
 import { Button } from '@/components/ui/button';
 import NumberFlow from '@number-flow/react';
@@ -117,8 +116,7 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
     <div
       className={cn(
         'relative mx-6 flex flex-col gap-7 overflow-hidden rounded-2xl border p-6 shadow lg:mx-0',
-        isHighlighted ? 'bg-foreground text-background' : 'bg-background text-foreground',
-        isPopular && 'outline outline-emerald-300'
+        isHighlighted ? 'bg-foreground text-background' : 'bg-background text-foreground'
       )}
     >
       {/* Background Decoration */}
@@ -126,12 +124,7 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
       {isPopular && <PopularBackground />}
 
       {/* Card Header */}
-      <h2 className='flex items-center gap-3 text-[24px] font-medium'>
-        {tier.name}
-        {isPopular && (
-          <Badge className='bg-emerald-700 px-1.5 py-px text-white'>🔥Popular</Badge>
-        )}
-      </h2>
+      <h2 className='flex items-center gap-3 text-[24px] font-medium'>{tier.name}</h2>
 
       {/* Price Section */}
       <div className='relative h-12'>

@@ -32,7 +32,7 @@ export const TIERS: PricingTier[] = [
 
   {
     id: 'pro',
-    name: 'Pro',
+    name: 'Pro Tier',
     price: {
       monthly: 8,
       yearly: 6,
