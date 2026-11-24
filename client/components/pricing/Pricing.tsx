@@ -12,7 +12,7 @@ export const Pricing = () => {
   const { isOpen } = useSignBox();
 
   return (
-    <section className='flex flex-col items-center gap-10 py-10'>
+    <section className='flex flex-col items-center gap-10 pt-10 pb-20'>
       {isOpen && <Signin />}
       {/* Section Header */}
       <div>
