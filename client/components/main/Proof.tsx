@@ -268,10 +268,10 @@ export const Proof = () => {
                 <Button
                   size='lg'
                   asChild
-                  className='group/cta rounded-4xl bg-black text-white hover:bg-black/90 has-[>svg]:px-6 dark:bg-white dark:text-black dark:hover:bg-white/90'
+                  className='group/cta rounded-4xl bg-emerald-700 text-white hover:bg-emerald-800 dark:hover:bg-emerald-800 has-[>svg]:px-6'
                 >
                   <Link href='/chat' className='inline-flex items-center gap-2'>
-                    Try it on your next PR
+                    Try on your next PR
                     <ArrowRight className='size-4 transition-transform duration-300 group-hover/cta:translate-x-0.5' />
                   </Link>
                 </Button>

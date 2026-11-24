@@ -488,7 +488,7 @@ export const Bento = () => {
                 href='/chat'
                 className='group/link border-border/80 bg-background/60 hover:bg-accent mt-5 inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors'
               >
-                Try it on your next PR
+                Try on your next PR
                 <ArrowUpRight className='size-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5' />
               </Link>
             </div>
