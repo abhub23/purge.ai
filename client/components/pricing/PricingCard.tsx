@@ -7,7 +7,7 @@ import { BadgeCheck } from 'lucide-react';
 import { PricingTier } from '@/constants/price';
 import { useRouter } from 'next/navigation';
 import { useMutation } from '@tanstack/react-query';
-import { useIsSignedin, useSignBox } from '@/store/AuthStates';
+import { useIsSignedin } from '@/store/AuthStates';
 import api from '@/lib/axios';
 import { toast } from 'sonner';
 
@@ -20,8 +20,6 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
   const price = tier.price[paymentFrequency];
   const plan_id = tier.id;
   const isPopular = tier.popular;
-
-  const { setOpen } = useSignBox();
 
   const router = useRouter();
   const { isSignedin } = useIsSignedin();
@@ -97,7 +95,7 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
         break;
       default:
         if (!isSignedin) {
-          setOpen(true);
+          router.push('/login');
         } else if (typeof price === 'number') {
           mutate({ plan_id, price });
         }

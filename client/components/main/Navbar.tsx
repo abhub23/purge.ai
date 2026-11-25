@@ -7,8 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Equal } from 'lucide-react';
 import { ToggleTheme } from './ToggleTheme';
 import Image from 'next/image';
-import { useSignBox, useIsSignedin } from '@/store/AuthStates';
-import Signin from '../auth/Signin';
+import { useIsSignedin } from '@/store/AuthStates';
 import api from '@/lib/axios';
 import { GoogleSignOut } from '@/lib/client-auth';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
@@ -16,7 +15,6 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 export default function Navbar() {
   const queryClient = useQueryClient();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isOpen, setOpen } = useSignBox();
   const { setSignedin } = useIsSignedin();
 
   const { data, isError, isLoading, isSuccess } = useQuery({
@@ -110,10 +108,9 @@ export default function Navbar() {
                 <Button
                   variant='ghost'
                   asChild
-                  onClick={() => setOpen(true)}
                   className='bg-accent text-accent-foreground dark:hover:bg-accent cursor-pointer text-base'
                 >
-                  <span>Sign In</span>
+                  <Link href='/login'>Sign In</Link>
                 </Button>
               )}
 
@@ -123,7 +120,6 @@ export default function Navbar() {
             </div>
             {/* Theme toggle */}
             <ToggleTheme />
-            {isOpen && <Signin />}
           </div>
 
           <button
@@ -182,12 +178,9 @@ export default function Navbar() {
                       size='lg'
                       asChild
                       className='w-full border-2 shadow-2xs'
-                      onClick={() => {
-                        setOpen(true);
-                        setIsMenuOpen(false);
-                      }}
+                      onClick={() => setIsMenuOpen(false)}
                     >
-                      <span>Sign In</span>
+                      <Link href='/login'>Sign In</Link>
                     </Button>
                   )}
                 </div>

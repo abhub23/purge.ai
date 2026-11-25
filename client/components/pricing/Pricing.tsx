@@ -4,16 +4,12 @@ import { PricingCard } from '@/components/pricing/PricingCard';
 import { PricingHeader } from '@/components/pricing/PricingHeader';
 import { PAYMENT_FREQUENCIES, TIERS } from '@/constants/price';
 import { useState } from 'react';
-import Signin from '../auth/Signin';
-import { useSignBox } from '@/store/AuthStates';
 
 export const Pricing = () => {
   const [selectedPaymentFreq, setSelectedPaymentFreq] = useState(PAYMENT_FREQUENCIES[0]);
-  const { isOpen } = useSignBox();
 
   return (
     <section className='flex flex-col items-center gap-10 pt-10 pb-20'>
-      {isOpen && <Signin />}
       {/* Section Header */}
       <div>
         <PricingHeader
