@@ -27,7 +27,7 @@ export default function Navbar() {
     setMounted(true);
   }, []);
 
-  const { data, isError, isLoading, isSuccess } = useQuery({
+  const { data, isLoading, isSuccess } = useQuery({
     queryKey: ['checksignedin'],
     queryFn: async () => {
       const response = await api.get('/api/checkvalidsession');
@@ -35,6 +35,8 @@ export default function Navbar() {
     },
     staleTime: 10000 * 60 * 10,
   });
+
+  const isSignedIn = isSuccess && Boolean(data?.success);
 
   const { mutate: handleSignOut } = useMutation({
     mutationFn: GoogleSignOut,
@@ -96,24 +98,22 @@ export default function Navbar() {
 
           {/* Right side buttons */}
           <div className='mr-50 hidden items-center space-x-2 md:flex'>
-            {isSuccess && data?.success && (
+            {isSignedIn && (
               <span className='p-2 text-base font-medium'>Hey,&nbsp; {data?.name}</span>
             )}
 
             <div className='items-center space-x-2 md:flex'>
-              {isLoading || isError ? (
-                <></>
-              ) : data?.success ? (
-                <>
-                  <Button
-                    variant='ghost'
-                    asChild
-                    onClick={() => handleSignOut()}
-                    className='bg-accent text-accent-foreground dark:hover:bg-accent cursor-pointer text-base'
-                  >
-                    <span>Sign Out</span>
-                  </Button>
-                </>
+              {isLoading ? (
+                <span className='bg-accent h-9 w-20 animate-pulse rounded-md' aria-hidden />
+              ) : isSignedIn ? (
+                <Button
+                  variant='ghost'
+                  asChild
+                  onClick={() => handleSignOut()}
+                  className='bg-accent text-accent-foreground dark:hover:bg-accent cursor-pointer text-base'
+                >
+                  <span>Sign Out</span>
+                </Button>
               ) : (
                 <Button
                   variant='ghost'
@@ -136,7 +136,7 @@ export default function Navbar() {
             className='focus-visible:ring-ring hover:text-accent-foreground mr-2 inline-flex h-9 items-center justify-end rounded-md px-0 py-2 text-base font-medium transition-colors hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 md:hidden'
             type='button'
           >
-            {data?.success && <span className='p-3 text-[15px]'>Hey,&nbsp; {data?.name}</span>}
+            {isSignedIn && <span className='p-3 text-[15px]'>Hey,&nbsp; {data?.name}</span>}
             <span className='sr-only'>Toggle Menu</span>
           </button>
           <div className='flex items-center gap-2 md:hidden'>
@@ -183,9 +183,9 @@ export default function Navbar() {
 
               <div className='flex flex-col space-y-2 pt-2'>
                 <div className='flex w-full flex-row justify-center pb-2'>
-                  {isLoading || isError ? (
-                    <></>
-                  ) : data?.success ? (
+                  {isLoading ? (
+                    <div className='bg-accent h-10 w-full animate-pulse rounded-md' aria-hidden />
+                  ) : isSignedIn ? (
                     <Button
                       variant='ghost'
                       size='lg'
