@@ -466,7 +466,7 @@ export const Bento = () => {
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className='grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,25rem)] lg:items-end lg:gap-12'
+            className='mt-6 grid gap-6 lg:mt-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,25rem)] lg:items-start lg:gap-12 lg:mb-14'
           >
             <div>
               <p className='text-muted-foreground font-mono text-[10px] tracking-[0.22em] uppercase'>
@@ -479,18 +479,11 @@ export const Bento = () => {
                 From diff to done.
               </h2>
             </div>
-            <div className='lg:pb-1'>
+            <div className='mt-8 lg:mt-0'>
               <p className='text-muted-foreground max-w-md text-sm leading-relaxed sm:text-base'>
-                PurgeAI reads the change, writes the review, and lands the merge. Your team only
+                PurgeAI reads the change, writes the review, and lands the merge. You only
                 shows up when it matters.
               </p>
-              <Link
-                href='/chat'
-                className='group/link border-border/80 bg-background/60 hover:bg-accent mt-5 inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors'
-              >
-                Try on your next PR
-                <ArrowUpRight className='size-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5' />
-              </Link>
             </div>
           </motion.div>
 
