@@ -1,15 +1,33 @@
-import { FC } from 'react';
+'use client';
+
+import { FC, useState } from 'react';
 
 type GooglebtnProptype = {
-  onClick?: () => void;
+  onClick?: () => void | Promise<void>;
 };
 
 const GoogleButton: FC<GooglebtnProptype> = ({ onClick }) => {
+  const [isRedirecting, setIsRedirecting] = useState(false);
+
+  const handleClick = async () => {
+    if (isRedirecting || !onClick) return;
+
+    setIsRedirecting(true);
+    try {
+      await onClick();
+    } catch {
+      setIsRedirecting(false);
+    }
+  };
+
   return (
     <div>
       <button
-        onClick={onClick}
-        className='flex h-12 w-full cursor-pointer items-center justify-center gap-3 rounded-xl border border-[rgba(0,0,0,0.25)] bg-white px-6 text-[15px] font-bold text-[rgb(65,63,63)] uppercase transition-transform duration-300 ease-in-out outline-none hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-emerald-600/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+        type='button'
+        onClick={handleClick}
+        disabled={isRedirecting}
+        aria-busy={isRedirecting}
+        className='flex h-12 w-full cursor-pointer items-center justify-center gap-3 rounded-xl border border-[rgba(0,0,0,0.25)] bg-white px-6 text-lg font-semibold text-[rgb(65,63,63)] transition-transform duration-300 ease-in-out outline-none hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-emerald-600/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -34,7 +52,7 @@ const GoogleButton: FC<GooglebtnProptype> = ({ onClick }) => {
             d='M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251'
           />
         </svg>
-        Continue with Google
+        {isRedirecting ? 'Redirecting...' : 'Continue with Google'}
       </button>
     </div>
   );
