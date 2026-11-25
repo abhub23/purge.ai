@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Equal } from 'lucide-react';
 import { ToggleTheme } from './ToggleTheme';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
+import { Switch } from '@/components/ui/switch';
 import { useIsSignedin } from '@/store/AuthStates';
 import api from '@/lib/axios';
 import { GoogleSignOut } from '@/lib/client-auth';
@@ -15,7 +17,15 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 export default function Navbar() {
   const queryClient = useQueryClient();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
   const { setSignedin } = useIsSignedin();
+
+  const isDark = theme === 'dark';
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const { data, isError, isLoading, isSuccess } = useQuery({
     queryKey: ['checksignedin'],
@@ -161,8 +171,14 @@ export default function Navbar() {
               </Link>
 
               <div className='flex items-center justify-between'>
-                <span className='text-muted-foreground'>Theme</span>
-                <ToggleTheme />
+                <span className='text-muted-foreground'>
+                  {mounted ? (isDark ? 'Light' : 'Dark') : 'Theme'}
+                </span>
+                <Switch
+                  checked={isDark}
+                  onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')}
+                  aria-label='Toggle theme'
+                />
               </div>
 
               <div className='flex flex-col space-y-2 pt-2'>
