@@ -9,7 +9,7 @@ const GithubButton: FC<GithubbtnProptype> = ({ onClick }) => {
     <div>
       <button
         onClick={onClick}
-        className='flex h-12 w-full cursor-pointer items-center justify-center gap-3 rounded-xl border border-[rgba(0,0,0,0.25)] bg-white px-6 text-lg font-semibold text-[rgb(65,63,63)] transition-transform duration-300 ease-in-out outline-none hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-emerald-600/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+        className='flex h-12 w-full cursor-pointer items-center justify-center gap-3 rounded-xl border border-[rgba(0,0,0,0.25)] bg-white px-6 text-lg font-semibold text-[rgb(65,63,63)] transition-transform duration-300 ease-in-out outline-none hover:-translate-y-px focus-visible:ring-2 focus-visible:ring-emerald-600/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
