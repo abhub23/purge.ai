@@ -132,6 +132,7 @@ export default function Navbar() {
           <div className='flex items-center gap-2 md:hidden'>
             <div className='relative mr-5 size-7' onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <Equal
+                strokeWidth={1.5}
                 className={`absolute inset-0 h-7 w-7 [&>line]:transform-fill [&>line]:origin-center [&>line]:transition-all [&>line]:duration-300 ${isMenuOpen ? '[&>line:nth-child(1)]:translate-y-0.75 [&>line:nth-child(1)]:rotate-45 [&>line:nth-child(2)]:-translate-y-0.75 [&>line:nth-child(2)]:-rotate-45' : '[&>line:nth-child(1)]:translate-y-0 [&>line:nth-child(1)]:rotate-0 [&>line:nth-child(2)]:translate-y-0 [&>line:nth-child(2)]:rotate-0'}`}
               />
             </div>
@@ -158,6 +159,12 @@ export default function Navbar() {
               >
                 Pricing
               </Link>
+
+              <div className='flex items-center justify-between'>
+                <span className='text-muted-foreground'>Theme</span>
+                <ToggleTheme />
+              </div>
+
               <div className='flex flex-col space-y-2 pt-2'>
                 <div className='flex w-full flex-row justify-center pb-2'>
                   {isLoading || isError ? (
@@ -192,10 +199,6 @@ export default function Navbar() {
                 >
                   <Link href='/chat'>Get Started</Link>
                 </Button>
-              </div>
-
-              <div className='mt-6 pt-4 border-t border-border/40'>
-                <ToggleTheme />
               </div>
             </nav>
           </div>
