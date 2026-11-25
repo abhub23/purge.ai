@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, type ReactNode } from 'react';
 import { Play, X } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -13,7 +13,11 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 
-const VideoDialog = () => {
+type VideoDialogProps = {
+  trigger?: ReactNode;
+};
+
+const VideoDialog = ({ trigger }: VideoDialogProps) => {
   const [open, setOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -29,14 +33,16 @@ const VideoDialog = () => {
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
-        <Button
-          variant='outline'
-          size='lg'
-          className='h-12 w-full cursor-pointer px-8 text-base sm:h-10 sm:w-auto sm:max-w-none sm:px-6 sm:text-sm lg:h-12 lg:px-6 lg:text-lg'
-        >
-          <Play className='size-5 fill-current sm:size-4' />
-          Watch Demo
-        </Button>
+        {trigger ?? (
+          <Button
+            variant='outline'
+            size='lg'
+            className='h-12 w-full cursor-pointer px-8 text-base sm:h-10 sm:w-auto sm:max-w-none sm:px-6 sm:text-sm lg:h-12 lg:px-6 lg:text-lg'
+          >
+            <Play className='size-5 fill-current sm:size-4' />
+            Watch Demo
+          </Button>
+        )}
       </DialogTrigger>
 
       <DialogContent

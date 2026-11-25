@@ -3,11 +3,7 @@
 import Link from 'next/link';
 import { GithubIcon, LinkedinIcon, MailIcon, XIcon } from './logos';
 import Image from 'next/image';
-
-const ScrollY = () => {
-  const scrollTarget = window.innerWidth > 1500 ? 460 : 200;
-  window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
-};
+import VideoDialog from './VideoDialog';
 
 const Footer = () => {
   return (
@@ -89,11 +85,17 @@ const Footer = () => {
             <div className='space-y-4'>
               <h3 className='font-semibold'>Resources</h3>
               <ul className='space-y-3 text-sm'>
-                <li
-                  className='text-muted-foreground hover:text-foreground/85 transition-colors hover:cursor-pointer'
-                  onClick={ScrollY}
-                >
-                  Tutorial
+                <li>
+                  <VideoDialog
+                    trigger={
+                      <button
+                        type='button'
+                        className='text-muted-foreground hover:text-foreground/85 cursor-pointer transition-colors'
+                      >
+                        Tutorial
+                      </button>
+                    }
+                  />
                 </li>
                 <li>
                   <Link
