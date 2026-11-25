@@ -54,15 +54,15 @@ export default function Navbar() {
   return (
     <nav className='md:border-border/40 md:bg-background/95 supports-backdrop-filter:bg-background/60 sticky top-0 z-50 container w-full border-b backdrop-blur'>
       <div className='relative container flex h-16 max-w-screen-2xl items-center'>
-        <div className='ml-50 hidden md:flex'>
+        <div className='ml-4 hidden md:flex xl:ml-50'>
           <Link href='/' className='mr-6 flex items-center space-x-2'>
             <Image src={'/purgeailogo.webp'} alt='aa' height={35} width={35} />
-            <span className='hidden text-xl font-bold sm:inline-block'>PurgeAI</span>
+            <span className='hidden text-xl font-semibold sm:inline-block'>PurgeAI</span>
           </Link>
         </div>
 
-        {/* Navigation Links laptop - centered */}
-        <nav className='absolute left-1/2 hidden -translate-x-1/2 items-center gap-2.5 text-base font-medium md:flex'>
+        {/* Navigation Links laptop - left aligned after logo */}
+        <nav className='ml-4 hidden items-center gap-2.5 text-base font-medium md:flex lg:ml-8'>
           <Link
             href='/about'
             className='hover:text-foreground hover:bg-accent/80 text-foreground/80 rounded-md p-1.5 px-2.5 transition-colors'
@@ -92,12 +92,12 @@ export default function Navbar() {
           <div className='ml-4 w-full flex-1 md:w-auto md:flex-none'>
             <Link href='/' className='mr-6 flex items-center space-x-2 md:hidden'>
               <Image src={'/purgeailogo.webp'} alt='aa' height={30} width={30} />
-              <span className='font-bold'>PurgeAI</span>
+              <span className='font-semibold'>PurgeAI</span>
             </Link>
           </div>
 
           {/* Right side buttons */}
-          <div className='mr-50 hidden items-center space-x-2 md:flex'>
+          <div className='mr-4 hidden items-center space-x-2 md:flex xl:mr-50'>
             {isSignedIn && (
               <span className='p-2 text-base font-medium'>Hey,&nbsp; {data?.name}</span>
             )}
