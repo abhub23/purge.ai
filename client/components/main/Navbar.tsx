@@ -27,7 +27,7 @@ export default function Navbar() {
     setMounted(true);
   }, []);
 
-  const { data, isLoading, isSuccess } = useQuery({
+  const { data, isSuccess } = useQuery({
     queryKey: ['checksignedin'],
     queryFn: async () => {
       const response = await api.get('/api/checkvalidsession');
@@ -103,9 +103,7 @@ export default function Navbar() {
             )}
 
             <div className='items-center space-x-2 md:flex'>
-              {isLoading ? (
-                <span className='bg-accent h-9 w-20 animate-pulse rounded-md' aria-hidden />
-              ) : isSignedIn ? (
+              {isSignedIn ? (
                 <Button
                   variant='ghost'
                   asChild
@@ -183,9 +181,7 @@ export default function Navbar() {
 
               <div className='flex flex-col space-y-2 pt-2'>
                 <div className='flex w-full flex-row justify-center pb-2'>
-                  {isLoading ? (
-                    <div className='bg-accent h-10 w-full animate-pulse rounded-md' aria-hidden />
-                  ) : isSignedIn ? (
+                  {isSignedIn ? (
                     <Button
                       variant='ghost'
                       size='lg'
