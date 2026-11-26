@@ -20,7 +20,7 @@ export type PromptInputProps = HTMLAttributes<HTMLFormElement>;
 export const PromptInput = ({ className, ...props }: PromptInputProps) => (
   <form
     className={cn(
-      'mx-auto w-[90%] divide-y divide-neutral-700/60 rounded-xl border border-transparent bg-neutral-800 p-3 shadow-sm transition-colors focus-within:border-neutral-600/70 hover:border-neutral-700/60 lg:w-170',
+      'mx-auto w-[90%] divide-y divide-neutral-700/60 rounded-xl border border-transparent bg-neutral-800 px-3 pt-2 pb-3 shadow-sm transition-colors focus-within:border-neutral-600/70 hover:border-neutral-700/60 lg:w-170',
       className
     )}
     {...props}
@@ -59,7 +59,7 @@ export const PromptInputTextarea = ({
   return (
     <Textarea
       className={cn(
-        'w-full resize-none rounded-none border-none p-3 text-base md:text-base text-neutral-100 shadow-none ring-0 outline-none placeholder:text-neutral-500',
+        'w-full resize-none rounded-none border-none px-3 pt-2 pb-3 text-base md:text-base text-neutral-100 shadow-none ring-0 outline-none placeholder:text-neutral-500',
         'field-sizing-content max-h-[6lh] min-h-0 bg-transparent dark:bg-transparent',
         'focus-visible:ring-0',
         className
