@@ -13,7 +13,7 @@
     "@ai-sdk/google": "^2.0.17",
     "@better-auth/prisma-adapter": "^1.5.2",
     "@prisma/client": "^6.16.3",
-    "ai": "^5.0.59",
+    "ai": "^5.0.294",
     "axios": "^1.12.2",
     "better-auth": "^1.3.24",
     "cookie-parser": "^1.4.7",
