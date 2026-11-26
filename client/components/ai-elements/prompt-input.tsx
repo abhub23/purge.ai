@@ -35,7 +35,7 @@ export type PromptInputTextareaProps = ComponentProps<typeof Textarea> & {
 export const PromptInputTextarea = ({
   onChange,
   className,
-  placeholder = 'Paste your Pull Request URL',
+  placeholder = 'Paste a GitHub PR link to get started',
   minHeight = 48,
   maxHeight = 164,
   ...props
@@ -59,8 +59,8 @@ export const PromptInputTextarea = ({
   return (
     <Textarea
       className={cn(
-        'w-full resize-none rounded-none border-none p-3 text-sm text-neutral-100 shadow-none ring-0 outline-none placeholder:text-neutral-500',
-        'field-sizing-content max-h-[6lh] bg-transparent dark:bg-transparent',
+        'w-full resize-none rounded-none border-none p-3 text-base md:text-base text-neutral-100 shadow-none ring-0 outline-none placeholder:text-neutral-500',
+        'field-sizing-content max-h-[6lh] min-h-0 bg-transparent dark:bg-transparent',
         'focus-visible:ring-0',
         className
       )}
