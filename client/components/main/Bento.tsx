@@ -479,12 +479,6 @@ export const Bento = () => {
                 From diff to done.
               </h2>
             </div>
-            <div className='mt-8 lg:mt-0'>
-              <p className='text-muted-foreground max-w-md text-sm leading-relaxed sm:text-base'>
-                PurgeAI reads the change, writes the review, and lands the merge. You only
-                shows up when it matters.
-              </p>
-            </div>
           </motion.div>
 
           <div className='mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:mt-14 lg:grid-cols-12 lg:grid-rows-[21.5rem_21.5rem_18rem] lg:gap-5'>
