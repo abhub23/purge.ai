@@ -191,16 +191,16 @@ const AIChat = () => {
               <DropdownMenuContent
                 side='bottom'
                 align='start'
-                className='min-w-40 border-neutral-700 bg-neutral-900 text-neutral-100'
+                className='min-w-40 border-neutral-700 bg-neutral-800 text-neutral-100'
               >
                 <DropdownMenuSub>
-                  <DropdownMenuSubTrigger className='cursor-pointer gap-2 text-sm focus:bg-neutral-800 focus:text-neutral-100 data-[state=open]:bg-neutral-800 data-[state=open]:text-neutral-100'>
+                  <DropdownMenuSubTrigger className='cursor-pointer gap-2 text-sm focus:bg-neutral-700 focus:text-neutral-100 data-[state=open]:bg-neutral-700 data-[state=open]:text-neutral-100'>
                     <MessageSquare className='size-3.5 text-neutral-50' />
                     Insights
                   </DropdownMenuSubTrigger>
                   <DropdownMenuSubContent
                     sideOffset={6}
-                    className='min-w-44 border-neutral-700 bg-neutral-900 text-neutral-100'
+                    className='min-w-44 border-neutral-700 bg-neutral-800 text-neutral-100'
                   >
                     {insights.map((insight) => {
                       const Icon = insight.icon;
@@ -209,7 +209,7 @@ const AIChat = () => {
                         <DropdownMenuItem
                           key={insight.value}
                           onSelect={() => handleInsightsSelect(insight.value)}
-                          className='cursor-pointer gap-2 text-sm text-neutral-100 focus:bg-neutral-800 focus:text-neutral-100'
+                          className='cursor-pointer gap-2 text-sm text-neutral-100 focus:bg-neutral-700 focus:text-neutral-100'
                         >
                           <Icon className='size-3.5 text-neutral-50' />
                           <span className='flex-1'>{insight.label}</span>
@@ -221,13 +221,13 @@ const AIChat = () => {
                 </DropdownMenuSub>
 
                 <DropdownMenuSub>
-                  <DropdownMenuSubTrigger className='cursor-pointer gap-2 text-sm focus:bg-neutral-800 focus:text-neutral-100 data-[state=open]:bg-neutral-800 data-[state=open]:text-neutral-100'>
+                  <DropdownMenuSubTrigger className='cursor-pointer gap-2 text-sm focus:bg-neutral-700 focus:text-neutral-100 data-[state=open]:bg-neutral-700 data-[state=open]:text-neutral-100'>
                     <SlidersHorizontal className='size-3.5 text-neutral-50' />
                     Mode
                   </DropdownMenuSubTrigger>
                   <DropdownMenuSubContent
                     sideOffset={6}
-                    className='min-w-44 border-neutral-700 bg-neutral-900 text-neutral-100'
+                    className='min-w-44 border-neutral-700 bg-neutral-800 text-neutral-100'
                   >
                     {mode.map((item) => {
                       const isSelected = selectedMode.includes(item.value);
@@ -235,7 +235,7 @@ const AIChat = () => {
                         <DropdownMenuItem
                           key={item.value}
                           onSelect={() => handleModeSelect(item.value)}
-                          className='cursor-pointer gap-2 text-sm text-neutral-100 focus:bg-neutral-800 focus:text-neutral-100'
+                          className='cursor-pointer gap-2 text-sm text-neutral-100 focus:bg-neutral-700 focus:text-neutral-100'
                         >
                           <item.icon className='size-3.5 text-neutral-50' />
                           <span className='flex-1'>{item.label}</span>
