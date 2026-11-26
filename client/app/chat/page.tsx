@@ -1,4 +1,9 @@
+import type { Metadata } from 'next';
 import AIChat from '@/components/chat/Chat';
+
+export const metadata: Metadata = {
+  title: 'New chat - Purge AI',
+};
 
 const Chat = () => {
   return (

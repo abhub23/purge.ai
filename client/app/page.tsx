@@ -3,6 +3,11 @@ import Hero from '@/components/main/Hero';
 import { Bento } from '@/components/main/Bento';
 import { Proof } from '@/components/main/Proof';
 import Footer from '@/components/main/Footer';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Purge AI - AI assistant for GitHub PRs',
+};
 
 export default function Home() {
   return (
