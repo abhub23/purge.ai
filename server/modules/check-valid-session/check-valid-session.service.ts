@@ -5,12 +5,15 @@ export async function validateSession(cookieToken: string) {
     where: { token: cookieToken },
     select: {
       user: {
-        select: { name: true },
+        select: { name: true, image: true },
       },
     },
   });
 
   if (!session?.user?.name) return null;
 
-  return session.user.name.split(' ')[0];
+  return {
+    name: session.user.name.split(' ')[0],
+    image: session.user.image ?? null,
+  };
 }

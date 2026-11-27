@@ -26,9 +26,9 @@ export async function checkValidSession(req: Request, res: Response) {
 
   try {
     const token = data.split('.')[0];
-    const name = await validateSession(token);
+    const user = await validateSession(token);
 
-    if (!name) {
+    if (!user) {
       return res.status(400).json({
         success: false,
         message: 'Session not found'
@@ -38,7 +38,8 @@ export async function checkValidSession(req: Request, res: Response) {
     return res.status(200).json({
       success: true,
       message: 'Valid Session token',
-      name
+      name: user.name,
+      image: user.image,
     });
 
   } catch (error) {

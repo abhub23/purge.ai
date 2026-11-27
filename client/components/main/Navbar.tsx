@@ -38,6 +38,11 @@ export default function Navbar() {
 
   const isSignedIn = isSuccess && Boolean(data?.success);
 
+  const displayName = (data?.name as string | undefined)?.trim();
+  const firstName = displayName?.split(' ')[0];
+  const avatarUrl = (data?.image as string | undefined) ?? null;
+  const initial = firstName?.[0]?.toUpperCase() ?? '';
+
   const { mutate: handleSignOut } = useMutation({
     mutationFn: GoogleSignOut,
     onSuccess: () => {
@@ -98,8 +103,25 @@ export default function Navbar() {
 
           {/* Right side buttons */}
           <div className='mr-4 hidden items-center space-x-2 md:flex xl:mr-50'>
-            {isSignedIn && (
-              <span className='p-2 text-base font-medium'>Hey,&nbsp; {data?.name}</span>
+            {isSignedIn && displayName && (
+              <div className='border-border/60 bg-accent/40 flex items-center gap-2 rounded-full border py-1 pr-3 pl-1'>
+                {avatarUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={avatarUrl}
+                    alt={displayName}
+                    referrerPolicy='no-referrer'
+                    className='size-7 shrink-0 rounded-full object-cover'
+                  />
+                ) : (
+                  <span className='flex size-7 shrink-0 items-center justify-center rounded-full bg-emerald-700 text-xs font-semibold text-white'>
+                    {initial}
+                  </span>
+                )}
+                <span className='max-w-32 truncate text-sm font-medium' title={displayName}>
+                  {firstName}
+                </span>
+              </div>
             )}
 
             <div className='items-center space-x-2 md:flex'>
@@ -122,7 +144,10 @@ export default function Navbar() {
                 </Button>
               )}
 
-              <Button asChild className='bg-emerald-700 text-base text-white hover:bg-emerald-800 dark:hover:bg-emerald-800'>
+              <Button
+                asChild
+                className='bg-emerald-700 text-base text-white hover:bg-emerald-800 dark:hover:bg-emerald-800'
+              >
                 <Link href='/chat'>Get Started</Link>
               </Button>
             </div>
@@ -130,18 +155,26 @@ export default function Navbar() {
             <ToggleTheme />
           </div>
 
-          <button
-            className='focus-visible:ring-ring hover:text-accent-foreground mr-2 inline-flex h-9 items-center justify-end rounded-md px-0 py-2 text-base font-medium transition-colors hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 md:hidden'
-            type='button'
-          >
-            {isSignedIn && <span className='p-3 text-[15px]'>Hey,&nbsp; {data?.name}</span>}
-            <span className='sr-only'>Toggle Menu</span>
-          </button>
           <div className='flex items-center gap-2 md:hidden'>
+            {isSignedIn &&
+              displayName &&
+              (avatarUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={avatarUrl}
+                  alt={displayName}
+                  referrerPolicy='no-referrer'
+                  className='size-7 shrink-0 rounded-full object-cover'
+                />
+              ) : (
+                <span className='flex size-7 items-center justify-center rounded-full bg-emerald-700 text-[11px] font-semibold text-white'>
+                  {initial}
+                </span>
+              ))}
             <div className='relative mr-5 size-7' onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <Equal
                 strokeWidth={1.5}
-                className={`absolute inset-0 h-7 w-7 [&>line]:transform-fill [&>line]:origin-center [&>line]:transition-all [&>line]:duration-300 ${isMenuOpen ? '[&>line:nth-child(1)]:translate-y-0.75 [&>line:nth-child(1)]:rotate-45 [&>line:nth-child(2)]:-translate-y-0.75 [&>line:nth-child(2)]:-rotate-45' : '[&>line:nth-child(1)]:translate-y-0 [&>line:nth-child(1)]:rotate-0 [&>line:nth-child(2)]:translate-y-0 [&>line:nth-child(2)]:rotate-0'}`}
+                className={`absolute inset-0 h-7 w-7 [&>line]:origin-center [&>line]:transition-all [&>line]:duration-300 [&>line]:transform-fill ${isMenuOpen ? '[&>line:nth-child(1)]:translate-y-0.75 [&>line:nth-child(1)]:rotate-45 [&>line:nth-child(2)]:-translate-y-0.75 [&>line:nth-child(2)]:-rotate-45' : '[&>line:nth-child(1)]:translate-y-0 [&>line:nth-child(1)]:rotate-0 [&>line:nth-child(2)]:translate-y-0 [&>line:nth-child(2)]:rotate-0'}`}
               />
             </div>
           </div>
