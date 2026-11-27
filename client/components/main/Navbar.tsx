@@ -164,21 +164,26 @@ export default function Navbar() {
           </div>
 
           <div className='flex items-center gap-2 md:hidden'>
-            {isSignedIn &&
-              displayName &&
-              (avatarUrl ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={avatarUrl}
-                  alt={displayName}
-                  referrerPolicy='no-referrer'
-                  className='size-7 shrink-0 rounded-full object-cover'
-                />
-              ) : (
-                <span className='flex size-7 items-center justify-center rounded-full bg-emerald-700 text-[11px] font-semibold text-white'>
-                  {initial}
+            {isSignedIn && displayName && (
+              <div className='border-border/60 bg-accent/40 mr-2 flex items-center gap-1.5 rounded-full border py-1 pr-2.5 pl-1'>
+                {avatarUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={avatarUrl}
+                    alt={displayName}
+                    referrerPolicy='no-referrer'
+                    className='size-7 shrink-0 rounded-full object-cover'
+                  />
+                ) : (
+                  <span className='flex size-7 shrink-0 items-center justify-center rounded-full bg-emerald-700 text-xs font-semibold text-white'>
+                    {initial}
+                  </span>
+                )}
+                <span className='max-w-24 truncate text-sm font-medium' title={displayName}>
+                  {firstName}
                 </span>
-              ))}
+              </div>
+            )}
             <div className='relative mr-5 size-7' onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <Equal
                 strokeWidth={1.5}
