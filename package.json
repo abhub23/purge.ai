@@ -1,7 +1,7 @@
 {
   "name": "purgeai",
   "version": "1.0.0",
-  "workspaces": ["client", "server"],
+  "workspaces": ["client", "server", "db"],
   "description": "PurgeAI is a battle tested AI assistant designed and developed to help devs manage and review their PRs efficiently",
   "scripts": {
     "web": "bun --filter client dev",

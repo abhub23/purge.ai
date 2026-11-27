@@ -1,0 +1,25 @@
+{
+  "name": "db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate",
+    "push": "drizzle-kit push",
+    "pull": "drizzle-kit pull",
+    "check": "drizzle-kit check",
+    "studio": "drizzle-kit studio",
+    "up": "drizzle-kit up",
+    "export": "drizzle-kit export"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.45.4",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.11",
+    "@types/pg": "^8.23.1",
+    "drizzle-kit": "^0.31.11"
+  }
+}
