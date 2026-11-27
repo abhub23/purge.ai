@@ -8,7 +8,7 @@ import VideoDialog from './VideoDialog';
 const Footer = () => {
   return (
     <footer className='rounded-t-3xl border-t border-white/10 bg-[#141413] text-[#f7f7f7]'>
-      <div className='px-4 py-8 lg:h-78 lg:py-8'>
+      <div className='px-4 pt-10 pb-12 lg:h-84 lg:pt-10 lg:pb-8'>
         <div className='grid gap-8 lg:mx-auto lg:flex lg:w-full lg:max-w-300 lg:justify-between'>
           {/* Brand Section */}
           <div className='space-y-4'>
