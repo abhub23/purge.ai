@@ -81,10 +81,12 @@ purge.ai/
 │   │   ├── config.ts       # Server configuration
 │   │   ├── prisma.ts       # Prisma client
 │   │   └── razorpay.ts     # Razorpay client
-│   ├── prisma/             # Database schema
-│   │   └── schema.prisma   # Database models
 │   ├── constants/          # Server constants
 │   └── schemas/            # Validation schemas
+│
+├── db/                     # Prisma schema and migrations
+│   ├── schema.prisma       # Database models
+│   └── migrations/         # Database migrations
 │
 ├── docker/                 # Docker configurations
 │   ├── Dockerfile.client   # Client container

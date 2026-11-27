@@ -6,8 +6,8 @@
   "scripts": {
     "start": "bun run server.ts",
     "dev": "bun run --watch server.ts",
-    "build": "prisma generate && tsc -b",
-    "postinstall": "prisma generate"
+    "build": "prisma generate --schema ../db/schema.prisma && tsc -b",
+    "postinstall": "prisma generate --schema ../db/schema.prisma"
   },
   "dependencies": {
     "@ai-sdk/google": "^2.0.17",

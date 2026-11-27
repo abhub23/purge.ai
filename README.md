@@ -63,7 +63,7 @@ bun install
 4. Run database migrations:
 ```bash
 cd server
-bunx prisma migrate dev
+bunx prisma migrate dev --schema ../db/schema.prisma
 ```
 
 ### Development
@@ -101,9 +101,9 @@ purge.ai/
 │   └── public/            # Static assets
 ├── server/                # Express.js backend
 │   ├── api/               # API routes
-│   ├── prisma/            # Database schema and migrations
 │   ├── routes/            # Route handlers
 │   └── schemas/           # Validation schemas
+├── db/                    # Prisma schema and migrations
 └── docker/                # Docker configurations
 ```
 
