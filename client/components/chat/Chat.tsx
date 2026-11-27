@@ -13,7 +13,7 @@ import {
   PromptInputToolbar,
   PromptInputTools,
 } from '@/components/ai-elements/prompt-input';
-import { useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useChat } from '@ai-sdk/react';
 import { TextStreamChatTransport } from 'ai';
 import { BACKEND_URL } from '@/config/config';
@@ -31,20 +31,61 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Check, MessageSquare, Plus, SlidersHorizontal, X } from 'lucide-react';
+import {
+  Check,
+  GitPullRequest,
+  MessageSquare,
+  MessageSquarePlus,
+  Plus,
+  SlidersHorizontal,
+  X,
+} from 'lucide-react';
 import { Button } from '../ui/button';
 import { cn } from 'cn';
 import { HostGrotesk } from '@/utils/fonts';
+import { toast } from 'sonner';
 import { useQuery } from '@tanstack/react-query';
 import api from '@/lib/axios';
+
+const NAME_STORAGE_KEY = 'purge.user.name';
+
+const githubPrUrlRegex =
+  /https:\/\/github\.com\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+\/pull\/\d+(?:\/)?(?:\?[^\s]*)?/i;
+
+const extractGithubPrUrl = (value: string) => {
+  const match = value.match(githubPrUrlRegex)?.[0];
+
+  return match ? match.replace(/[),.;]+$/, '') : null;
+};
+
+const parseGithubPrUrl = (url: string) => {
+  const match = url.match(
+    /^https:\/\/github\.com\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)\/pull\/(\d+)/i
+  );
+
+  if (!match) return null;
+
+  return { owner: match[1], repo: match[2], number: match[3] };
+};
 
 const AIChat = () => {
   const [input, setInput] = useState('');
   const [selectedInsights, setSelectedInsights] = useState<string[]>([]);
   const [selectedMode, setSelectedMode] = useState<string[]>([]);
-  const { messages, sendMessage, status } = useChat({
-    transport: new TextStreamChatTransport({ api: `${BACKEND_URL}/api/chat` }),
-  });
+  const [firstName, setFirstName] = useState<string | null>(null);
+  const lastPrUrlRef = useRef<string | null>(null);
+  const { messages, sendMessage, status, error, stop, regenerate, clearError, setMessages } =
+    useChat({
+      transport: new TextStreamChatTransport({ api: `${BACKEND_URL}/api/chat` }),
+    });
+
+  const prUrl = useMemo(() => extractGithubPrUrl(input), [input]);
+  const prPreview = useMemo(() => (prUrl ? parseGithubPrUrl(prUrl) : null), [prUrl]);
+
+  useEffect(() => {
+    const cachedName = window.localStorage.getItem(NAME_STORAGE_KEY);
+    if (cachedName) setFirstName(cachedName);
+  }, []);
 
   const dedupedMessages = messages.filter(
     (message, index, arr) => arr.findIndex((m) => m.id === message.id) === index
@@ -69,46 +110,125 @@ const AIChat = () => {
     setSelectedMode((prev) => prev.filter((item) => item !== value));
   };
 
-  const { data } = useQuery({
+  const { data: session } = useQuery({
     queryKey: ['checksignedin'],
     queryFn: async () => {
       const response = await api.get('/api/checkvalidsession');
       return response.data;
     },
     staleTime: 10000 * 60 * 10,
+    retry: false,
   });
+
+  useEffect(() => {
+    if (session?.success && session.name) {
+      setFirstName(session.name);
+      window.localStorage.setItem(NAME_STORAGE_KEY, session.name);
+    } else if (session && !session.success) {
+      setFirstName(null);
+      window.localStorage.removeItem(NAME_STORAGE_KEY);
+    }
+  }, [session]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (input.trim()) {
-      sendMessage(
-        { text: input },
-        {
-          body: {
-            text: input,
-            messages: [
-              {
-                id: 'msg-1',
-                role: 'user',
-                selectedInsights: selectedInsights,
-                selectedMode: selectedMode,
-                parts: [
-                  {
-                    type: 'text',
-                    text: input,
-                  },
-                ],
-              },
-            ],
-          },
-        }
-      );
-      setInput('');
+
+    const trimmedInput = input.trim();
+    if (!trimmedInput) return;
+
+    const url = extractGithubPrUrl(trimmedInput);
+
+    if (!url) {
+      toast.error('Paste a valid GitHub PR link', {
+        id: 'chat-input-error',
+        description: 'e.g. https://github.com/owner/repo/pull/123',
+        position: 'top-center',
+        duration: 3000,
+      });
+      return;
     }
+
+    sendMessage(
+      { text: trimmedInput },
+      {
+        body: {
+          text: url,
+          messages: [
+            {
+              id: 'msg-1',
+              role: 'user',
+              selectedInsights: selectedInsights,
+              selectedMode: selectedMode,
+              parts: [
+                {
+                  type: 'text',
+                  text: trimmedInput,
+                },
+              ],
+            },
+          ],
+        },
+      }
+    );
+
+    setInput('');
+    lastPrUrlRef.current = url;
   };
+
+  const handleRegenerate = (messageId?: string) => {
+    if (!lastPrUrlRef.current) return;
+
+    regenerate({
+      messageId,
+      body: {
+        text: lastPrUrlRef.current,
+        selectedInsights,
+        selectedMode,
+      },
+    });
+  };
+
+  const handleNewChat = () => {
+    stop();
+    setMessages([]);
+    clearError();
+    setInput('');
+    lastPrUrlRef.current = null;
+  };
+
+  useEffect(() => {
+    if (!error) {
+      toast.dismiss('chat-error');
+      return;
+    }
+
+    toast.error('Something went wrong', {
+      id: 'chat-error',
+      description: error.message || 'Please try again.',
+      position: 'top-center',
+      duration: 3000,
+      action: lastPrUrlRef.current
+        ? { label: 'Retry', onClick: () => handleRegenerate() }
+        : undefined,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error]);
 
   return (
     <div className={cn('flex h-full flex-col', !hasStarted && 'items-center justify-center')}>
+      {hasStarted && (
+        <div className='flex items-center justify-end pr-1 pb-2'>
+          <Button
+            variant='ghost'
+            size='sm'
+            onClick={handleNewChat}
+            className='h-8 cursor-pointer gap-1.5 rounded-full px-3 text-xs text-neutral-400 hover:bg-neutral-800 hover:text-neutral-200'
+          >
+            <MessageSquarePlus className='size-3.5' />
+            New chat
+          </Button>
+        </div>
+      )}
       {hasStarted && (
         <Conversation className='min-h-0 flex-1'>
           <ConversationContent>
@@ -171,7 +291,15 @@ const AIChat = () => {
       )}
       {messages.length === 0 && (
         <div className={cn('pb-4 text-2xl lg:pb-8 lg:text-4xl', HostGrotesk)}>
-          Hey {data?.success ? data?.name : 'There'}, Ready for review?
+          Hey {firstName ?? 'there'}, Ready for review?
+        </div>
+      )}
+      {prPreview && (
+        <div className='mx-auto mb-2 flex w-[90%] items-center gap-2 text-xs text-neutral-400 lg:w-170'>
+          <GitPullRequest className='size-3.5 shrink-0' />
+          <span className='truncate'>
+            {prPreview.owner}/{prPreview.repo} #{prPreview.number}
+          </span>
         </div>
       )}
       <PromptInput onSubmit={handleSubmit} className={cn(hasStarted && 'sticky bottom-4 mt-4')}>

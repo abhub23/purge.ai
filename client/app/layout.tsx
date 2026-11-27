@@ -93,7 +93,7 @@ export default function RootLayout({
       <body className={cn(HostGrotesk)}>
         <ThemeProvider attribute={'class'}>
           <QueryProvider>{children}</QueryProvider>
-          <Toaster />
+          <Toaster richColors />
         </ThemeProvider>
       </body>
     </html>
