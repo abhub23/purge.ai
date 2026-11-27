@@ -63,7 +63,7 @@ bun install
 4. Run database migrations:
 ```bash
 cd server
-bunx prisma migrate dev --schema ../db/schema.prisma
+bunx prisma migrate dev
 ```
 
 ### Development
@@ -88,11 +88,6 @@ docker-compose up --build
 The application will be available at:
 - Client: http://localhost:3000
 
-### Vercel Server Deployment
-
-Set the server Vercel project's Root Directory to the repository root so the
-Express entry point and root-level `db/` folder are included in the build.
-
 ## 📁 Project Structure
 
 ```
@@ -106,9 +101,9 @@ purge.ai/
 │   └── public/            # Static assets
 ├── server/                # Express.js backend
 │   ├── api/               # API routes
+│   ├── prisma/            # Database schema and migrations
 │   ├── routes/            # Route handlers
 │   └── schemas/           # Validation schemas
-├── db/                    # Prisma schema and migrations
 └── docker/                # Docker configurations
 ```
 
