@@ -103,6 +103,7 @@
 
 :root {
   --radius: 0.625rem;
+  --page-background: #faf9f5;
   --background: #faf9f5;
   --foreground: oklch(0.145 0 0);
   --card: #faf9f5;
@@ -137,6 +138,7 @@
 }
 
 .dark {
+  --page-background: #141413;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -175,6 +177,17 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--page-background);
+    @apply text-foreground;
   }
+}
+
+body > div.bg-background,
+body > main.bg-background,
+body > section.bg-background {
+  background-color: var(--page-background);
+}
+
+.dark nav {
+  --background: var(--page-background);
 }
