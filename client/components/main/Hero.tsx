@@ -7,7 +7,7 @@ import VideoDialog from './VideoDialog';
 
 export default function Hero() {
   return (
-    <section className='relative flex flex-col items-center justify-center space-y-4 py-24 lg:py-32'>
+    <section className='relative flex flex-col items-center justify-center space-y-4 pt-20 pb-24 lg:pt-28 lg:pb-32'>
       <div className='relative mx-auto flex max-w-245 flex-col items-center space-y-2 text-center'>
         <div className='animate-fade-up text-center motion-reduce:animate-none'>
           <span className='text-muted-foreground inline-block font-mono text-[10px] tracking-widest uppercase lg:text-xs'>
@@ -25,7 +25,7 @@ export default function Hero() {
           An AI Powered critique who does the heavy lifting for your github PRs
         </p>
       </div>
-      <div className='animate-fade-up relative mt-2 flex w-full max-w-[300px] flex-col items-center gap-4 [animation-delay:360ms] motion-reduce:animate-none sm:w-auto sm:max-w-none sm:flex-row'>
+      <div className='animate-fade-up relative mt-2 flex w-full max-w-75 flex-col items-center gap-4 [animation-delay:360ms] motion-reduce:animate-none sm:w-auto sm:max-w-none sm:flex-row'>
         <Button
           size='lg'
           className='group/cta h-12 w-full bg-emerald-700 px-8 text-base text-white hover:bg-emerald-800 sm:h-10 sm:w-auto sm:px-6 sm:text-sm lg:h-12 lg:px-6 lg:text-lg dark:bg-emerald-700 dark:text-white dark:hover:bg-emerald-800'

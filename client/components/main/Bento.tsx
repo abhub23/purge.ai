@@ -466,9 +466,9 @@ export const Bento = () => {
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className='mt-6 grid gap-6 lg:mt-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,25rem)] lg:items-start lg:gap-12 lg:mb-14'
+            className='mt-12 grid gap-6 lg:mt-18 lg:grid-cols-[minmax(0,1fr)_minmax(0,25rem)] lg:items-start lg:gap-12'
           >
-            <div>
+            <div className='translate-x-4'>
               <p className='text-muted-foreground font-mono text-[10px] tracking-[0.22em] uppercase'>
                 <span className='text-foreground/30'>//</span> The review pipeline
               </p>
@@ -481,7 +481,7 @@ export const Bento = () => {
             </div>
           </motion.div>
 
-          <div className='mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:mt-14 lg:grid-cols-12 lg:grid-rows-[21.5rem_21.5rem_18rem] lg:gap-5'>
+          <div className='mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:mt-8 lg:grid-cols-12 lg:grid-rows-[21.5rem_21.5rem_18rem] lg:gap-5'>
             <BentoCard index={0} className='md:col-span-2 lg:col-span-7 lg:row-span-2'>
               <StepLabel step='01' label='Review' />
               <h3 className='mt-4 text-2xl leading-tight font-semibold tracking-tight lg:text-3xl'>
