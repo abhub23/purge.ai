@@ -114,7 +114,7 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
       <h2 className='flex items-center gap-3 text-[26px] font-medium'>{tier.name}</h2>
 
       {/* Price Section */}
-      <div className='relative h-12'>
+      <div className='relative h-14'>
         {typeof price === 'number' ? (
           <>
             <NumberFlow
@@ -124,12 +124,12 @@ export const PricingCard: FC<PricingCardtype> = ({ tier, paymentFrequency }) => 
                 trailingZeroDisplay: 'stripIfInteger',
               }}
               value={price}
-              className='text-4xl font-medium'
+              className='text-5xl font-medium'
             />
-            <span className='text-foreground/60 text-sm'>/month</span>
+            <span className='text-foreground/60 text-base'>/month</span>
           </>
         ) : (
-          <h1 className='text-4xl font-medium'>{price}</h1>
+          <h1 className='text-5xl font-medium'>{price}</h1>
         )}
       </div>
 
