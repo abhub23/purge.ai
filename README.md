@@ -88,6 +88,11 @@ docker-compose up --build
 The application will be available at:
 - Client: http://localhost:3000
 
+### Vercel Server Deployment
+
+Set the server Vercel project's Root Directory to the repository root so the
+Express entry point and root-level `db/` folder are included in the build.
+
 ## 📁 Project Structure
 
 ```

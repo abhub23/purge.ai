@@ -1,0 +1,5 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "bun install",
+  "buildCommand": "PRISMA_GENERATE_SKIP_AUTOINSTALL=1 bun --filter server build"
+}
