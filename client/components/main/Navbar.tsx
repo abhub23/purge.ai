@@ -3,6 +3,14 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 import { Equal } from 'lucide-react';
 import { ToggleTheme } from './ToggleTheme';
@@ -17,6 +25,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 export default function Navbar() {
   const queryClient = useQueryClient();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSignOutOpen, setIsSignOutOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const { setSignedin } = useIsSignedin();
@@ -128,8 +137,7 @@ export default function Navbar() {
               {isSignedIn ? (
                 <Button
                   variant='ghost'
-                  asChild
-                  onClick={() => handleSignOut()}
+                  onClick={() => setIsSignOutOpen(true)}
                   className='bg-accent text-accent-foreground dark:hover:bg-accent cursor-pointer text-base'
                 >
                   <span>Sign Out</span>
@@ -218,9 +226,11 @@ export default function Navbar() {
                     <Button
                       variant='ghost'
                       size='lg'
-                      asChild
                       className='w-full border-2 shadow-2xs'
-                      onClick={() => handleSignOut()}
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsSignOutOpen(true);
+                      }}
                     >
                       <span>Sign out</span>
                     </Button>
@@ -249,6 +259,33 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
+      <Dialog open={isSignOutOpen} onOpenChange={setIsSignOutOpen}>
+        <DialogContent className='bg-background max-w-88 backdrop-blur-none'>
+          <DialogHeader>
+            <DialogTitle className='text-lg font-normal'>
+              Are you sure you want to sign out?
+            </DialogTitle>
+          </DialogHeader>
+          <DialogFooter className='mt-2'>
+            <DialogClose asChild>
+              <Button variant='outline' className='cursor-pointer'>
+                Cancel
+              </Button>
+            </DialogClose>
+            <Button
+              className='cursor-pointer bg-red-600 text-white hover:bg-red-700'
+              onClick={() => {
+                setIsSignOutOpen(false);
+                setIsMenuOpen(false);
+                handleSignOut();
+              }}
+            >
+              Sign out
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </nav>
   );
 }
