@@ -141,7 +141,7 @@ export default function ReviewWorkflowShowcase() {
     <MotionConfig reducedMotion='user'>
       <motion.section
         aria-label='PurgeAI review workflow'
-        className='relative mx-auto w-full max-w-280 px-4 py-10 sm:px-6 lg:-mt-24 lg:pt-4 lg:pb-12'
+        className='relative mx-auto -mt-12 w-full max-w-280 px-4 pt-4 pb-10 sm:mt-0 sm:px-6 sm:py-10 lg:-mt-24 lg:pt-4 lg:pb-12'
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
