@@ -1,83 +1,93 @@
-import {
-  boolean,
-  foreignKey,
-  pgTable,
-  text,
-  unique,
-} from "drizzle-orm/pg-core";
-import { dateTime } from "./columns";
+import { relations } from "drizzle-orm";
+import { pgTable, text, timestamp, boolean, index } from "drizzle-orm/pg-core";
 
-export const user = pgTable(
-  "user",
-  {
-    id: text("id").primaryKey(),
-    name: text("name").notNull(),
-    email: text("email").notNull(),
-    emailVerified: boolean("emailVerified").notNull(),
-    image: text("image"),
-    createdAt: dateTime("createdAt").notNull(),
-    updatedAt: dateTime("updatedAt").notNull(),
-  },
-  (table) => [unique("user_email_key").on(table.email)],
-);
+export const user = pgTable("user", {
+  id: text("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull().unique(),
+  emailVerified: boolean("email_verified").default(false).notNull(),
+  image: text("image"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at")
+    .defaultNow()
+    .$onUpdate(() => new Date())
+    .notNull(),
+});
 
 export const session = pgTable(
   "session",
   {
     id: text("id").primaryKey(),
-    expiresAt: dateTime("expiresAt").notNull(),
-    token: text("token").notNull(),
-    createdAt: dateTime("createdAt").notNull(),
-    updatedAt: dateTime("updatedAt").notNull(),
-    ipAddress: text("ipAddress"),
-    userAgent: text("userAgent"),
-    userId: text("userId").notNull(),
+    expiresAt: timestamp("expires_at").notNull(),
+    token: text("token").notNull().unique(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at")
+      .$onUpdate(() => new Date())
+      .notNull(),
+    ipAddress: text("ip_address"),
+    userAgent: text("user_agent"),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
   },
-  (table) => [
-    unique("session_token_key").on(table.token),
-    foreignKey({
-      name: "session_userId_fkey",
-      columns: [table.userId],
-      foreignColumns: [user.id],
-    })
-      .onDelete("cascade")
-      .onUpdate("cascade"),
-  ],
+  (table) => [index("session_userId_idx").on(table.userId)],
 );
 
 export const account = pgTable(
   "account",
   {
     id: text("id").primaryKey(),
-    accountId: text("accountId").notNull(),
-    providerId: text("providerId").notNull(),
-    userId: text("userId").notNull(),
-    accessToken: text("accessToken"),
-    refreshToken: text("refreshToken"),
-    idToken: text("idToken"),
-    accessTokenExpiresAt: dateTime("accessTokenExpiresAt"),
-    refreshTokenExpiresAt: dateTime("refreshTokenExpiresAt"),
+    accountId: text("account_id").notNull(),
+    providerId: text("provider_id").notNull(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    accessToken: text("access_token"),
+    refreshToken: text("refresh_token"),
+    idToken: text("id_token"),
+    accessTokenExpiresAt: timestamp("access_token_expires_at"),
+    refreshTokenExpiresAt: timestamp("refresh_token_expires_at"),
     scope: text("scope"),
     password: text("password"),
-    createdAt: dateTime("createdAt").notNull(),
-    updatedAt: dateTime("updatedAt").notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at")
+      .$onUpdate(() => new Date())
+      .notNull(),
   },
-  (table) => [
-    foreignKey({
-      name: "account_userId_fkey",
-      columns: [table.userId],
-      foreignColumns: [user.id],
-    })
-      .onDelete("cascade")
-      .onUpdate("cascade"),
-  ],
+  (table) => [index("account_userId_idx").on(table.userId)],
 );
 
-export const verification = pgTable("verification", {
-  id: text("id").primaryKey(),
-  identifier: text("identifier").notNull(),
-  value: text("value").notNull(),
-  expiresAt: dateTime("expiresAt").notNull(),
-  createdAt: dateTime("createdAt"),
-  updatedAt: dateTime("updatedAt"),
-});
+export const verification = pgTable(
+  "verification",
+  {
+    id: text("id").primaryKey(),
+    identifier: text("identifier").notNull(),
+    value: text("value").notNull(),
+    expiresAt: timestamp("expires_at").notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at")
+      .defaultNow()
+      .$onUpdate(() => new Date())
+      .notNull(),
+  },
+  (table) => [index("verification_identifier_idx").on(table.identifier)],
+);
+
+export const userRelations = relations(user, ({ many }) => ({
+  sessions: many(session),
+  accounts: many(account),
+}));
+
+export const sessionRelations = relations(session, ({ one }) => ({
+  user: one(user, {
+    fields: [session.userId],
+    references: [user.id],
+  }),
+}));
+
+export const accountRelations = relations(account, ({ one }) => ({
+  user: one(user, {
+    fields: [account.userId],
+    references: [user.id],
+  }),
+}));

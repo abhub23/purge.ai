@@ -79,31 +79,9 @@ try {
       })
       .onConflictDoNothing();
 
-    await tx
-      .insert(schema.tempUsers)
-      .values({
-        id: "seed-temp-user-001",
-        ipAddress: "192.0.2.2",
-        expiresAt: inThirtyDays,
-        createdAt: now,
-        credits: 5,
-      })
-      .onConflictDoNothing();
-
-    await tx
-      .insert(schema.plan)
-      .values({
-        id: "seed-plan-001",
-        type: "free",
-        credits: 20,
-        expiresAt: inThirtyDays,
-        createdAt: now,
-        userId,
-      })
-      .onConflictDoNothing();
   });
 
-  console.log("Seed data inserted or already present in all database tables.");
+  console.log("Seed data inserted or already present in Better Auth tables.");
 } finally {
   await pool.end();
 }

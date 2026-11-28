@@ -8,6 +8,8 @@
     "api": "bun --filter server dev",
     "db:up": "docker compose -f db/docker-compose.yml up -d",
     "db:seed": "bun --filter db seed",
+    "db:generate": "bun --filter db generate",
+    "db:migrate": "bun --filter db migrate",
     "server-img": "docker build -f docker/Dockerfile.server -t purgeaiserver:1.0 .",
     "test": "cd client && bun run lint",
     "prepare": "husky"
