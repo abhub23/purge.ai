@@ -29,3 +29,12 @@ Other available scripts are `migrate`, `push`, `pull`, `studio`, `up`, and
 `DATABASE_URL`. `migrate` and `push` change the target database; do not use
 them against an existing database until its Drizzle migration history has
 been safely baselined.
+
+Start a local PostgreSQL database from the repository root with
+`bun run db:up`. It is available at
+`postgresql://postgres:postgres@localhost:5432/purgeai` and persists data in a
+Docker volume. This starts the database only; it does not apply migrations.
+
+Run `bun run db:seed` to insert sample development rows into every database
+table. Apply the schema to the target database first; the seed script does not
+create tables. The seed script is idempotent and requires `DATABASE_URL`.

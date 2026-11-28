@@ -11,7 +11,8 @@
     "check": "drizzle-kit check",
     "studio": "drizzle-kit studio",
     "up": "drizzle-kit up",
-    "export": "drizzle-kit export"
+    "export": "drizzle-kit export",
+    "seed": "bun run seed.ts"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.4",
