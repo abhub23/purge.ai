@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import helmet from "helmet";
+import * as helmet from "helmet";
 import cookieParser from "cookie-parser";
 import { toNodeHandler } from 'better-auth/node'
 import { auth } from './lib/auth.js'
@@ -18,7 +18,7 @@ app.use(cors({
   credentials: true
 }));
 
-app.use(helmet())
+app.use(helmet.default())
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.set('trust proxy', 1);
