@@ -1,5 +1,5 @@
 import { type Request, type Response } from 'express';
-import { isProd } from '../../lib/config.js';
+import { isProd } from '../../lib/config';
 
 export async function getCredits(req: Request, res: Response) {
   const cookieString = isProd ? '__Secure-better-auth.session_token' : 'better-auth.session_token';

@@ -1,4 +1,4 @@
-import { prisma } from '../../lib/prisma.js';
+import { prisma } from '../../lib/prisma';
 
 export async function validateSession(cookieToken: string) {
   const session = await prisma.session.findUnique({

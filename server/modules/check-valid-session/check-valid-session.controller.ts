@@ -1,7 +1,7 @@
 import { type Request, type Response } from 'express';
-import { isProd } from '../../lib/config.js';
-import { cookieSchema } from './check-valid-session.schema.js';
-import { validateSession } from './check-valid-session.service.js';
+import { isProd } from '../../lib/config';
+import { cookieSchema } from './check-valid-session.schema';
+import { validateSession } from './check-valid-session.service';
 
 export async function checkValidSession(req: Request, res: Response) {
   const cookieString = isProd ? '__Secure-better-auth.session_token' : 'better-auth.session_token';

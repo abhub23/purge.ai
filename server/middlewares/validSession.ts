@@ -1,4 +1,4 @@
-import { isProd } from "../lib/config.js";
+import { isProd } from "../lib/config";
 
 /** @ts-ignore */
 export const validSession = (req, res, next) => {

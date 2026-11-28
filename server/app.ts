@@ -3,13 +3,13 @@ import cors from "cors";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import { toNodeHandler } from 'better-auth/node'
-import { auth } from './lib/auth.js'
-import { FRONTEND_URL } from "./lib/config.js";
-import chat from './modules/chat/chat.routes.js';
-import health from './modules/health/health.routes.js'
-import checkValidSession from './modules/check-valid-session/check-valid-session.routes.js'
-import orderPay from './modules/order-pay/order-pay.routes.js'
-import verifyPay from './modules/verify-payment/verify-payment.routes.js'
+import { auth } from './lib/auth'
+import { FRONTEND_URL } from "./lib/config";
+import chat from './modules/chat/chat.routes';
+import health from './modules/health/health.routes'
+import checkValidSession from './modules/check-valid-session/check-valid-session.routes'
+import orderPay from './modules/order-pay/order-pay.routes'
+import verifyPay from './modules/verify-payment/verify-payment.routes'
 
 const app = express();
 

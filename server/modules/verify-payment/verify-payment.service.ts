@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import type { VerifyPaymentDTO } from './verify-payment.schema.js';
+import type { VerifyPaymentDTO } from './verify-payment.schema';
 
 export function generateSignature({razorpay_order_id, razorpay_payment_id, razorpay_signature}: VerifyPaymentDTO){
  const signature = crypto

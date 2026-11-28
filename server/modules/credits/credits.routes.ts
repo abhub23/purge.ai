@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getCredits } from './credits.controller.js';
+import { getCredits } from './credits.controller';
 
 const router = Router();
 
