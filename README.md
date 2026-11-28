@@ -26,7 +26,7 @@ PurgeAI is a battle-tested AI assistant designed and developed to help developer
 
 ### Backend
 - [Express.js](https://expressjs.com/) - Node.js web framework
-- [Prisma](https://www.prisma.io/) - Database ORM
+- [Drizzle ORM](https://orm.drizzle.team/) - Database ORM
 - [Better Auth](https://www.better-auth.com/) - Authentication framework
 - [Google AI SDK](https://sdk.vercel.ai/) - AI integration
 - [Razorpay](https://razorpay.com/) - Payment gateway
@@ -60,10 +60,10 @@ bun install
    - Copy `server/.env.example` to `server/.env` and fill in the values
    - Copy `client/config/config.example.ts` to `client/config/config.ts` and configure
 
-4. Run database migrations:
+4. Generate and apply Drizzle migrations:
 ```bash
-cd server
-bunx prisma migrate dev
+bun run db:generate
+bun run db:migrate
 ```
 
 ### Development
@@ -101,7 +101,6 @@ purge.ai/
 │   └── public/            # Static assets
 ├── server/                # Express.js backend
 │   ├── api/               # API routes
-│   ├── prisma/            # Database schema and migrations
 │   ├── routes/            # Route handlers
 │   └── schemas/           # Validation schemas
 └── docker/                # Docker configurations

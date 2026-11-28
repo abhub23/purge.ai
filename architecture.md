@@ -31,7 +31,7 @@ PurgeAI is a full-stack AI-powered code review assistant built as a monorepo usi
 
 ### Backend
 - **Express.js** - Web framework
-- **Prisma** - Database ORM
+- **Drizzle ORM** - Database ORM
 - **PostgreSQL** - Primary database
 - **Better Auth** - Authentication framework
 - **AI SDK** - AI integration
@@ -74,16 +74,15 @@ purge.ai/
 │   │   ├── checkvalidsession.ts # Session validation
 │   │   └── credits.ts      # Credit management
 │   ├── middlewares/        # Express middleware
-│   │   ├── checkCredits.ts # Credit validation
+│   │   ├── requireSession.ts # Authentication middleware
 │   │   └── validSession.ts # Session validation
 │   ├── lib/                # Server utilities
 │   │   ├── auth.ts         # Better Auth setup
 │   │   ├── config.ts       # Server configuration
-│   │   ├── prisma.ts       # Prisma client
 │   │   └── razorpay.ts     # Razorpay client
-│   ├── prisma/             # Database schema and migrations
-│   │   ├── schema.prisma   # Database models
-│   │   └── migrations/    # Database migrations
+├── db/                     # Shared Drizzle schema and migrations
+│   ├── schema/             # Drizzle table and relation definitions
+│   └── migrations/         # Drizzle migrations
 │   ├── constants/          # Server constants
 │   └── schemas/            # Validation schemas
 │
@@ -153,7 +152,7 @@ Better Auth (/api/auth/*)
     │
     ▼
 Custom Routes
-    ├── checkCredits middleware
+    ├── requireSession middleware
     │   └── Validate credit balance
     │
     ├── Chat Route
