@@ -14,7 +14,7 @@ export async function handleChat(req: Request, res: Response) {
 
   try {
     const diff = await fetchPullRequestDiff(text);
-    const result = createReviewStream(diff, messages);
+    const result = await createReviewStream(diff, messages);
 
     result.pipeTextStreamToResponse(res);
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { streamText, convertToModelMessages, UIMessage } from 'ai';
+import { streamText, convertToModelMessages, type UIMessage } from 'ai';
 import { google } from '@ai-sdk/google';
 import { Prompt } from '../../constants/constants.js';
 import { LLM_MODEL } from '../../lib/config.js';
@@ -9,12 +9,13 @@ export async function fetchPullRequestDiff(url: string): Promise<string> {
   return response.data;
 }
 
-export function createReviewStream(diff: string, messages: UIMessage[]) {
+export async function createReviewStream(diff: string, messages: UIMessage[]) {
   const systemPrompt = Prompt(diff);
+  const modelMessages = await convertToModelMessages(messages);
 
   return streamText({
     model: google(LLM_MODEL),
-    messages: convertToModelMessages(messages),
+    messages: modelMessages,
     system: systemPrompt,
   });
 }
