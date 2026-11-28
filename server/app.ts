@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
-import * as helmet from "helmet";
+import { createRequire } from "node:module";
+import type { RequestHandler } from "express";
+import type { HelmetOptions } from "helmet";
 import cookieParser from "cookie-parser";
 import { toNodeHandler } from 'better-auth/node'
 import { auth } from './lib/auth.js'
@@ -12,13 +14,15 @@ import orderPay from './modules/order-pay/order-pay.routes.js'
 import verifyPay from './modules/verify-payment/verify-payment.routes.js'
 
 const app = express();
+const helmet: (options?: HelmetOptions) => RequestHandler =
+  createRequire(import.meta.url)("helmet");
 
 app.use(cors({
   origin: [FRONTEND_URL],
   credentials: true
 }));
 
-app.use(helmet.default())
+app.use(helmet())
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.set('trust proxy', 1);
