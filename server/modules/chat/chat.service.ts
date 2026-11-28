@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { streamText, convertToModelMessages, UIMessage } from 'ai';
 import { google } from '@ai-sdk/google';
-import { Prompt } from '../../constants/constants';
-import { LLM_MODEL } from '../../lib/config';
+import { Prompt } from '../../constants/constants.js';
+import { LLM_MODEL } from '../../lib/config.js';
 
 export async function fetchPullRequestDiff(url: string): Promise<string> {
   const response = await axios.get(`${url}.diff`);

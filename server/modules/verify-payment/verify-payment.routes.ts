@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { validSession } from '../../middlewares/validSession';
-import { verifyPayment } from './verify-payment.controller';
+import { validSession } from '../../middlewares/validSession.js';
+import { verifyPayment } from './verify-payment.controller.js';
 
 const router = Router();
 router.use(validSession);

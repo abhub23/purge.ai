@@ -1,14 +1,14 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import { prisma } from "../lib/prisma";
+import { prisma } from "../lib/prisma.js";
 import {
   BETTER_AUTH_URL,
   FRONTEND_URL,
   GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET,
   isProd
-} from "./config";
-import { InitialCredits, Week_in_Ms } from "../constants/constants";
+} from "./config.js";
+import { InitialCredits, Week_in_Ms } from "../constants/constants.js";
 
 export const auth = betterAuth({
   baseURL: BETTER_AUTH_URL,

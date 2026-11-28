@@ -1,7 +1,7 @@
 import { type Request, type Response } from 'express';
-import { rejectionMessages, githubPrUrlRegex } from '../../constants/constants';
-import { fetchPullRequestDiff, createReviewStream } from './chat.service';
-import type { ChatReqBody } from './chat.schema';
+import { rejectionMessages, githubPrUrlRegex } from '../../constants/constants.js';
+import { fetchPullRequestDiff, createReviewStream } from './chat.service.js';
+import type { ChatReqBody } from './chat.schema.js';
 
 export async function handleChat(req: Request, res: Response) {
   const { text, messages }: ChatReqBody = req.body;

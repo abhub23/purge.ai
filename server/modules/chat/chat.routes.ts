@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { checkCredits } from '../../middlewares/checkCredits';
-import { handleChat } from './chat.controller';
+import { checkCredits } from '../../middlewares/checkCredits.js';
+import { handleChat } from './chat.controller.js';
 
 const router = Router();
 router.use(checkCredits);

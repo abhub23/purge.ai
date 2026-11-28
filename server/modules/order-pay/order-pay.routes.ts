@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { validSession } from '../../middlewares/validSession';
-import { handleOrderPay } from './order-pay.controller';
+import { validSession } from '../../middlewares/validSession.js';
+import { handleOrderPay } from './order-pay.controller.js';
 
 const router = Router();
 

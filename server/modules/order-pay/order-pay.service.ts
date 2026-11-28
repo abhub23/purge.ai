@@ -1,4 +1,4 @@
-import razorpayInstance from '../../lib/razorpay';
+import razorpayInstance from '../../lib/razorpay.js';
 
 export async function createOrder(price: number) {
   const options = {

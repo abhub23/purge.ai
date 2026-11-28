@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { checkValidSession } from './check-valid-session.controller';
+import { checkValidSession } from './check-valid-session.controller.js';
 
 const router = Router();
 

@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
-import { OrderSchema } from './order-pay.schema';
-import { createOrder } from './order-pay.service';
+import { OrderSchema } from './order-pay.schema.js';
+import { createOrder } from './order-pay.service.js';
 
 export async function handleOrderPay(req: Request, res: Response) {
   const { success, data, error } = OrderSchema.safeParse(req.body);
