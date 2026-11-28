@@ -1,7 +1,10 @@
 import express from "express";
-import app from "./server/app";
 
 const handler = express();
-handler.use(app);
+handler.use((req, res, next) => {
+  import("./server/app.js")
+    .then(({ default: app }) => app(req, res, next))
+    .catch(next);
+});
 
 export default handler;
