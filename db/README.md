@@ -5,9 +5,7 @@
 exports the configured database instance. The server imports this workspace
 through its `db` dependency.
 
-`migrations/` contains the Drizzle migration history. The existing
-`server/prisma/` folder is retained only as a legacy reference and is no longer
-used by the application.
+`migrations/` contains the Drizzle migration history.
 `0001_auth_only_schema` converts auth columns to the generated snake_case names
 and drops the legacy `plan` and `temp_users` tables; back up the database before
 applying it.

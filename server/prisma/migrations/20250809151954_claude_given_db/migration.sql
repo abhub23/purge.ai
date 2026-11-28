@@ -1,4 +1,0 @@
--- AlterTable
-ALTER TABLE "public"."user" ALTER COLUMN "name" DROP NOT NULL,
-ALTER COLUMN "createdAt" SET DEFAULT CURRENT_TIMESTAMP,
-ALTER COLUMN "emailVerified" SET DEFAULT false;

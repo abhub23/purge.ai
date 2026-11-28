@@ -11,9 +11,6 @@
   "dependencies": {
     "@ai-sdk/google": "^4.0.128",
     "@better-auth/drizzle-adapter": "^1.7.29",
-    "@better-auth/prisma-adapter": "^1.7.28",
-    "@prisma/adapter-pg": "7.10.1",
-    "@prisma/client": "7.10.1",
     "db": "workspace:*",
     "ai": "^7.0.184",
     "axios": "^1.21.1",
@@ -36,7 +33,6 @@
     "@types/pg": "8.23.1",
     "eslint": "^10.16.0",
     "eslint-config-next": "16.4.6",
-    "prisma": "7.10.1",
     "typescript": "^7.0.2"
   }
 }
