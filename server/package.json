@@ -31,8 +31,8 @@
     "@types/express": "^5.0.6",
     "@types/node": "^26.6.11",
     "@types/pg": "8.23.1",
-    "eslint": "^10.16.0",
+    "eslint": "^9.39.3",
     "eslint-config-next": "16.4.6",
-    "typescript": "^7.0.2"
+    "typescript": "^5.9.3"
   }
 }

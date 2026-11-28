@@ -19,7 +19,6 @@ jobs:
         run: bun i --frozen-lockfile
       - name: server deployment
         run: bunx vercel --prod --yes
-        working-directory: ./server
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
