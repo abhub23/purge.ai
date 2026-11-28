@@ -234,8 +234,13 @@ const components: Options['components'] = {
   pre: ({ node, className, children }) => {
     let language = 'javascript';
 
-    if (typeof node?.properties?.className === 'string') {
-      language = node.properties.className.replace('language-', '');
+    const classNames = node?.properties?.className;
+    const languageClass = Array.isArray(classNames)
+      ? classNames.find((className) => className.startsWith('language-'))
+      : undefined;
+
+    if (languageClass) {
+      language = languageClass.replace('language-', '');
     }
 
     const childrenIsCode =
