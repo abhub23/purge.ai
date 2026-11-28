@@ -1,6 +1,7 @@
 import { betterAuth } from "better-auth";
-import { prismaAdapter } from "better-auth/adapters/prisma";
-import { prisma } from "../lib/prisma.js";
+import { drizzleAdapter } from "@better-auth/drizzle-adapter";
+import { db } from "db";
+import * as schema from "db/schema";
 import {
   BETTER_AUTH_URL,
   FRONTEND_URL,
@@ -8,7 +9,6 @@ import {
   GOOGLE_CLIENT_SECRET,
   isProd
 } from "./config.js";
-import { InitialCredits, Week_in_Ms } from "../constants/constants.js";
 
 export const auth = betterAuth({
   baseURL: BETTER_AUTH_URL,
@@ -52,7 +52,10 @@ export const auth = betterAuth({
     },
   },
 
-  database: prismaAdapter(prisma, { provider: "postgresql" }),
+  database: drizzleAdapter(db, {
+    provider: "pg",
+    schema,
+  }),
 
   socialProviders: {
     google: {
@@ -62,19 +65,4 @@ export const auth = betterAuth({
     },
   },
 
-  databaseHooks: {
-    user: {
-      create: {
-        after: async (user) => {
-          await prisma.plan.create({
-            data: {
-              userId: user.id,
-              credits: InitialCredits,
-              expiresAt: new Date(Date.now() + Week_in_Ms),
-            },
-          });
-        },
-      },
-    },
-  },
 });

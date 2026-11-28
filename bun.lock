@@ -90,6 +90,7 @@
       "version": "0.1.0",
       "dependencies": {
         "@ai-sdk/google": "^4.0.128",
+        "@better-auth/drizzle-adapter": "^1.7.29",
         "@better-auth/prisma-adapter": "^1.7.28",
         "@prisma/adapter-pg": "7.10.1",
         "@prisma/client": "7.10.1",
@@ -98,9 +99,11 @@
         "better-auth": "^1.7.28",
         "cookie-parser": "^1.4.7",
         "cors": "^2.8.6",
+        "db": "workspace:*",
+        "drizzle-orm": "^0.45.4",
         "express": "^5.3.0",
         "helmet": "^8.3.0",
-        "pg": "8.23.1",
+        "pg": "^8.23.1",
         "razorpay": "^2.9.8",
         "zod": "^4.6.7",
       },
@@ -169,7 +172,7 @@
 
     "@better-auth/core": ["@better-auth/core@1.7.28", "", { "dependencies": { "@standard-schema/spec": "^1.1.0", "zod": "^4.5.4" }, "peerDependencies": { "@better-auth/utils": "^0.4.2 || ^0.5.0", "@better-fetch/fetch": "1.3.3", "@opentelemetry/api": "^1.9.0", "better-call": "~1.4.5", "jose": "^6.1.0", "kysely": "^0.28.5 || ^0.29.0", "nanostores": "^1.0.1" }, "optionalPeers": ["@opentelemetry/api"] }, "sha512-hg2RD1FWup0zAbdVG+LqOquho7LW166OzcQXFp05a/GKlLZyYzhSDussFd5Rlzh8sNnwWKeiSK5Wz3QEBzoWWA=="],
 
-    "@better-auth/drizzle-adapter": ["@better-auth/drizzle-adapter@1.7.28", "", { "peerDependencies": { "@better-auth/core": "^1.7.28", "@better-auth/utils": "^0.4.2 || ^0.5.0", "drizzle-orm": "^0.45.2 || >=1.0.0-rc.1 <2.0.0" }, "optionalPeers": ["drizzle-orm"] }, "sha512-L8Xw/3hDpXvEZwlPAOogpgFSQ8sPunGQM3BG6dFXWZkXRIXjp3ZJOITu2oS2oWkIRn7L/8V1FGJJY6pbqYmraQ=="],
+    "@better-auth/drizzle-adapter": ["@better-auth/drizzle-adapter@1.7.29", "", { "peerDependencies": { "@better-auth/core": "^1.7.29", "@better-auth/utils": "^0.4.2 || ^0.5.0", "drizzle-orm": "^0.45.2 || >=1.0.0-rc.1 <2.0.0" }, "optionalPeers": ["drizzle-orm"] }, "sha512-CiIWG+ahxEhVAKgOVHoclzPFrDEGJhTOPk/CvHRCnFS/06bVdk/bTXFd4U5NUfjeXnaA5W2A4A2+zOMCR9walg=="],
 
     "@better-auth/kysely-adapter": ["@better-auth/kysely-adapter@1.7.28", "", { "peerDependencies": { "@better-auth/core": "^1.7.28", "@better-auth/utils": "^0.4.2 || ^0.5.0", "kysely": "^0.28.17 || ^0.29.0" }, "optionalPeers": ["kysely"] }, "sha512-4YVzRfcGtyrFaltk0Nv9TnN6bba2KUxP6pSmw+lqt5KO6vnXSg1gpTGAgZwuMKhpvVLvnO7Eilc+CWXet2c3Gg=="],
 
@@ -1993,6 +1996,8 @@
 
     "@babel/core/json5": ["json5@2.2.3", "", { "bin": { "json5": "lib/cli.js" } }, "sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg=="],
 
+    "@better-auth/drizzle-adapter/@better-auth/core": ["@better-auth/core@1.7.29", "", { "dependencies": { "@standard-schema/spec": "^1.1.0", "zod": "^4.5.4" }, "peerDependencies": { "@better-auth/utils": "^0.4.2 || ^0.5.0", "@better-fetch/fetch": "1.3.3", "@opentelemetry/api": "^1.9.0", "better-call": "~1.4.5", "jose": "^6.1.0", "kysely": "^0.28.5 || ^0.29.0", "nanostores": "^1.0.1" }, "optionalPeers": ["@opentelemetry/api"] }, "sha512-zLDC4nUtBz7t3uPM+TG6OukkALYQYi+IxWjBNX59ynSiyHomXLj0q2dDe6k61y3mFzhSAdDYhjZ/0D0W/LGcyw=="],
+
     "@esbuild-kit/core-utils/esbuild": ["esbuild@0.18.20", "", { "optionalDependencies": { "@esbuild/android-arm": "0.18.20", "@esbuild/android-arm64": "0.18.20", "@esbuild/android-x64": "0.18.20", "@esbuild/darwin-arm64": "0.18.20", "@esbuild/darwin-x64": "0.18.20", "@esbuild/freebsd-arm64": "0.18.20", "@esbuild/freebsd-x64": "0.18.20", "@esbuild/linux-arm": "0.18.20", "@esbuild/linux-arm64": "0.18.20", "@esbuild/linux-ia32": "0.18.20", "@esbuild/linux-loong64": "0.18.20", "@esbuild/linux-mips64el": "0.18.20", "@esbuild/linux-ppc64": "0.18.20", "@esbuild/linux-riscv64": "0.18.20", "@esbuild/linux-s390x": "0.18.20", "@esbuild/linux-x64": "0.18.20", "@esbuild/netbsd-x64": "0.18.20", "@esbuild/openbsd-x64": "0.18.20", "@esbuild/sunos-x64": "0.18.20", "@esbuild/win32-arm64": "0.18.20", "@esbuild/win32-ia32": "0.18.20", "@esbuild/win32-x64": "0.18.20" }, "hasInstallScript": true, "bin": { "esbuild": "bin/esbuild" } }, "sha512-ceqxoedUrcayh7Y7ZX6NdbbDzGROiyVBgC4PriJThBKSVPWnnFHZAkfI1lJT8QFkOwH4qOS2SJkS4wvpGl8BpA=="],
 
     "@eslint-community/eslint-utils/eslint-visitor-keys": ["eslint-visitor-keys@3.4.3", "", {}, "sha512-wpc+LXeiyiisxPlEkUzU6svyS1frIO3Mgxj1fdy7Pm8Ygzguax2N3Fa/D/ag1WqbOprdI+uY6wMUl8/a2G+iag=="],
@@ -2044,6 +2049,8 @@
     "@typescript-eslint/utils/typescript": ["typescript@5.9.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="],
 
     "@visx/vendor/d3-array": ["d3-array@3.2.1", "", { "dependencies": { "internmap": "1 - 2" } }, "sha512-gUY/qeHq/yNqqoCKNq4vtpFLdoCdvyNpWoC/KNjhGbhDuQpAM9sIQQKkXSNpXa9h5KySs/gzm7R88WkUutgwWQ=="],
+
+    "better-auth/@better-auth/drizzle-adapter": ["@better-auth/drizzle-adapter@1.7.28", "", { "peerDependencies": { "@better-auth/core": "^1.7.28", "@better-auth/utils": "^0.4.2 || ^0.5.0", "drizzle-orm": "^0.45.2 || >=1.0.0-rc.1 <2.0.0" }, "optionalPeers": ["drizzle-orm"] }, "sha512-L8Xw/3hDpXvEZwlPAOogpgFSQ8sPunGQM3BG6dFXWZkXRIXjp3ZJOITu2oS2oWkIRn7L/8V1FGJJY6pbqYmraQ=="],
 
     "eslint-import-resolver-node/debug": ["debug@3.2.7", "", { "dependencies": { "ms": "^2.1.1" } }, "sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ=="],
 

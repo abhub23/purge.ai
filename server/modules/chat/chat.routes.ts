@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { checkCredits } from '../../middlewares/checkCredits.js';
+import { requireSession } from '../../middlewares/requireSession.js';
 import { handleChat } from './chat.controller.js';
 
 const router = Router();
-router.use(checkCredits);
+router.use(requireSession);
 
 router.post('/', handleChat);
 

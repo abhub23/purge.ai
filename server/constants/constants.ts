@@ -41,8 +41,3 @@ export const rejectionMessages = [
   ${diff}
     `;
   }
-  
-
-export const Week_in_Ms = 7 * 24 * 60 * 60 * 1000
-
-export const InitialCredits = 20

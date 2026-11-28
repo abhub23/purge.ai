@@ -6,22 +6,24 @@
   "scripts": {
     "start": "bun run server.ts",
     "dev": "bun run --watch server.ts",
-    "build": "prisma generate && tsc -b",
-    "postinstall": "prisma generate"
+    "build": "tsc -b"
   },
   "dependencies": {
     "@ai-sdk/google": "^4.0.128",
+    "@better-auth/drizzle-adapter": "^1.7.29",
     "@better-auth/prisma-adapter": "^1.7.28",
     "@prisma/adapter-pg": "7.10.1",
     "@prisma/client": "7.10.1",
+    "db": "workspace:*",
     "ai": "^7.0.184",
     "axios": "^1.21.1",
     "better-auth": "^1.7.28",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
+    "drizzle-orm": "^0.45.4",
     "express": "^5.3.0",
     "helmet": "^8.3.0",
-    "pg": "8.23.1",
+    "pg": "^8.23.1",
     "razorpay": "^2.9.8",
     "zod": "^4.6.7"
   },
